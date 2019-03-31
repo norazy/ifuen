@@ -1,0 +1,132 @@
+<div class="menu_background-color">
+    <div class="menu_background">
+        <header class="menu_header clearfix">
+            <div class="menu_header_left">
+                <div class="menu_button orange">
+                    <a href="/order/top">
+                        <p>オーダーTOP</p>
+                    </a>
+                </div>
+            </div>
+            <div class="menu_button_right">
+                <div class="menu_button orange">
+                    <%= link_to order_cashier_path, :method => :post do %>
+                        <p>会計</p>
+                 	<%end%>
+                </div>
+                <div class="menu_button orange">
+                    <%= link_to order_staff_path, :method => :post do %>
+                        <p>呼出</p>
+                 	<%end%>
+                </div>
+                <div class="menu_button orange">
+                    <a href="/order/ordered/<%= current_user.id %>">
+                        <p>注文済</p>
+                    </a>
+                </div>
+                <div class="menu_button orange3">
+                    <a href="#">
+                        <img src="/cart2.png" alt="cart">
+                    </a>
+                </div>
+            </div>
+        </header>
+        <div class="preorder_title">
+            <p>
+                未確定の注文です
+            </p>
+        </div>
+        <div class="search_line">
+            <h2></h2>
+        </div>
+        <div class="preorder_display">
+            <%= form_for(@orderlist, url: '/order/pre_order') do |f| %>
+                <div class="preorder_menu">
+                    <% @preorder.each do |order| %>
+                        <div class="preorder_menu_indiv">
+                            <% if order[:menu_name] then %>
+                                <div class="preorder_menu_name">
+                                    <p><%= order[:menu_name] %></p>
+                                </div>
+                                <div class="preorder_menu_minus">
+                                    <div class = "minus_btn">
+                                    一    
+                                    </div>
+                                </div>
+                                <div class="preorder_menu_number">
+                                    <div class="preorder_menu_number2">
+                                        <p><%= order[:number] %></p>
+                                    </div>
+                                </div>
+                                <div class="preorder_menu_plus">
+                                    <div class="plus_btn">
+                                    ＋    
+                                    </div>
+                                </div>
+                                <div class="preorder_delete">
+                                    <div class="preorder_destroy">
+                                        <div class="preorder_destroy_btn">
+                                            <%= link_to '×', delete_preorder_path(order[:order_id]), method: :delete %>
+                                        </div>
+                                    </div>
+                                </div>
+
+                            <% else %>
+                                <div class="preorder_menu_name">
+                                    <p>　<%= order[:option_name] %></p>
+                                </div>
+                                <div class="preorder_menu_minus">
+                                    <div class = "minus_btn">
+                                    一    
+                                    </div>
+                                </div>
+                                <div class="preorder_menu_number">
+                                    <div class="preorder_menu_number2">
+                                        <p><%= order[:number] %></p>
+                                    </div>
+                                </div>
+                                <div class="preorder_menu_plus">
+                                    <div class="plus_btn">
+                                    ＋    
+                                    </div>
+                                </div>
+                                <div class="preorder_delete">
+                                    <div class="preorder_destroy">
+                                        <div class="preorder_destroy_btn">
+                                            <%= link_to '×', delete_preorder_path(order[:order_id]), method: :delete %>
+                                        </div>
+                                    </div>
+                                </div>
+                            <% end %>
+                        </div>
+                        <!--paramsに配列を渡す-->
+                        <%= f.hidden_field(:id, name: "orderlist[][#{[:id]}]", value: order[:order_id]) %>
+                        <%= f.hidden_field(:number, name: "orderlist[][#{[:number]}]", value: order[:number], :class => "orderlist_number_value") %>
+                                                                                                            <!--このclassはjqueryでvalueを変えるためのもの-->
+                        <%= f.hidden_field(:state, name: "orderlist[][#{[:state]}]", value: order[:state]) %>
+
+                        <!--↓自分が最初に書いたコード-->
+                        <!--<2%= f.hidden_field(:id, name: "orderlist[id][]", value: order[:order_id]) %>-->
+                        <!--<2%= f.hidden_field(:number, name: "orderlist[number][]", value: order[:number], :class=>"orderlist_number_value") %>-->
+                        <!--<2%= f.hidden_field(:state, name: "orderlist[state][]", value: order[:state]) %>-->
+                        
+                        <!--↓井上さんに描いてもらったコード-->
+                        <!--キーがついたハッシュ-->
+                        <!--<2%= f.hidden_field(:id, name: "orderlist[#{order[:order_id]}][order_id]", value: order[:order_id]) %>-->
+                        <!--<2%= f.hidden_field(:number, name: "orderlist[#{order[:order_id]}][number]", value: order[:number], :class=>"orderlist_number_value") %>-->
+                        <!--<2%= f.hidden_field(:state, name: "orderlist[#{order[:order_id]}][state]", value: order[:state]) %>-->
+                    <% end %>
+                </div>
+                <div class="preorder_bt_div clearfix">
+                <%= f.submit '注文する', class: 'preorder_button' %>
+                </div>
+            <% end %>
+        </div>
+    </div>    
+</div>
+<% if flash[:notice].present? %>
+    <div id="toasts">削除しました！</div>
+<% end %>
+<% if flash[:error].present? %>
+    <div id="toasts">ただいまお伺いします<br><br>少々お待ちくださいませ</div>
+<% end %>

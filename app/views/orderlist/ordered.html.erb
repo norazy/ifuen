@@ -1,0 +1,95 @@
+<div class="menu_background-color">
+    <div class="menu_background">
+        <header class="menu_header clearfix">
+            <div class="menu_header_left">
+                <div class="menu_button orange">
+                    <a href="/order/top">
+                        <p>オーダーTOP</p>
+                    </a>
+                </div>
+            </div>
+            <div class="menu_button_right">
+                <div class="menu_button orange">
+                    <%= link_to order_cashier_path, :method => :post do %>
+                        <p>会計</p>
+                 	<%end%>
+                </div>
+                <div class="menu_button orange">
+                    <%= link_to order_staff_path, :method => :post do %>
+                        <p>呼出</p>
+                 	<%end%>
+                </div>
+                <div class="menu_button orange3">
+                    <a href="#">
+                        <p>注文済</p>
+                    </a>
+                </div>
+                <div class="menu_button orange">
+                    <a href="/order/pre_order/<%= current_user.id %>">
+                        <% if @cart.present? %>
+                            <div id="red_dot"></div>
+                        <% end %>
+                        <img src="/cart.png" alt="cart">
+                    </a>
+                </div>
+            </div>
+        </header>
+        <div class="preorder_title">
+            <p>
+                注文履歴
+            </p>
+        </div>
+        <div class="search_line">
+            <h2></h2>
+        </div>
+        <div class="ordered_display">
+            <div class="ordered_div">
+                <div class="ordered_title">
+                    <ul>
+                        <li class="ordered_title_indiv width1">料理名</li>
+                        <li class="ordered_title_indiv width2">価格</li>
+                        <li class="ordered_title_indiv width2">個数</li>
+                        <li class="ordered_title_indiv width3">状態</li>
+                    </ul>
+                </div>
+                <% @ordered.each do |order| %>
+                    <div class="ordered_menu">
+                        <% if order[:menu_name] then %>
+                            <div class="ordered_menu_name">
+                                <p>　<%= order[:menu_name] %></p>
+                            </div>
+                        <% else %>
+                            <div class="ordered_menu_name">
+                                <p>　　<%= order[:option_name] %></p>
+                            </div>
+                        <% end %>
+                        <div class="ordered_menu_price">
+                            <p><%= order[:price] %></p> 
+                        </div>
+                        <div class="ordered_menu_number">
+                            <p><%= order[:number] %></p>
+                        </div>
+                        <div class="ordered_menu_state">
+                            <p><%= order[:state] %></p>
+                        </div>
+                    </div>
+                <% end %>
+                <div class="ordered_sum clearfix">
+                    <div class="ordered_sum_title_n_price">
+                        <div class="ordered_sum_title">合計</div>
+                        <div id="ordered_sum_price">
+                            <p>0</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>   
+    </div>
+</div>
+<!--<script>-->
+<!--console.log("hego");-->
+<!--    setInterval(console.log("hego"), 7000);-->
+<!--</script>-->
+<% if flash[:error].present? %>
+    <div id="toasts">ただいまお伺いします<br><br>少々お待ちくださいませ</div>
+<% end %>

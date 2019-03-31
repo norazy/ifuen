@@ -1,0 +1,78 @@
+<div class="menu_background-color">
+    <div class="menu_background">
+        <header class="menu_header clearfix">
+            <div class="menu_header_left">
+                <div class="menu_button orange">
+                    <a href="/en/order/top">
+                        <p>Order Top</p>
+                    </a>
+                </div>
+            </div>
+            <div class="menu_button_right">
+                <div class="menu_button orange">
+                    <%= link_to order_cashier_path, :method => :post do %>
+                        <p>Checkout</p>
+                 	<%end%>
+                </div>
+                <div class="menu_button orange">
+                    <%= link_to order_staff_path, :method => :post do %>
+                        <p>Waiter</p>
+                 	<%end%>
+                </div>
+                <div class="menu_button orange">
+                    <a href="/en/order/ordered/<%= current_user.id %>">
+                        <p>Ordered</p>
+                    </a>
+                </div>
+                <div class="menu_button orange">
+                    <a href="/en/order/pre_order/<%= current_user.id %>">
+                        <% if @cart.present? %>
+                            <div id="red_dot"></div>
+                        <% end %>
+                        <img src="/cart.png" alt="cart">
+                    </a>
+                </div>
+            </div>
+        </header>
+        <div class="search_title">
+            <p>
+                Search Meal Menu
+            </p>
+        </div>
+        <div class="search_line">
+            <h2></h2>
+        </div>
+        <div class="search_box_n_button">
+              <%= form_tag('/en/order/search', method: :get) do %>
+                <div class="search_box">
+                    <input name="keyword" placeholder="Please Enter Menu Name" type="text" value="" style="font-family: 'Ubuntu Condensed', sans-serif;"></input>
+                </div>
+                <div class="search_button">
+                    <button title="Search" type="submit" style="font-family: 'Ubuntu Condensed', sans-serif;">Search</button>
+                </div>
+              <% end %>
+        </div>
+        
+        <div class="menu_indiv clearfix">
+            <div class="category11">
+                <% @menus_en.each do |menu| %>
+                    <div class="menu_indiv_block" menuid=<%= menu.id %>>
+                        <div class="menu_indiv_block2">
+                            <%= image_tag "#{menu.image}" %>
+                            <div class="menu_indiv_name">
+                                <%= menu.name_en %>
+                            </div>
+                        </div>
+                    </div>
+                <% end %>
+            </div>
+        </div>
+    </div>    
+</div>
+
+<% if flash[:notice].present? %>
+    <div id="toasts">Order Accepted!</div>
+<% end %>
+<% if flash[:error].present? %>
+    <div id="toasts">Calling...<br><br>We will come soon!</div>
+<% end %>

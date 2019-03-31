@@ -1,0 +1,95 @@
+<div class="menu_background-color">
+    <div class="menu_background">
+        <header class="menu_header clearfix">
+            <div class="menu_header_left">
+                <div class="menu_button orange">
+                    <a href="/zh/order/top">
+                        <p>点菜首页</p>
+                    </a>
+                </div>
+            </div>
+            <div class="menu_button_right">
+                <div class="menu_button orange">
+                    <%= link_to order_cashier_path, :method => :post do %>
+                        <p>结账</p>
+                 	<%end%>
+                </div>
+                <div class="menu_button orange">
+                    <%= link_to order_staff_path, :method => :post do %>
+                        <p>呼叫</p>
+                 	<%end%>
+                </div>
+                <div class="menu_button orange3">
+                    <a href="/zh/order/ordered/<%= current_user.id %>">
+                        <p>已下单</p>
+                    </a>
+                </div>
+                <div class="menu_button orange">
+                    <a href="/zh/order/pre_order/<%= current_user.id %>">
+                        <% if @cart.present? %>
+                            <div id="red_dot"></div>
+                        <% end %>
+                        <img src="/cart.png" alt="cart">
+                    </a>
+                </div>
+            </div>
+        </header>
+        <div class="preorder_title">
+            <p>
+                下单信息
+            </p>
+        </div>
+        <div class="search_line">
+            <h2></h2>
+        </div>
+        <div class="ordered_display">
+            <div class="ordered_div">
+                <div class="ordered_title">
+                    <ul>
+                        <li class="ordered_title_indiv width1">菜名</li>
+                        <li class="ordered_title_indiv width2">价格</li>
+                        <li class="ordered_title_indiv width2">个数</li>
+                        <li class="ordered_title_indiv width3">进度</li>
+                    </ul>
+                </div>
+                <% @ordered.each do |order| %>
+                    <div class="ordered_menu">
+                        <% if order[:menu_name_zh] then %>
+                            <div class="ordered_menu_name">
+                                <p>　<%= order[:menu_name_zh] %></p>
+                            </div>
+                        <% else %>
+                            <div class="ordered_menu_name">
+                                <p>　　<%= order[:option_name_zh] %></p>
+                            </div>
+                        <% end %>
+                        <div class="ordered_menu_price">
+                            <p><%= order[:price] %></p> 
+                        </div>
+                        <div class="ordered_menu_number">
+                            <p><%= order[:number] %></p>
+                        </div>
+                        <div class="ordered_menu_state">
+                            <p><%= order[:state_zh] %></p>
+                        </div>
+                    </div>
+                <% end %>
+                <div class="ordered_sum clearfix">
+                    <div class="ordered_sum_title_n_price">
+                        <div class="ordered_sum_title">合计</div>
+                        <div id="ordered_sum_price">
+                            <p>0</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>   
+    </div>
+</div>
+<!--<script>-->
+<!--console.log("hego");-->
+<!--    setInterval(console.log("hego"), 7000);-->
+<!--</script>-->
+<% if flash[:error].present? %>
+    <div id="toasts">呼叫中<br><br>请稍等</div>
+<% end %>

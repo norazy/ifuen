@@ -1,0 +1,2 @@
+class Optiontable < ApplicationRecord
+end

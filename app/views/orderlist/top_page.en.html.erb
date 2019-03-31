@@ -1,0 +1,103 @@
+<div class ="top_page">
+    <div class ="top_page_background">
+        <div class="top_page_upper">
+            <div class="top_page_upper_left">
+                <div class="restaurante_image">
+                    <div class="top_page_nav_n_title clearfix">
+                        <div class="top_page_nav">
+                            <button class="top_page_nav_button" id="nav_button">
+                                <i class="fas fa-bars"><span></span></i>
+                            </button>
+                            <div class="top_page_nav_div" id="nav_button2">
+                                <ul class="top_page_nav_ul">
+                                    <li class="top_page_nav_li"><%= link_to "Sign Out", destroy_user_session_path, method: :delete %></li>
+                                    <li class="top_page_nav_li"><%= link_to "Menu Top", firstpage_path, method: :get %></li>
+                                    <li class="top_page_nav_li">
+                                        <%= link_to('JP', :locale => 'ja') %>
+                                    </li>
+                                    <li class="top_page_nav_li">
+                                        <%= link_to('CN', :locale => 'zh') %>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="top_page_upper_right">
+                <div class="top_page_tabs">
+                    <div class="top_page_tab">
+                        <%= link_to order_staff_path, :method => :post do %>
+                            <p>Waiter</p>
+                     	<%end%>
+                    </div>
+                    <div class="top_page_tab">
+                        <%= link_to order_cashier_path, :method => :post do %>
+                            <p>Checkout</p>
+                     	<%end%>
+                    </div>
+                    <div class="top_page_tab">
+                        <a href="/en/order/ordered/<%= current_user.id %>">
+                            <p>Ordered</p>
+                        </a>
+                    </div>
+                    <div class="top_page_tab">
+                        <a href="/en/order/search">
+                            <p>Search</p>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="top_page_bottom">
+            <div class="top_page_bottom_menus clearfix">
+                <div class="top_page_bottom_menus_left">
+                    <div class="top_page_bottom_menu">
+                        <a href="/en/order/noodle_menu">
+                            <p>Noodle</p>
+                        </a>
+                    </div>
+                    <div class="top_page_bottom_menu">
+                        <a href="/en/order/set_menu">
+                            <p>Set Meal</p>
+                        </a>
+                    </div>
+                    <div class="top_page_bottom_menu">
+                        <a href="/en/order/alacarte_menu">
+                            <p>A La Carte</p>
+                        </a>
+                    </div>
+                    <div class="top_page_bottom_menu">
+                        <a href="/en/order/dessert_menu">
+                            <p>Dessert<br>Soup</p>
+                        </a>
+                    </div>
+                    <div class="top_page_bottom_menu">
+                        <a href="/en/order/rice_menu">
+                            <p>Rice<br>Rice Set</p>
+                        </a>
+                    </div>
+                    <div class="top_page_bottom_menu">
+                        <a href="/en/order/drink_menu">
+                            <p>Drink<br>Alcohol</p>
+                        </a>
+                    </div>
+                </div>
+                <div class="recommend_menu">
+                    <div class ="recommend_menu_letter">
+                        <a href="/en/order/recommend_menu">
+                            <p>Recom-<br>mend</p>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>    
+
+<% if flash[:notice].present? %>
+    <div id="toasts">Order Accepted!</div>
+<% end %>
+<% if flash[:error].present? %>
+    <div id="toasts">Calling...<br><br>We will come soon!</div>
+<% end %>

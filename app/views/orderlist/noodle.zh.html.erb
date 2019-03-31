@@ -1,0 +1,92 @@
+<div class="menu_background-color">
+    <div class="menu_background">
+        <header class="menu_header clearfix">
+            <div class="menu_header_left">
+                <div class="menu_button orange">
+                    <a href="/zh/order/top">
+                        <p>点菜首页</p>
+                    </a>
+                </div>
+            </div>
+            <div class="menu_button_right">
+                <div class="menu_button orange">
+                    <%= link_to order_cashier_path, :method => :post do %>
+                        <p>结账</p>
+                 	<%end%>
+                </div>
+                <div class="menu_button orange">
+                    <%= link_to order_staff_path, :method => :post do %>
+                        <p>呼叫</p>
+                 	<%end%>
+                </div>
+                <div class="menu_button orange">
+                    <a href="/zh/order/ordered/<%= current_user.id %>">
+                        <p>已下单</p>
+                    </a>
+                </div>
+                <div class="menu_button orange">
+                    <a href="/zh/order/pre_order/<%= current_user.id %>">
+                        <% if @cart.present? %>
+                            <div id="red_dot"></div>
+                        <% end %>
+                        <img src="/cart.png" alt="cart">
+                    </a>
+                </div>
+            </div>
+        </header>
+        <div class="menu_category">
+            <div class="menu_button">
+                <a href="/zh/order/set_menu">
+                    <p>套餐</p>
+                </a>
+            </div>
+            <div class="menu_button">
+                <a href="/zh/order/alacarte_menu">
+                    <p>单品菜</p>
+                </a>
+            </div>
+            <div class="menu_button blue3">
+                <a href="/zh/order/noodle_menu">
+                    <p>面类</p>
+                </a>
+            </div>
+            <div class="menu_button">
+                <a href="/zh/order/rice_menu">
+                    <p>米饭</p>
+                </a>
+            </div>
+            <div class="menu_button">
+                <a href="/zh/order/dessert_menu">
+                    <p class="double2">甜品<br>汤类</p>
+                </a>
+            </div>
+            <div class="menu_button">
+                <a href="/zh/order/drink_menu">
+                    <p>饮料</p>
+                </a>
+            </div>
+        </div>
+        <div class="menu_indiv2 clearfix">
+            <div class="category11">
+                <% @menus1.each do |menu| %>
+                    <div class="menu_indiv_block" menuid=<%= menu.id %>>
+                        <div class="menu_indiv_block2">
+                            <%= image_tag "#{menu.image}" %>
+                            <div class="menu_indiv_name">
+                                <%= menu.name_zh %>
+                            </div>
+                        </div>
+                    </div>
+                <% end %>
+            </div>
+        </div>
+    </div>
+</div>
+
+<% if flash[:notice].present? %>
+    <div id="toasts">谢谢下单！</div>
+<% end %>
+<% if flash[:error].present? %>
+    <div id="toasts">呼叫中<br><br>请稍等</div>
+<% end %>
+

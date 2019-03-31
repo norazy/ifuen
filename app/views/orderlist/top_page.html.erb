@@ -1,0 +1,106 @@
+<div class="top_page">
+    <div class ="top_page_background">
+        <div class="top_page_upper">
+            <div class="top_page_upper_left">
+                <div class="restaurante_image">
+                    <div class="top_page_nav_n_title clearfix">
+                        <div class="top_page_nav">
+                            <button class="top_page_nav_button" id="nav_button">
+                                <i class="fas fa-bars"><span></span></i>
+                            </button>
+                            <div class="top_page_nav_div" id="nav_button2">
+                                <ul class="top_page_nav_ul">
+                                    <li class="top_page_nav_li"><%= link_to "ログアウト", destroy_user_session_path, method: :delete %></li>
+                                    <li class="top_page_nav_li"><%= link_to "メニューTOP", firstpage_path, method: :get %></li>
+                                    <li class="top_page_nav_li">
+                                        <%= link_to('中国語', :locale => 'zh') %>
+                                    </li>
+                                    <li class="top_page_nav_li">
+                                        <%= link_to('English', :locale => 'en') %>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="top_page_upper_right">
+                <div class="top_page_tabs">
+                    <div class="top_page_tab">
+                        <%= link_to order_staff_path, :method => :post do %>
+                            <p>呼出</p>
+                     	<%end%>
+                    </div>
+                    <div class="top_page_tab">
+                        <%= link_to order_cashier_path, :method => :post do %>
+                            <p>会計</p>
+                     	<%end%>
+                    </div>
+                    <div class="top_page_tab">
+                        <a href="/order/ordered/<%= current_user.id %>">
+                            <p>注文済</p>
+                        </a>
+                    </div>
+                    <div class="top_page_tab">
+                        <a href="/order/search">
+                            <p>検索</p>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="top_page_bottom">
+            <div class="top_page_bottom_menus clearfix">
+                <div class="top_page_bottom_menus_left">
+                    <div class="top_page_bottom_menu">
+                        <a href="/order/noodle_menu">
+                            <p>麺類</p>
+                        </a>
+                    </div>
+                    <div class="top_page_bottom_menu">
+                        <a href="/order/set_menu">
+                            <p>セット</p>
+                        </a>
+                    </div>
+                    <div class="top_page_bottom_menu">
+                        <a href="/order/alacarte_menu">
+                            <p>一品料理</p>
+                        </a>
+                    </div>
+                    <div class="top_page_bottom_menu">
+                        <a href="/order/dessert_menu">
+                            <p>デザート<br>
+                            スープ</p>
+                        </a>
+                    </div>
+                    <div class="top_page_bottom_menu">
+                        <a href="/order/rice_menu">
+                            <p>ご飯<br>
+                            定食</p>
+                        </a>
+                    </div>
+                    <div class="top_page_bottom_menu">
+                        <a href="/order/drink_menu">
+                            <p>ドリンク<br>
+                            アルコール</p>
+                        </a>
+                    </div>
+                </div>
+                <div class="recommend_menu">
+                    <div class ="recommend_menu_letter">
+                        <a href="/order/recommend_menu">
+                            <p>おす<br>すめ</p>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>    
+</div>
+
+<% if flash[:notice].present? %>
+    <div id="toasts">ご注文承りました！</div>
+<% end %>
+<% if flash[:error].present? %>
+    <div id="toasts">ただいまお伺いします<br><br>少々お待ちくださいませ</div>
+<% end %>

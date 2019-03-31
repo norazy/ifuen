@@ -1,0 +1,104 @@
+<div class ="top_page">
+    <div class ="top_page_background">
+        <div class="top_page_upper">
+            <div class="top_page_upper_left">
+                <div class="restaurante_image">
+                    <div class="top_page_nav_n_title clearfix">
+                        <div class="top_page_nav">
+                            <button class="top_page_nav_button" id="nav_button">
+                                <i class="fas fa-bars"><span></span></i>
+                            </button>
+                            <div class="top_page_nav_div" id="nav_button2">
+                                <ul class="top_page_nav_ul">
+                                    <li class="top_page_nav_li"><%= link_to "退出登录", destroy_user_session_path, method: :delete %></li>
+                                    <li class="top_page_nav_li"><%= link_to "回首页", firstpage_path, method: :get %></li>
+                                    <li class="top_page_nav_li">
+                                        <%= link_to('日语', :locale => 'ja') %>
+                                    </li>
+                                    <li class="top_page_nav_li">
+                                        <%= link_to('English', :locale => 'en') %>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="top_page_upper_right">
+                <div class="top_page_tabs">
+                    <div class="top_page_tab">
+                        <%= link_to order_staff_path, :method => :post do %>
+                            <p>呼叫</p>
+                     	<%end%>
+                    </div>
+                    <div class="top_page_tab">
+                        <%= link_to order_cashier_path, :method => :post do %>
+                            <p>结账</p>
+                     	<%end%>
+                    </div>
+                    <div class="top_page_tab">
+                        <a href="/zh/order/ordered/<%= current_user.id %>">
+                            <p>已下单</p>
+                        </a>
+                    </div>
+                    <div class="top_page_tab">
+                        <a href="/zh/order/search">
+                            <p>搜索</p>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="top_page_bottom">
+            <div class="top_page_bottom_menus clearfix">
+                <div class="top_page_bottom_menus_left">
+                    <div class="top_page_bottom_menu">
+                        <a href="/zh/order/noodle_menu">
+                            <p>面类</p>
+                        </a>
+                    </div>
+                    <div class="top_page_bottom_menu">
+                        <a href="/zh/order/set_menu">
+                            <p>套餐</p>
+                        </a>
+                    </div>
+                    <div class="top_page_bottom_menu">
+                        <a href="/zh/order/alacarte_menu">
+                            <p>单品菜</p>
+                        </a>
+                    </div>
+                    <div class="top_page_bottom_menu">
+                        <a href="/zh/order/dessert_menu">
+                            <p>甜品<br>汤类</p>
+                        </a>
+                    </div>
+                    <div class="top_page_bottom_menu">
+                        <a href="/zh/order/rice_menu">
+                            <p>米饭<br>主食</p>
+                        </a>
+                    </div>
+                    <div class="top_page_bottom_menu">
+                        <a href="/zh/order/drink_menu">
+                            <p>软饮<br>酒类</p>
+                        </a>
+                    </div>
+                </div>
+                <div class="recommend_menu">
+                    <div class ="recommend_menu_letter">
+                        <a href="/zh/order/recommend_menu">
+                            <p>推荐<br>菜品</p>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>    
+</div>
+
+
+<% if flash[:notice].present? %>
+    <div id="toasts">谢谢下单！</div>
+<% end %>
+<% if flash[:error].present? %>
+    <div id="toasts">呼叫中<br><br>请稍等</div>
+<% end %>

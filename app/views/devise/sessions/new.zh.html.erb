@@ -1,0 +1,33 @@
+<div class="sign_in">
+    <div class="sign_in_title">
+      <h2>登录</h2>
+    </div>
+    
+    <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+      <div class="field">
+        <!--<2%= f.label :email %><br />-->
+        <!--<2%= f.email_field :email, autofocus: true, autocomplete: "email" %>-->
+        <%= f.label :账号 %><br/>
+        <%= f.text_field :login %>
+      </div>
+    
+      <div class="field">
+        <%= f.label :密码 %><br />
+        <%= f.password_field :password, autocomplete: "current-password" %>
+      </div>
+    
+      <!--<2% if devise_mapping.rememberable? -%>-->
+      <!--  <div class="field">-->
+      <!--    <2%= f.check_box :remember_me %>-->
+      <!--    <2%= f.label :remember_me %>-->
+      <!--  </div>-->
+      <!--<2% end -%>-->
+    
+      <div class="actions">
+        <%= f.submit "登录", style: "font-family: 'ZCOOL XiaoWei', serif;" %>
+      </div>
+    <% end %>
+    
+    <%= render "devise/shared/links" %>
+  
+</div>

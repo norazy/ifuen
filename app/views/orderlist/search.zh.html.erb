@@ -1,0 +1,78 @@
+<div class="menu_background-color">
+    <div class="menu_background">
+        <header class="menu_header clearfix">
+            <div class="menu_header_left">
+                <div class="menu_button orange">
+                    <a href="/zh/order/top">
+                        <p>点菜首页</p>
+                    </a>
+                </div>
+            </div>
+            <div class="menu_button_right">
+                <div class="menu_button orange">
+                    <%= link_to order_cashier_path, :method => :post do %>
+                        <p>结账</p>
+                 	<%end%>
+                </div>
+                <div class="menu_button orange">
+                    <%= link_to order_staff_path, :method => :post do %>
+                        <p>呼叫</p>
+                 	<%end%>
+                </div>
+                <div class="menu_button orange">
+                    <a href="/zh/order/ordered/<%= current_user.id %>">
+                        <p>已下单</p>
+                    </a>
+                </div>
+                <div class="menu_button orange">
+                    <a href="/zh/order/pre_order/<%= current_user.id %>">
+                        <% if @cart.present? %>
+                            <div id="red_dot"></div>
+                        <% end %>
+                        <img src="/cart.png" alt="cart">
+                    </a>
+                </div>
+            </div>
+        </header>
+        <div class="search_title">
+            <p>
+                搜索菜品
+            </p>
+        </div>
+        <div class="search_line">
+            <h2></h2>
+        </div>
+        <div class="search_box_n_button">
+              <%= form_tag('/zh/order/search', method: :get) do %>
+                <div class="search_box">
+                    <input name="keyword" placeholder="请输入菜名" type="text" value="" style="font-family: 'ZCOOL XiaoWei', serif;"></input>
+                </div>
+                <div class="search_button">
+                    <button title="搜索" type="submit" style="font-family: 'ZCOOL XiaoWei', serif;">搜索</button>
+                </div>
+              <% end %>
+        </div>
+        
+        <div class="menu_indiv clearfix">
+            <div class="category11">
+                <% @menus_zh.each do |menu| %>
+                    <div class="menu_indiv_block" menuid=<%= menu.id %>>
+                        <div class="menu_indiv_block2">
+                            <%= image_tag "#{menu.image}" %>
+                            <div class="menu_indiv_name">
+                                <%= menu.name_zh %>
+                            </div>
+                        </div>
+                    </div>
+                <% end %>
+            </div>
+        </div>
+    </div>    
+</div>
+
+<% if flash[:notice].present? %>
+    <div id="toasts">谢谢下单！</div>
+<% end %>
+<% if flash[:error].present? %>
+    <div id="toasts">呼叫中<br><br>请稍等</div>
+<% end %>

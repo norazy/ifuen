@@ -1,0 +1,123 @@
+<div class="menu_background-color">
+    <div class="menu_background">
+        <header class="menu_header clearfix">
+            <div class="menu_header_left">
+                <div class="menu_button orange">
+                    <a href="/en/order/top">
+                        <p>Order Top</p>
+                    </a>
+                </div>
+            </div>
+            <div class="menu_button_right">
+                <div class="menu_button orange">
+                    <%= link_to order_cashier_path, :method => :post do %>
+                        <p>Checkout</p>
+                 	<%end%>
+                </div>
+                <div class="menu_button orange">
+                    <%= link_to order_staff_path, :method => :post do %>
+                        <p>Waiter</p>
+                 	<%end%>
+                </div>
+                <div class="menu_button orange">
+                    <a href="/en/order/ordered/<%= current_user.id %>">
+                        <p>Ordered</p>
+                    </a>
+                </div>
+                <div class="menu_button orange">
+                    <a href="/en/order/pre_order/<%= current_user.id %>">
+                        <% if @cart.present? %>
+                            <div id="red_dot"></div>
+                        <% end %>
+                        <img src="/cart.png" alt="cart">
+                    </a>
+                </div>
+            </div>
+        </header>
+        <div class="menu_category">
+                <div class="menu_button">
+                    <a href="/en/order/set_menu">
+                        <p>Set Meal</p>
+                    </a>
+                </div>
+                <div class="menu_button">
+                    <a href="/en/order/alacarte_menu">
+                        <p>A La Carte</p>
+                    </a>
+                </div>
+                <div class="menu_button">
+                    <a href="/en/order/noodle_menu">
+                        <p>Noodle</p>
+                    </a>
+                </div>
+                <div class="menu_button">
+                    <a href="/en/order/rice_menu">
+                        <p>Rice Set</p>
+                    </a>
+                </div>
+                <div class="menu_button blue3">
+                    <a href="/en/order/dessert_menu">
+                        <p class="double2">Dessert<br>Soup</p>
+                    </a>
+                </div>
+                <div class="menu_button">
+                    <a href="/en/order/drink_menu">
+                        <p>Drink</p>
+                    </a>
+                </div>
+        </div>
+        <div class="line">
+            <h2></h2>
+        </div>
+        <!--セットメニューに関わる部分-->
+        <div class="menu_category2">
+            <ul>
+                <li id="category11" class="selected">
+                    <p>Dessert</p>
+                </li>
+                <li id="category12">
+                    <p>Soup</p>
+                </li>
+            </ul>
+        </div>
+        <div class="menu_indiv clearfix">
+            <div class="category11">
+                <% @menus1.each do |menu| %>
+                    <div class="menu_indiv_block" menuid=<%= menu.id %>>
+                        <div class="menu_indiv_block2">
+                            <!--<2%= link_to (order_indiv_url(menu.id)) do %>-->
+                            <!--<2%= link_to (order_indiv_url(menu.id)), remote: true do %>-->
+                                <%= image_tag "#{menu.image}" %>
+                                <div class="menu_indiv_name">
+                                    <%= menu.name_en %>
+                                </div>
+                                
+                            <!--<2%end%>-->
+                        </div>
+                    </div>
+                <% end %>
+            </div>
+            <div class="category12">
+                <% @menus2.each do |menu| %>
+                    <div class="menu_indiv_block" menuid=<%= menu.id %>>
+                        <!--<2%= link_to (order_indiv_url(menu.id)) do %>-->
+                            <div class="menu_indiv_block2">
+                                <%= image_tag "#{menu.image}" %>
+                                <div class="menu_indiv_name">
+                                    <%= menu.name_en %>
+                                </div>
+                            </div>
+                        <!--<2%end%>                            -->
+                    </div>
+                <% end %>
+            </div>
+        </div>
+    </div>
+</div>
+
+<% if flash[:notice].present? %>
+    <div id="toasts">Order Accepted!</div>
+<% end %>
+<% if flash[:error].present? %>
+    <div id="toasts">Calling...<br><br>We will come soon!</div>
+<% end %>
