@@ -1,0 +1,107 @@
+<div class="statistics_background-color">
+    <div class="statistics_background">
+        <header class="statistics_header clearfix">
+            <div class="statistics_header_left">
+                <div class="statistics_button">
+                    <%= link_to "ログアウト", destroy_user_session_path, method: :delete %>
+                </div>
+                <div class="statistics_button">
+                    <%= link_to "メニューTOP", root_path, method: :get %>
+                </div>
+            </div>
+            <div class="statistics_button_right">
+                <div class="statistics_button">
+                    <a href="/statistics/sales">
+                        <p>売上</p>
+                    </a>
+                </div>
+                <div class="statistics_button blue">
+                    <a href="/statistics/ranking">
+                        <p>ランキング</p>
+                    </a>
+                </div>
+                <div class="statistics_button">
+                    <a href="/statistics/addmenu">
+                        <p>追加</p>
+                    </a>
+                </div>
+            </div>
+        </header>
+        <div class="statistics_ranking">
+            <div class="select_month">
+                <ul class="select_month_button">
+                    <li id="last_month_button" class="selected">先月</li>
+                    <li id="before_last_month_button">先々月</li>
+                    <li id="three_months_ago_button">三ヶ月前</li>
+                </ul>
+            </div>
+            <div class="ranking_table clearfix">
+                <div class="last_month_button">
+                    <% @last_month_ranking.zip(@ranking_category).each do |ranking, category| %>
+                        <div class="ranking_table_indiv">
+                            <div class="ranking_table_indiv2">
+                                <div class="ranking_table_indiv3">
+                                    <div class="table_title"><%= category %></div>
+                                    <% ranking.each.with_index(1) do |menu_name, index| %>
+                                        <div class="table_ranking">
+                                            <div class="table_ranking_number"><%= index %></div>
+                                            <div class="table_ranking_menu"><%= menu_name %></div>
+                                        </div>
+                                    <% end %>
+                                </div>
+                            </div>
+                        </div>
+                    <% end %>
+                </div>
+                <div class="before_last_month_button">
+                    <% @month_before_last_ranking.zip(@ranking_category).each do |ranking, category| %>
+                        <div class="ranking_table_indiv">
+                            <div class="ranking_table_indiv2">
+                                <div class="ranking_table_indiv3">
+                                    <div class="table_title"><%= category %></div>
+                                    <% ranking.each.with_index(1) do |menu_name, index| %>
+                                        <div class="table_ranking">
+                                            <div class="table_ranking_number"><%= index %></div>
+                                            <div class="table_ranking_menu"><%= menu_name %></div>
+                                        </div>
+                                    <% end %>
+                                </div>
+                            </div>
+                        </div>
+                    <% end %>
+                </div>
+                <div class="three_months_ago_button">
+                    <% @three_months_ago_ranking.zip(@ranking_category).each do |ranking, category| %>
+                        <div class="ranking_table_indiv">
+                            <div class="ranking_table_indiv2">
+                                <div class="ranking_table_indiv3">
+                                    <div class="table_title"><%= category %></div>
+                                    <% ranking.each.with_index(1) do |menu_name, index| %>
+                                        <div class="table_ranking">
+                                            <div class="table_ranking_number"><%= index %></div>
+                                            <div class="table_ranking_menu"><%= menu_name %></div>
+                                        </div>
+                                    <% end %>
+                                </div>
+                            </div>
+                        </div>
+                    <% end %>
+                </div>
+            </div>
+            <div class="ranking_download">
+                <div class="ranking_download_button">
+                    <div class="ranking_download_button_indiv">
+                        <%= link_to statistics_ranking_path(format: :csv), :method => :get do %>
+                            データ<br>ダウンロード
+                        <% end %>
+                    </div>
+                    <div class="ranking_download_button_indiv">
+                        <%= link_to ranking_data_destroy_path, :method => :delete do %>
+                            データ削除<br>(4ヶ月前)
+                        <% end %>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

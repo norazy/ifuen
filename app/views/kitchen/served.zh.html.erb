@@ -1,0 +1,92 @@
+<div class="kitchen_background-color">
+    <div class="kitchen_background">
+        <header class="kitchen_header clearfix">
+            <div class="kitchen_header_left">
+                <div class="kitchen_button">
+                    <%= link_to "退出登录", destroy_user_session_path, method: :delete %>
+                </div>
+            </div>
+            <div class="kitchen_button_right">
+                <div class="kitchen_button">
+                    <a href="/zh/kitchen/table">
+                        <p>座位</p>
+                    </a>
+                </div>
+                <div class="kitchen_button">
+                    <a href="/zh/kitchen/ordered">
+                        <p>等菜中</p>
+                    </a>
+                </div>
+                <div class="kitchen_button">
+                    <a href="/zh/kitchen/option_change">
+                        <p>改菜单</p>
+                    </a>
+                </div>
+                <div class="kitchen_button">
+                    <a href="/zh/kitchen/notification">
+                        <p>呼叫详细</p>
+                    </a>
+                </div>
+            </div>
+        </header>
+        <div class="kitchen_title">
+            <p>
+                所有订单
+            </p>
+        </div>
+        <div class="kitchen_line">
+            <h2></h2>
+        </div>
+        <div class="allorder_div">
+            <!--各テーブル-->
+            <!--テーブル毎の繰り返し-->
+            <% @each_table_order.zip(@table_id).each do |order, table_id| %>
+                <div class="allorder_table">
+                    <!--ボックス同士の余白を作るためのdiv-->
+                    <div class="allorder_table2">
+                        <div class="allorder_table_indiv">
+                            <div class="table_info">
+                                <div class="table_number">
+                                    <p>座位： <%= table_id %></p>
+                                </div>
+                            </div>
+                            <div class="allorder_menu">
+                                <!--タイトル部分-->
+                                <div class="allorder_menu_title">
+                                    <div class="allorder_menu_title_name">
+                                        <p>菜名</p>
+                                    </div>
+                                    <div class="allorder_menu_title_number">
+                                        <p>数量</p>
+                                    </div>
+                                    <div class="allorder_menu_title_state">
+                                        <p>进度</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <!--詳細部分-->
+                            <!--注文ごとの繰り返し-->
+                            <% order.each do |order2| %>
+                                <div class="allorder_menu_indiv">
+                                    <div class="allorder_menu_indiv_name">
+                                        <% if order2[:menu_name_zh] then %>
+                                            <p><%= order2[:menu_name_zh] %></p>
+                                        <% else %>
+                                            <p>　<%= order2[:option_name_zh] %></p>
+                                        <% end %>
+                                    </div>
+                                    <div class="allorder_menu_indiv_number">
+                                        <p><%= order2[:number] %></p>
+                                    </div>
+                                    <div class="allorder_menu_indiv_state">
+                                        <p><%= order2[:state_zh] %></p>
+                                    </div>
+                                </div>
+                            <% end %>                            
+                        </div>
+                    </div>
+                </div>
+            <% end %>            
+        </div>
+    </div>
+</div>

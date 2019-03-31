@@ -1,0 +1,129 @@
+<div class="statistics_background-color">
+    <div class="statistics_background">
+        <header class="statistics_header clearfix">
+            <div class="statistics_header_left">
+                <div class="statistics_button">
+                    <%= link_to "ログアウト", destroy_user_session_path, method: :delete %>
+                </div>
+                <div class="statistics_button">
+                    <%= link_to "メニューTOP", root_path, method: :get %>
+                </div>
+            </div>
+            <div class="statistics_button_right">
+                <div class="statistics_button blue">
+                    <a href="/statistics/sales">
+                        <p>売上</p>
+                    </a>
+                </div>
+                <div class="statistics_button">
+                    <a href="/statistics/ranking">
+                        <p>ランキング</p>
+                    </a>
+                </div>
+                <div class="statistics_button">
+                    <a href="/statistics/addmenu">
+                        <p>追加</p>
+                    </a>
+                </div>
+            </div>
+        </header>
+        <div class="statistics_sales">
+            <div class="sales_download">
+                <div class="sales_download_button">
+                  <%= link_to statistics_sales_path(format: :csv), :method => :get do %>
+                    <p>データ<br>ダウンロード</p>
+                  <% end %>
+                </div>
+            </div>
+            <div class="sales_display">
+                <div class="sales_display_monthly">
+                    <div class="sales_display_monthly_indiv">
+                        <div class="month_name_div">
+                            <div class="month_name_letter">
+                                <p><%= @month_before_last %></p>
+                            </div>
+                        </div>
+                        <div class="daily_sales_div">
+                            <div class="daily_sales_title">
+                                <div class="title_day">
+                                    <p>日</p>
+                                </div>
+                                <div class="title_sales">
+                                    <p>売上</p>
+                                </div>
+                            </div>
+                            <% @month_before_last_total.each.with_index(1) do |total, i| %>
+                                <div class="daily_sales_indiv">
+                                    <div class="sales_indiv_day">
+                                        <p><%= i %></p>
+                                    </div>
+                                    <div class="sales_indiv_sales">
+                                        <p><%= total[1] %></p>
+                                    </div>
+                                </div>
+                            <% end %>
+                        </div>
+                    </div>    
+                </div>
+                <div class="sales_display_monthly">
+                    <div class="sales_display_monthly_indiv">
+                        <div class="month_name_div">
+                            <div class="month_name_letter">
+                                <p><%= @last_month %></p>
+                            </div>
+                        </div>
+                        <div class="daily_sales_div">
+                            <div class="daily_sales_title">
+                                <div class="title_day">
+                                    <p>日</p>
+                                </div>
+                                <div class="title_sales">
+                                    <p>売上</p>
+                                </div>
+                            </div>
+                            <% @last_month_total.each.with_index(1) do |total, i| %>
+                                <div class="daily_sales_indiv">
+                                    <div class="sales_indiv_day">
+                                        <p><%= i %></p>
+                                    </div>
+                                    <div class="sales_indiv_sales">
+                                        <p><%= total[1] %></p>
+                                    </div>
+                                </div>
+                            <% end %>
+                        </div>
+                    </div>    
+                </div>
+                <div class="sales_display_monthly">
+                    <div class="sales_display_monthly_indiv">
+                        <div class="month_name_div">
+                            <div class="month_name_letter">
+                                <p><%= @this_month %></p>
+                            </div>
+                        </div>
+                        <div class="daily_sales_div">
+                            <div class="daily_sales_title">
+                                <div class="title_day">
+                                    <p>日</p>
+                                </div>
+                                <div class="title_sales">
+                                    <p>売上</p>
+                                </div>
+                            </div>
+                            <% @this_month_total.each.with_index(1) do |total, i| %>
+                                <div class="daily_sales_indiv">
+                                    <div class="sales_indiv_day">
+                                        <p><%= i %></p>
+                                    </div>
+                                    <div class="sales_indiv_sales">
+                                        <p><%= total[1] %></p>
+                                    </div>
+                                </div>
+                            <% end %>
+                        </div>
+                    </div>    
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

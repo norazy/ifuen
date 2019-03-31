@@ -1,0 +1,2 @@
+class Cashier < ApplicationRecord
+end

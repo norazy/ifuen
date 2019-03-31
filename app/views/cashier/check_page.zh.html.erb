@@ -1,0 +1,169 @@
+<div class="cashier_background-color">
+<div class="cashier_background">
+    <header class="cashier_header clearfix">
+        <div class="cashier_header_left">
+            <div class="cashier_button">
+                <%= link_to "退出登录", destroy_user_session_path, method: :delete %>
+            </div>
+        </div>
+        <div class="cashier_button_right">
+            <div class="cashier_button">
+                <a href="/zh/firstpage">
+                    <p>回首页</p>
+                </a>
+            </div>
+            <div class="cashier_button">
+                <a href="/zh/cashier/table">
+                    <p>回座位页</p>
+                </a>
+            </div>
+        </div>
+    </header>
+    <%= form_for(@cashier, url: "/zh/cashier/paid") do |f| %>
+        <div class="check_all">
+            <div class="check_body">
+                <div class="check_table">
+                    <div class="check_table_number">
+                        <p>座位：　<%= @table_id %></p>
+                    </div>
+                </div>
+                <div class="check_detail">
+                    <% @forcheck.each do |check| %>
+                        <div class="check_detail_indiv">
+                            <% if check[:menu_name_zh] then %>
+                                <div class="indiv_column name">
+                                    <p><%= check[:menu_name_zh] %></p>
+                                </div>
+                            <% else %>
+                                <div class="indiv_column name">
+                                    <p>　<%= check[:option_name_zh] %></p>
+                                </div>
+                            <% end %>
+                            
+                            <div class="indiv_column price">
+                                <p>
+                                    <%= check[:price] %>
+                                </p>
+                            </div>
+                            <div class="indiv_column number">
+                                <p>
+                                    <%= check[:number] %>
+                                </p>
+                            </div>
+                            <div class="indiv_column subtotal">
+                                <p>
+                                    0
+                                </p>
+                            </div>
+                        </div>
+                        <%= fields_for @orderlist do |c| %>
+                            <%= c.hidden_field(:id, name: "orderlist[][#{[:id]}]", value: check[:id]) %>
+                            <%= c.hidden_field(:state, name: "orderlist[][#{[:state]}]", value: 4) %>
+                        <% end %>
+                    <% end %>
+                    <div class="check_detail_subtotal">
+                        <div class="subtotal_column empty">
+                            <p>
+                            </p>
+                        </div>
+                        <div class="subtotal_column subtotal_l">
+                            <p>
+                                消费
+                            </p>
+                        </div>
+                        <div class="subtotal_column subtotal_n">
+                            <p>
+                                0
+                            </p>
+                        </div>
+                    </div>
+                    <div class="check_detail_discount">
+                        <div class="discount_column empty">
+                            <p>
+                            </p>
+                        </div>
+                        <div class="discount_column discount_l">
+                            <p>
+                                减去
+                            </p>
+                        </div>
+                        <div class="discount_column discount_n">
+                            <p>
+                                0
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                <div class="total clearfix">
+                    <div class="check_total">
+                        <div class="check_total_left">
+                            <p>合计</p>
+                        </div>
+                        <div class="check_total_right">
+                            <p>0</p>
+                        </div>
+                        <!--<2%= f.hidden_field(:total, value: 0)%>-->
+                    </div>
+                </div>
+            </div>
+            <div class="check_method_body">
+                <div class="check_method_title">
+                    <div class="check_method_title_letter">
+                        <p>支付方法</p>
+                    </div>
+                </div>
+                <div class="check_method clearfix">
+                    <div class="check_method_indiv">
+                        <div class="check_method_indiv_button">
+                            <%= f.radio_button(:method, 1, :checked => true) %>
+                            <%= f.label(:method, "现金", value: "1")  %>
+                            <!--<p>現金</p>-->
+                        </div>
+                    </div>
+                    <div class="check_method_indiv">
+                        <div class="check_method_indiv_button">
+                            <%= f.radio_button(:method, 2) %>
+                            <%= f.label(:method, "信用卡", value: "2")  %>
+                            <!--<p>クレジット</p>-->
+                        </div>
+                    </div>
+                    <div class="check_method_indiv">
+                        <div class="check_method_indiv_button">
+                            <%= f.radio_button(:method, 3) %>
+                            <%= f.label(:method, "网上支付", value: "3")  %>
+                            <!--<p>電子マネー</p>-->
+                        </div>
+                    </div>
+                    <div class="check_method_indiv">
+                        <div class="check_method_indiv_button">
+                            <%= f.radio_button(:method, 4) %>
+                            <%= f.label(:method, "其他", value: "4")  %>
+                            <!--<p>その他</p>-->
+                        </div>
+                    </div>
+                </div>
+                <div class="check_finish">
+                    <!--<div class="check_finish_button">-->
+                        <%= f.submit '结账', class: 'check_finish_button' %>
+                        <!--<p>会計完了</p>-->
+                    <!--</div>-->
+                </div>
+                <div class="check_method_title marginplus">
+                    <div class="check_method_title_letter">
+                        <p>打折金额</p>
+                    </div>
+                </div>
+                <div class="check_discount_body">
+                    <!--<div class="discout_input_field">-->
+                    <input type="number" name="discount_amount" id="discout_input_field" value="" step="10"/>
+                    <!--</div>-->
+                    <div class="check_discount_button">
+                        <p>减去</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <%= f.hidden_field(:total, value: 0) %>
+    <% end %>
+    </div>
+</div>

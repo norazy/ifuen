@@ -1,0 +1,600 @@
+// Place all the styles related to the cashier controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+.cashier_background-color {
+    background-color: #ffffff;
+    // background-color: #f5f5dc;
+    min-height: 768px;
+    min-width: 1024px;
+    
+    // ↓共通部分
+    .clearfix:after {
+        content: "";
+        clear: both;
+        display: block;
+    }
+    .cashier_button {
+        width: 132px;
+        height: 56px;
+        margin: 4px 14px;
+        // box-sizing: border-box;
+        background-color: #ea5317;
+        text-align: center;
+        border-radius: 2px;
+        font-size: 19px;
+        box-shadow: 2px 2px 2px rgba(0, 0, 0, 0.4);
+
+        position: relative;
+
+        a {
+            position: absolute;
+            top: 0;
+            bottom: 0;
+            left: 0;
+            right: 0;
+
+            text-decoration: none;
+            color: #ffffff;
+            padding: 19px 0;
+
+            p {
+                margin: 0;
+            }
+            .double2 {
+                margin: 9px 0;
+            }
+        }
+    }
+    // .blue {
+    //     background-color: #000a34;
+    // }
+    // .orange {
+    //     background-color: #ea5317;
+    // }
+
+    .cashier_background {
+        width: 960px;
+        height: 720px;
+        padding: 32px 0 28px;
+        margin: 0 auto;
+
+        .cashier_header {
+            width: 960px;
+            height: 64px;
+            margin: 0 auto 8px;
+            .cashier_header_left {
+                float: left;
+                display: flex;
+            }
+            .cashier_button_right {
+                float: right;
+                display: flex;
+            }
+        }
+    }
+    .cashier_table_display {
+        width: 920px;
+        height: 636px;
+        margin: 30px auto 0;
+        span {
+            display: none;
+        }
+        .cashier_table_indiv{
+            border-radius: 3px;
+            box-shadow: 3px 3px 3px rgba(0, 0, 0, 0.4);
+            text-align: center;
+            position: relative;
+            a {
+                position: absolute;
+                top: 0;
+                bottom: 0;
+                left: 0;
+                right: 0;
+                color: #ffffff;
+                cursor: default;
+                // display: inline-block;
+                // // color: #ffffff;
+                text-decoration: none;
+            }
+        }
+        .cashier_front_table {
+            width: 100%;
+            height: 300px;
+            .cashier_front_table_1_4 {
+                width: 100%;
+                height: 100px;
+                background-color: #f5f5dc;
+                box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.4);
+                display: flex;
+                .table1_4 {
+                    width: 185px;
+                    height: 70px;
+                    margin-top: 22px;
+                    margin-left: 35px;
+                    p {
+                        font-size: 30px;
+                        // color: #2f3238;
+                        margin: 0;
+                        margin-top: 20px;
+                    }
+                }
+            }
+            .cashier_front_table_5_7_n_guide {
+                width: 100%;
+                height: 198px;
+                display: flex;
+               .cashier_front_table_5_6 {
+                    width: 230px;
+                    height: 89%;
+                    background-color: #f5f5dc;
+                    box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.4);
+                    padding-top: 2%;
+                    .table5_6 {
+                        width: 156px;
+                        height: 66px;
+                        margin: 0 auto 10%;
+                        p {
+                            font-size: 30px;
+                            // color: #2f3238;
+                            margin: 0;
+                            padding-top: 18px;
+                        }
+                    }
+               }
+               .cashier_front_table_7_n_guide {
+                    width: 690px;
+                    height: 100%;
+                   .cashier_front_table_7 {
+                        width: 100%;
+                        height: 44px;
+                        background-color: #f5f5dc;
+                        box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.4);
+                        padding-top: 18px;
+                        .table7 {
+                            width: 500px;
+                            height: 30px;
+                            margin: 0 auto;
+                            p {
+                                font-size: 28px;
+                                // color: #2f3238;
+                                margin: 0;
+                            }
+                        }    
+                   }
+                   .cashier_front_table_n {
+                       width: 100%;
+                       height: 27px;
+                   }
+                   .cashier_front_table_guide {
+                       width: 100%;
+                       height: 105px;
+                       .cashier_guide {
+                           width: 660px;
+                           height: 100%;
+                           float: right;
+                            box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.4);
+                            background-color: #ffffff;
+                            text-align: center;
+
+                            display: flex;
+                            .cashier_guide_indiv {
+                                width: 175px;
+                                height: 60px;
+                                margin-top: 24px;
+                                margin-left: 35px;
+                                border-radius: 3px;
+                                box-shadow: 3px 3px 3px rgba(0, 0, 0, 0.4);
+                                p {
+                                    font-size: 19px;
+                                    // color: #2f3238;
+                                    margin: 0;
+                                    margin-top: 20px;
+                                }
+                            }
+                       }
+                   }
+               }
+            }
+        }
+        .cashier_back_table {
+            width: 100%;
+            height: 300px;
+            // border: 1px solid #000000;
+            margin-top: 20px;
+            display: flex;
+            .cashier_back_table_8_10 {
+                width: 230px;
+                height: 100%;
+                background-color: #f5f5dc;
+                box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.4);
+                .table8_10{
+                    width: 156px;
+                    height: 66px;
+                    margin: 11% auto 0;
+                    p {
+                        font-size: 30px;
+                        // color: #2f3238;
+                        margin: 0;
+                        padding-top: 18px;
+                    }
+                }
+            }
+            .cashier_back_table_else {
+                width: 690px;
+                height: 100%;
+                .cashier_back_table_11_16 {
+                    width: 660px;
+                    height: 100%;
+                    background-color: #f5f5dc;
+                    float: right;
+                    box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.4);
+                    .cashier_back_table_11_13 {
+                        width: 660px;
+                        height: 50%;
+                        display: flex;
+                        .table11_13 {
+                            width: 96px;
+                            height: 96px;
+                            border-radius: 50%;
+                            margin: 5% auto 0;
+                            p {
+                                font-size: 30px;
+                                // color: #2f3238;
+                                margin: 0;
+                                padding-top: 33px;
+                            }
+                        }
+                        .invisible_table11_13{
+                            width: 96px;
+                            height: 96px;
+                            border-radius: 50%;
+                            margin: 5% auto 0;
+                            background-color: #f5f5dc;
+                            box-shadow: none;
+                        }
+                    }
+                    .cashier_back_table_14_16 {
+                        width: 660px;
+                        height: 50%;
+                        display: flex;
+                        .table14_16 {
+                            width: 170px;
+                            height: 83px;
+                            margin-top: 5%;
+                            margin-left: 5.7%;
+                            p {
+                                font-size: 30px;
+                                margin: 0;
+                                padding-top: 27px;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+    .gray {
+        background-color: #b7b7b7;
+        p {
+            color: #2f3238;
+        }
+    }
+    .orange2 {
+        // background-color: #93c47d;
+        background-color: #ea5317;
+        p {
+            color: #ffffff;
+        }
+    }
+    .blue2 {
+        // background-color: #a4c2f4;
+        background-color: #000a34;
+        color: #ffffff;
+    }
+    .check_all {
+        // border: 1px solid #000000;
+        width: 920px;
+        height: 636px;
+        margin: 30px auto 0;
+        display: flex;
+        .check_body {
+            height: 636px;
+            width: 460px;
+            background-color: #f5f5dc;
+            overflow: scroll;
+            .check_table {
+                width: 100%;
+                height: 88px;
+                // border: 1px solid #000000;
+                .check_table_number {
+                    width: 50%;
+                    height: 84%;
+                    border-bottom: 2px solid #000000;
+                    margin-left: 7%;
+                    p {
+                        font-size: 28px;
+                        margin: 0;
+                        padding-top: 17%;
+                    }
+                }
+            }
+            .check_detail {
+                background-color: #ffffff;
+                width: 87%;
+                margin: 4% auto 0;
+                padding-bottom: 5%;
+                // height: 400px;
+                .check_detail_indiv {
+                    border-bottom: 2px solid #ea5317;
+                    width: 100%;
+                    height: 61px;
+                    display: flex;
+                    .indiv_column {
+                        height: 100%;
+                        text-align: center;
+                        p {
+                            font-size: 19px;
+                            margin: 0;
+                            display: inline-block;
+                            margin-top: 30px;
+                        }
+                    }
+                    .name {
+                        width: 40%;
+                        text-align: left;
+                        p {
+                            margin-left: 10px;
+                        }
+                    }
+                    .price {
+                        width: 20%;
+                        p {
+                            color: #ea5317;
+                        }
+                    }
+                    .number {
+                        width: 15%;
+                        p {
+                            color: #ea5317;
+                        }
+                    }
+                    .subtotal {
+                        width: 25%;
+                    }
+                }
+                .check_detail_subtotal {
+                    border-bottom: 2px solid #ea5317;
+                    width: 100%;
+                    height: 61px;
+                    display: flex;
+                    .subtotal_column {
+                        height: 100%;
+                        text-align: center;
+                        p {
+                            font-size: 22px;
+                            margin: 0;
+                            display: inline-block;
+                            margin-top: 30px;
+                        }
+                    }
+                   .empty {
+                        width: 45%;
+                    }
+                    .subtotal_l {
+                        width: 27%;
+                        p {
+                            color: #ea5317;
+                        }
+                    }
+                    .subtotal_n {
+                        width: 28%;
+                    }
+                }
+                .check_detail_discount {
+                    border-bottom: 2px solid #ea5317;
+                    width: 100%;
+                    height: 61px;
+                    display: flex;
+                    .discount_column {
+                        height: 100%;
+                        text-align: center;
+                        p {
+                            font-size: 22px;
+                            margin: 0;
+                            display: inline-block;
+                            margin-top: 30px;
+                        }
+                    }
+                   .empty {
+                        width: 45%;
+                    }
+                    .discount_l {
+                        width: 28%;
+                        p {
+                            color: #ea5317;
+                        }
+                    }
+                    .discount_n {
+                        width: 28%;
+                        background-color: #ea5317;
+                    }
+                }
+            }
+            .total {
+                width: 87%;
+                height: 100px;
+                // border: 1px solid #000000;
+                margin: 0 auto;
+                padding-top: 5%;
+                .check_total {
+                    float: right;
+                    width: 70%;
+                    height: 63%;
+                    // border: 1px solid #000000;
+                    display: flex;
+                    .check_total_left {
+                        width: 30%;
+                        // height: 100%;
+                        background-color: #000a34;
+                        color: #ffffff;
+                        border-radius: 10px 0 0 10px;
+                        font-size: 22px;
+                        padding-top: 23px;
+                        p {
+                            margin: 0;
+                            margin-left: 21%;
+                        }
+                        
+                    }
+                    .check_total_right {
+                        width: 70%;
+                        // height: 49px;
+                        background-color: #ffffff;
+                        color: #000000;
+                        border-radius: 0 10px 10px 0;
+                        font-size: 30px;
+                        padding-top: 17px;
+                        border: 2px solid #000a34;
+                        p {
+                            margin: 0;
+                            margin-left: 47%;
+                        }
+                    }
+                }
+            }
+        }
+        .check_method_body {
+            height: 636px;
+            width: 460px;
+            // border: 1px solid #000000;
+            .check_method_title {
+                width: 100%;
+                height: 30px;
+                .check_method_title_letter {
+                    width: 22%;
+                    height: 100%;
+                    border-bottom: 2px solid #000000;
+                    margin-left: 8%;
+                    text-align: center;
+                    p {
+                        margin: 0;
+                        padding-top: 5%;
+                        font-size: 20px;
+                    }
+                }
+            }
+            .check_method {
+                width: 80%;
+                height: 170px;
+                margin: 4% auto;
+                border-bottom: 2px solid #ea5317;
+
+                .check_method_indiv {
+                    width: 50%;
+                    height: 45%;
+                    float: left;
+                    .check_method_indiv_button {
+                        width: 150px;
+                        height: 52px;
+                        margin: 11% auto 0;
+                        border-radius: 5px;
+                        background-color:  #ea5317;
+                        color: #ffffff;
+                        text-align: center;
+                        box-shadow: 3px 3px 3px rgba(0, 0, 0, 0.4);
+                        position: relative;
+                        label {
+                            position: absolute;
+                            top: 0;
+                            bottom: 0;
+                            left: 0;
+                            right: 0;                        
+                            padding-top: 15px;
+                            font-size: 22px;
+                            text-align: center;
+                        }
+                       
+                        #cashier_method_1,#cashier_method_2,#cashier_method_3,#cashier_method_4{
+                            display: none;
+                        }
+
+                        // p {
+                        //     margin: 0;
+                        //     font-size: 22px;
+                        //     padding-top: 10%;
+                        // }
+                    }
+                }
+            }
+            .check_finish {
+                width: 100%;
+                height: 60px;
+                input.check_finish_button {
+                    width: 72%;
+                    height: 92%;
+                    // margin: 0 auto;
+                    background-color:  #ea5317;
+                    color: #ffffff;
+                    text-align: center;
+                    box-shadow: 3px 3px 3px rgba(0, 0, 0, 0.4);
+                    border-radius: 5px;
+                    font-size: 22px;
+                    margin-left: 14%;
+                    font-family: 'Kosugi Maru';
+                    // p {
+                    //     margin: 0;
+                    //     font-size: 22px;
+                    //     padding-top: 5%;
+                    // }
+                }
+            }
+            .marginplus {
+                margin-top: 11%;
+            }
+            .check_discount_body {
+                width: 100%;
+                padding-top: 8%;
+                // .discout_input_field{
+                //     width: 69%;
+                //     height: 57px;
+                //     margin: 0 auto;
+                //     background-color:  #ffffff;
+                //     // box-shadow: 3px 3px 3px rgba(0, 0, 0, 0.4);
+                //     box-shadow: 1px 1px 1px inset;
+                //     border-radius: 5px;
+                //     border: 2px solid #000a34;
+                // }
+                input#discout_input_field {
+                    width: 64%;
+                    height: 57px;
+                    background-color:  #ffffff;
+                    box-shadow: 1px 1px 1px inset;
+                    border-radius: 5px;
+                    border: 2px solid #000a34;
+                    margin-left: 15%;
+                    font-size: 24px;
+                    padding-left: 5%;
+                }
+                .check_discount_button {
+                    color: #ffffff;
+                    text-align: center;
+                    width: 70%;
+                    height: 53px;
+                    margin: 7% auto 0;
+                    background-color: #000a34;
+                    box-shadow: 3px 3px 3px rgba(0, 0, 0, 0.4);
+                    border-radius: 5px;
+                    // border: 1px solid #000000;
+                    p {
+                        margin: 0;
+                        font-size: 22px;
+                        padding-top: 5%;
+
+                    }
+                }
+            }
+
+        }
+    }
+}

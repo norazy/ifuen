@@ -1,0 +1,421 @@
+// Place all the styles related to the statistics controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+
+.statistics_background-color {
+    background-color: #ffffff;
+    min-height: 768px;
+    min-width: 1024px;
+    
+    // ↓共通部分
+    .clearfix:after {
+        content: "";
+        clear: both;
+        display: block;
+    }
+    .statistics_button {
+        width: 132px;
+        height: 56px;
+        margin: 4px 14px;
+        // box-sizing: border-box;
+        background-color: #ea5317;
+        text-align: center;
+        border-radius: 2px;
+        font-size: 19px;
+        box-shadow: 2px 2px 2px rgba(0, 0, 0, 0.4);
+
+        position: relative;
+
+        a {
+            position: absolute;
+            top: 0;
+            bottom: 0;
+            left: 0;
+            right: 0;
+
+            text-decoration: none;
+            color: #ffffff;
+            padding: 19px 0;
+
+            p {
+                margin: 0;
+            }
+            .double2 {
+                margin: 9px 0;
+            }
+        }
+    }
+    .blue {
+        background-color: #000a34;
+    }
+    .orange {
+        background-color: #ea5317;
+    }
+    .statistics_background {
+        width: 960px;
+        padding: 32px 0 28px;
+        margin: 0 auto;
+        .statistics_header {
+            width: 960px;
+            height: 64px;
+            margin: 0 auto 8px;
+            .statistics_header_left {
+                float: left;
+                display: flex;
+            }
+            .statistics_button_right {
+                float: right;
+                display: flex;
+                .statistics_button:last-child {
+                    width: 80px;
+                }
+
+            }
+        }
+        // 売上の部分
+        .statistics_sales {
+            width: 920px;
+            // height: 680px;
+            margin: 2% auto 0;
+            .sales_download {
+                width: 100%;
+                height: 60px;
+                text-align: center;
+                .sales_download_button {
+                    width: 162px;
+                    height: 48px;
+                    margin: 0 auto;
+                    background-color: #ea5317;
+                    box-shadow: 2px 2px 2px rgba(0, 0, 0, 0.4);
+                    padding-top: 12px;
+
+                    a {
+                        text-decoration: none;
+                        p {
+                            color: #ffffff;
+                            font-size: 18px;
+                            margin: 0;
+                        }
+                    }
+                }
+            }
+            .sales_display {
+                width: 100%;
+                // height: 600px;
+                display: flex;
+                margin-top: 3%;
+                .sales_display_monthly {
+                    width: 33%;
+                    height: 100%;
+                    .sales_display_monthly_indiv {
+                        width: 95%;
+                        background-color: #f5f5dc;
+                        margin: 0 auto;
+                        padding-bottom: 32px;
+                        box-shadow: 2px 2px 2px rgba(0, 0, 0, 0.4);
+
+                        .month_name_div {
+                            width: 100%;
+                            height: 42px;
+                            padding-top: 23px;
+                            .month_name_letter {
+                                width: 17%;
+                                border-bottom: 2px solid #000000;
+                                text-align: center;
+                                margin-left: 7%;
+                                p {
+                                    font-size: 22px;
+                                    margin: 0;
+                                }
+                            }
+                        }
+                        .daily_sales_div {
+                            width: 240px;
+                            // height: 450px;
+                            margin: 0 auto;
+                            background-color: #ffffff;
+                            .daily_sales_title {
+                                width: 100%;
+                                height: 37px;
+                                // border: 1px solid #000000;
+                                background-color: #000a34;
+                                display: flex;
+                                p {
+                                    margin: 0;
+                                    color: #ffffff;
+                                    text-align: center;
+                                    margin-top: 10px;
+                                    font-size: 17px;
+                                }
+                                .title_day {
+                                    width: 30%;
+                                    height: 100%;
+                                    border-right: 1px solid #ffffff;
+                                }
+                                .title_sales {
+                                    width: 70%;
+                                    height: 100%;
+                                    border-left: 1px solid #ffffff;
+                                    
+                                }
+                            }
+                            .daily_sales_indiv {
+                                width: 100%;
+                                height: 40px;
+                                border-bottom: 1px solid #ea5317;
+                                // background-color: #000a34;
+                                display: flex;
+                                p {
+                                    margin: 0;
+                                    text-align: center;
+                                    margin-top: 12px;
+                                    font-size: 19px;
+                                }
+                                .sales_indiv_day {
+                                    width: 30%;
+                                    height: 100%;
+                                }
+                                .sales_indiv_sales {
+                                    width: 70%;
+                                    height: 100%;
+                                    p {
+                                        color: #ea5317;
+                                    }
+
+                                }
+                                
+                            }
+                        }
+                    }
+                }
+            }
+        }
+        // ランキングの部分
+        .statistics_ranking {
+            width: 960px;
+            margin: 2% auto 0;
+            .select_month {
+                width: 100%;
+                height: 56px;
+                text-align: center;
+                padding-top: 16px;
+                ul {
+                    list-style: none;
+                    width: 510px;
+                    height: 100%;
+                    margin: 0 auto;
+                    display: flex;
+                    li {
+                        width: 134px;
+                        height: 38px;
+                        margin: 0 auto;
+                        background-color: #ea5317;
+                        box-shadow: 2px 2px 2px rgba(0, 0, 0, 0.4);
+                        padding-top: 18px;
+                        color: #ffffff;
+                        font-size: 20px;
+                        &.selected {
+                            background-color: #000a34;
+                        }
+                    }
+                }
+            }
+            .ranking_table {
+                width: 100%;
+                padding-top: 3%;
+                .ranking_table_indiv {
+                    width: 320px;
+                    height: 280px;
+                    float: left;
+                    .ranking_table_indiv2 {
+                        box-shadow: 1px 1px 2px rgba(0, 0, 0, 0.4);
+                        background-color: #f5f5dc;
+                        width: 93%;
+                        height: 83%;
+                        margin: 0 auto;
+                        padding-top: 6%;
+                        .ranking_table_indiv3 {
+                            width: 246px;
+                            height: 210px;
+                            // border: 1px solid #000000;
+                            margin: 0 auto;
+                            .table_title {
+                                width: 244px;
+                                height: 25px;
+                                background-color: #000a34;
+                                text-align: center;
+                                color: #ffffff;
+                                padding-top: 9px;
+                                border: 1px solid #ffffff;
+                            }
+                            .table_ranking {
+                                width: 100%;
+                                height: 23px;
+                                padding-top: 10px;
+                                border-bottom: 2px solid #ea5317;
+                                background-color: #ffffff;
+                                display: flex;
+                                text-align: center;
+                                font-size: 17px;
+
+                                .table_ranking_number {
+                                    width: 25%;
+                                    height: 100%;
+                                }
+                                .table_ranking_menu {
+                                    width: 75%;
+                                    height: 100%;
+                                    
+                                }
+                            }
+                        }
+                    }
+                }
+                .last_month_button {
+                }
+                .before_last_month_button {
+                    display: none;
+                }
+                .three_months_ago_button {
+                    display: none;
+                }
+            }
+            
+            .ranking_download {
+                width: 100%;
+                height: 66px;
+                text-align: center;
+                // border: 1px solid #000000;
+                padding-top: 8px;
+                .ranking_download_button {
+                    width: 340px;
+                    margin: 0 auto;
+                    display: flex;
+                    a {
+                        text-decoration: none;
+                        color: #ffffff;
+                    }
+                    .ranking_download_button_indiv {
+                        width: 156px;
+                        height: 52px;
+                        margin: 0 auto;
+                        background-color: #ea5317;
+                        box-shadow: 2px 2px 2px rgba(0, 0, 0, 0.4);
+                        padding-top: 13px;
+                        color: #ffffff;
+                        font-size: 19px;
+                    }
+                }
+            }
+        }
+        // メニュー追加ページ
+        .statistics_title {
+            width: 95%;
+            margin: 0 auto;
+            p {
+                font-size: 28px;
+                margin: 32px 0 10px;
+            }
+        }
+        .statistics_line {
+            width: 64%;
+            margin: 0 0 0 2%;
+            h2 {
+                border-bottom: solid 3px #000a34;
+                position: relative;
+                margin: 1rem 0;
+            }
+            h2:after {
+                content: "";
+                display: block;
+                line-height: 0;
+                overflow: hidden;
+                position: absolute;
+                left: 0;
+                width: 30%;
+                border-bottom: 3px solid #ea5317;
+            }
+        }
+        .add_menu_form{
+            width: 700px;
+            // height: 500px;
+            margin: 4% auto 0;
+
+            .form_background {
+                background-color: #ffffff;
+                width: 100%;
+                // height: 346px;
+                padding: 5% 0;
+                .add_menu_label_n_text {
+                        width: 80%;
+                        height: 70px;
+                        margin: 0 auto;
+                        display: flex;
+                        .add_menu_label {
+                            // border: 1px solid #000000;
+                            width: 50%;
+                            height: 70%;
+                            margin-top: 3%;
+                            p {
+                                color: #000a34;
+                                font-weight: bold;
+                                font-size: 23px;
+                                margin: 10px 0 0 57px;
+                            }
+                        }
+                        .add_menu_text {
+                            // border: 1px solid #000000;
+                            width: 50%;
+                            height: 70%;
+                            margin-top: 3%;
+                            select {
+                                background-color: #ffffff;
+                                border: 2px solid #ea5317;
+                                border-radius: 5px;
+                                width: 80%;
+                                height: 48px;
+                                display: block;
+                                font-size: 19px;
+                                color: #49352a;
+                                text-indent: 10px;
+                            }
+                            input {
+                                border: 2px solid #ea5317;
+                                border-radius: 5px;
+                                width: 78%;
+                                height: 42px;
+                                display: block;
+                                font-size: 19px;
+                                color: #49352a;
+                                text-indent: 15px;
+                            }
+                        }
+                    }
+            }
+            .add_menu_submit {
+                width: 100%;
+                .add_menu_submit_button {
+                    width: 36%;
+                    margin: 9% auto 0;
+                    padding-bottom: 4%;
+                    input.add_submit {
+                        width: 100%;
+                        height: 75px;
+                        padding: 10px;
+                        display: block;
+                        font-size: 22px;
+                        color: #ffffff;
+                        background-color: #ea5317;
+                        border-radius: 10px;
+                        box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.4);
+                    }
+                }
+            }
+        }
+    }
+}
+.add_menu_color {
+    background-color: #f5f5dc;
+    
+}

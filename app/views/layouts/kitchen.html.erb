@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>異風園</title>
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+    <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+
+    <!--↓google fonts-->
+    <link href="https://fonts.googleapis.com/css?family=Kosugi+Maru|Ubuntu+Condensed|ZCOOL+XiaoWei" rel="stylesheet">
+  <!--<link href="https://fonts.googleapis.com/css?family=Kosugi+Maru|Noto+Sans+SC|Ubuntu" rel="stylesheet">-->
+  <!--<link href="https://fonts.googleapis.com/css?family=Kosugi+Maru|Ubuntu|ZCOOL+KuaiLe" rel="stylesheet">-->
+
+    <!--↓Font Awesome-->
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous">
+
+    <!--↓jquery-->
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+
+
+    <!--自動的にリフレッシュしてくれ機能-->
+    <meta http-equiv="Refresh" content="180">
+    <!--とりあえず三分に設定した-->
+
+  </head>
+
+  <body class="<%= I18n.locale %>">
+    <%if flash[:alert] %>
+        <div class="flashes">
+        </div>            
+    <% end %>
+  
+    <%= yield %>
+
+  </body>
+</html>

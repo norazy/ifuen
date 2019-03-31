@@ -1,0 +1,845 @@
+// .zh {
+//     // font-family: 'Noto Sans SC', sans-serif;
+//     // font-family: 'ZCOOL KuaiLe', cursive;
+//     font-family: 'ZCOOL XiaoWei', serif;
+// }
+.kitchen_background-color {
+    background-color: #f5f5dc;
+    min-height: 768px;
+    min-width: 1024px;
+    
+    // ↓共通部分
+    // .clearfix:after {
+    //     content: "";
+    //     clear: both;
+    //     display: block;
+    // }
+    .kitchen_button {
+        width: 132px;
+        height: 56px;
+        margin: 4px 14px;
+        // box-sizing: border-box;
+        background-color: #ea5317;
+        text-align: center;
+        border-radius: 2px;
+        font-size: 19px;
+        box-shadow: 2px 2px 2px rgba(0, 0, 0, 0.4);
+
+        position: relative;
+
+        a {
+            position: absolute;
+            top: 0;
+            bottom: 0;
+            left: 0;
+            right: 0;
+
+            text-decoration: none;
+            color: #ffffff;
+            padding: 19px 0;
+
+            p {
+                margin: 0;
+            }
+            .double2 {
+                margin: 9px 0;
+            }
+        }
+    }
+    .blue {
+        background-color: #000a34;
+    }
+    .orange {
+        background-color: #ea5317;
+    }
+
+    .kitchen_nav {
+        height: 60px;
+        padding-top: 2%;
+        .kitchen_nav_button {
+            width: 56px;
+            border-radius: 3px;
+            cursor: pointer;
+            margin-left: 10px;
+            background-color: #000a34;
+            height: 56px;
+            box-shadow: 1px 1px 1px rgba(0, 0, 0, 0.4);
+             i {
+                color: #ffffff;
+                font-size: 24px;
+            }
+        }
+        
+        #kitchen_nav_button2 {
+            display: none;
+        }
+        .kitchen_nav_div {
+            margin-top: 13px;
+            margin-left: 13px;
+            width: 128px;
+            ul {
+                width: 100%;
+                list-style: none;
+                padding: 0;
+                margin: 0;
+                li {
+                    border-bottom: dotted 2px #af6469;
+                    background: #efefef;
+                    box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.4);
+                    height: 40px;
+                    text-align: center;
+
+                    position: relative;
+                    a {
+                        position: absolute;
+                        top: 0;
+                        bottom: 0;
+                        left: 0;
+                        right: 0;
+                        font-size: 19px;
+                        color: #343434;
+                        display: block;
+                        padding: 10px;
+                        text-decoration: none;
+                    }
+                }
+                li:last-child {
+                    border-bottom: none;
+                }
+            }
+        }
+    }
+
+    .kitchen_background {
+        width: 960px;
+        // height: 720px;
+        padding: 32px 0 28px;
+        margin: 0 auto;
+
+        .kitchen_header {
+            width: 960px;
+            height: 64px;
+            margin: 0 auto 8px;
+            .kitchen_header_left {
+                float: left;
+                display: flex;
+            }
+            .kitchen_button_right {
+                float: right;
+                display: flex;
+            }
+        }
+        .kitchen_title {
+            width: 97%;
+            margin: 0 auto;
+            p {
+                font-size: 28px;
+                margin: 29px 0 10px;
+            }
+        }
+        .kitchen_line {
+            width: 64%;
+            margin: 0 0 0 1%;
+            h2 {
+                border-bottom: solid 3px #000a34;
+                position: relative;
+                margin: 1rem 0;
+            }
+            h2:after {
+                content: "";
+                display: block;
+                line-height: 0;
+                overflow: hidden;
+                position: absolute;
+                left: 0;
+                width: 30%;
+                border-bottom: 3px solid #ea5317;
+            }
+        }
+
+        // 通知ページ
+        .notification_display {
+            width: 800px;
+            margin: 0 auto;
+
+            .notification_div {
+            width: 100%;
+            margin: 7% auto;
+            text-align: center;
+        
+            ul {
+                list-style: none;
+                display: flex;
+                padding: 0;
+                margin: 0;
+                .notification_title_indiv {
+                    border: 2px solid #ffffff;
+                    height: 38px;
+                    background-color: #000a34;
+                    color: #ffffff;
+                    font-size: 24px;
+                    padding-top: 14px;
+                }
+                .width1 {
+                    width: 330px;
+                    border-left: none;
+                }
+                .width2 {
+                    width: 130px;
+                }
+                .width3 {
+                    width: 196px;
+                    border-right: none;
+                }
+        
+            }
+            .notification_detail {
+                margin: 0 auto;
+                text-align: center;
+                display: flex;
+                p {
+                    margin: 0;
+                }
+                .notification_table {
+                    border: 2px solid #ffffff;
+                    border-bottom: 2px solid #ea5317;
+                    height: 40px;
+                    font-size: 28px;
+                    padding-top: 5%;
+                    width: 130px;
+                    border-left: none;
+
+                }
+                .notification_state {
+                    border: 2px solid #ffffff;
+                    border-bottom: 2px solid #ea5317;
+                    height: 40px;
+                    font-size: 28px;
+                    padding-top: 5%;
+                    width: 330px;
+                    // text-align: left;
+                }
+                .notification_time {
+                    border: 2px solid #ffffff;
+                    border-bottom: 2px solid #ea5317;
+                    height: 40px;
+                    padding-top: 5%;
+                    width: 196px;
+                    color: #ea5317;
+                    font-size: 32px;
+                }
+                .notification_delete {
+                    border: 2px solid #ffffff;
+                    border-bottom: 2px solid #ea5317;
+                    // height: 40px;
+                    font-size: 28px;
+                    // padding-top: 5%;
+                    width: 130px;
+                    border-right: none;
+                    .notification_destroy {
+                        width: 130px;
+                        height: auto;
+                        cursor: pointer;                        
+
+                        .destroy_btn {
+                            cursor: pointer;
+                            width: 50px;
+                            height: 50px;
+                            line-height: 50px;
+                            border-radius: 50%;
+                            text-align: center;
+                            overflow: hidden;
+                            font-weight: bold;
+                            box-shadow: 2px 2px 2px rgba(0, 0, 0, 0.28);
+
+                            background-image: linear-gradient(#e77676 0%, #cd5c5c 100%);
+                            margin: 17% auto 0;
+                            a {
+                                color: #ffffff;
+                                text-decoration: none;
+
+                            }
+                        }
+                    }
+                }
+            }
+        }
+        }
+        
+        // テーブルページ
+        .table_display {
+            width: 920px;
+            height: 636px;
+            margin: 30px auto 0;
+            span {
+                display: none;
+            }
+            .table_indiv{
+                border-radius: 3px;
+                box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.4);
+                text-align: center;
+            }
+            .front_table {
+                width: 100%;
+                height: 300px;
+                .front_table_1_4 {
+                    width: 100%;
+                    height: 100px;
+                    background-color: #ffffff;
+                    box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.4);
+                    display: flex;
+                    .table1_4 {
+                        width: 185px;
+                        height: 70px;
+                        margin-top: 22px;
+                        margin-left: 35px;
+                        p {
+                            font-size: 30px;
+                            color: #2f3238;
+                            margin: 0;
+                            margin-top: 20px;
+                        }
+                    }
+                }
+                .front_table_5_7_n_guide {
+                    width: 100%;
+                    height: 198px;
+                    display: flex;
+                   .front_table_5_6 {
+                        width: 230px;
+                        height: 89%;
+                        background-color: #ffffff;
+                        box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.4);
+                        padding-top: 2%;
+                        .table5_6 {
+                            width: 156px;
+                            height: 66px;
+                            margin: 0 auto 10%;
+                            p {
+                                font-size: 30px;
+                                color: #2f3238;
+                                margin: 0;
+                                padding-top: 18px;
+                            }
+                        }
+                   }
+                   .front_table_7_n_guide {
+                        width: 690px;
+                        height: 100%;
+                       .front_table_7 {
+                            width: 100%;
+                            height: 44px;
+                            background-color: #ffffff;
+                            box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.4);
+                            padding-top: 18px;
+                            .table7 {
+                                width: 500px;
+                                height: 30px;
+                                margin: 0 auto;
+                                p {
+                                    font-size: 28px;
+                                    color: #2f3238;
+                                    margin: 0;
+                                }
+                            }    
+                       }
+                       .front_table_n {
+                           width: 100%;
+                           height: 27px;
+                       }
+                       .front_table_guide {
+                           width: 100%;
+                           height: 105px;
+                           .guide {
+                               width: 660px;
+                               height: 100%;
+                               float: right;
+                                box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.4);
+                                background-color: #ffffff;
+                                text-align: center;
+
+                                display: flex;
+                                .guide_indiv {
+                                    width: 175px;
+                                    height: 60px;
+                                    margin-top: 24px;
+                                    margin-left: 35px;
+                                    border-radius: 3px;
+                                    box-shadow: 3px 3px 3px rgba(0, 0, 0, 0.4);
+                                    p {
+                                        font-size: 19px;
+                                        color: #2f3238;
+                                        margin: 0;
+                                        margin-top: 20px;
+                                    }
+                                }
+                           }
+                       }
+                   }
+                }
+            }
+            .back_table {
+                width: 100%;
+                height: 300px;
+                // border: 1px solid #000000;
+                margin-top: 20px;
+                display: flex;
+                .back_table_8_10 {
+                    width: 230px;
+                    height: 100%;
+                    background-color: #ffffff;
+                    box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.4);
+                    .table8_10{
+                        width: 156px;
+                        height: 66px;
+                        margin: 11% auto 0;
+                        p {
+                            font-size: 30px;
+                            color: #2f3238;
+                            margin: 0;
+                            padding-top: 18px;
+                        }
+                    }
+                }
+                .back_table_else {
+                    width: 690px;
+                    height: 100%;
+                    .back_table_11_16 {
+                        width: 660px;
+                        height: 100%;
+                        background-color: #ffffff;
+                        float: right;
+                        box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.4);
+                        .back_table_11_13 {
+                            width: 660px;
+                            height: 50%;
+                            display: flex;
+                            .table11_13 {
+                                width: 96px;
+                                height: 96px;
+                                border-radius: 50%;
+                                margin: 5% auto 0;
+                                p {
+                                    font-size: 30px;
+                                    color: #2f3238;
+                                    margin: 0;
+                                    padding-top: 33px;
+                                }
+                            }
+                            .invisible_table11_13{
+                                width: 96px;
+                                height: 96px;
+                                border-radius: 50%;
+                                margin: 5% auto 0;
+                                background-color: #ffffff;
+                                box-shadow: none;
+                            }
+                        }
+                        .back_table_14_16 {
+                            width: 660px;
+                            height: 50%;
+                            display: flex;
+                            .table14_16 {
+                                width: 170px;
+                                height: 83px;
+                                margin-top: 5%;
+                                margin-left: 5.7%;
+                                p {
+                                    font-size: 30px;
+                                    color: #2f3238;
+                                    margin: 0;
+                                    padding-top: 27px;
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+        .gray {
+            background-color: #b7b7b7;
+        }
+        .green {
+            background-color: #93c47d;
+        }
+        .blue2 {
+            background-color: #a4c2f4;
+        }
+        
+        // 調理待一覧ページ
+        .forcook_div {
+            width: 928px;
+            height: 520px;
+            margin: 3% auto 0;
+            overflow: scroll;
+            display: flex;
+            flex-direction: row-reverse;
+            // float left をdisplay flexに変える
+            // flex-wrap: wrap;
+            .forcook_table {
+                width: 464px;
+                // ↓横並びにする場合は以下のpaddingを挿入する
+                padding: 0 6px;
+                // float: left;
+                .forcook_table2 {
+                    width: 440px;
+                    margin: 2% auto;
+                    background-color: #ffffff;
+                    box-shadow: 1px 1px 1px rgba(0, 0, 0, 0.4);
+                    padding-top: 5%;
+                    padding-bottom: 12%;
+                    .forcook_table_indiv {
+                        width: 402px;
+                        margin: 0 auto;
+                        .table_info {
+                            width: 402px;
+                            height: 60px;
+                            text-align: left;
+                            font-size: 23px;
+                            .number_n_time {
+                                width: 300px;
+                                height: 40px;
+                                margin-top: 4px;
+                                margin-left: 4px;
+                                border-bottom: 1px solid #000000;
+                                p {
+                                    margin: 0;
+                                    display: inline-block;
+                                    margin-top: 8px;
+                                }
+                                p.table_n {
+                                    color: #ea5317;
+                                    font-size: 25px;
+                                }
+                            }
+                        }
+                        .forcook_menu {
+                            width: 402px;
+                            // height: 180px;
+                            .forcook_menu_title {
+                                width: 100%;
+                                height: 50px;
+                                display: flex;
+                                text-align: center;
+                                background-color: #000a34;
+                                .forcook_menu_title_name {
+                                    width: 145px;
+                                    height: 100%;
+                                    border: 1px solid #ffffff;
+                                }
+                                .forcook_menu_title_number {
+                                    width: 55px;
+                                    height: 100%;
+                                    border: 1px solid #ffffff;
+                                }
+                                .forcook_menu_title_state {
+                                    width: 200px;
+                                    height: 100%;
+                                    border: 1px solid #ffffff;
+                                }
+                                p {
+                                    margin: 0;
+                                    color: #ffffff;
+                                    font-size: 17px;
+                                    margin-top: 15px;
+                                }
+                            }
+                            .forcook_menu_indiv {
+                                width: 100%;
+                                height: 50px;
+                                display: flex;
+                                text-align: center;
+                                p {
+                                    margin: 0;
+                                    font-size: 19px;
+                                    margin-top: 23px;
+                                }
+                                .forcook_menu_indiv_name {
+                                    width: 145px;
+                                    height: 100%;
+                                    border: 1px solid #ffffff;
+                                    border-bottom: 2px solid #ea5317;
+                                    white-space: nowrap;
+                                    p {
+                                        text-align: left;
+                                    }
+                                    span {
+                                        display: none;
+                                    }
+
+                                }
+                                .forcook_menu_indiv_number {
+                                    width: 55px;
+                                    height: 100%;
+                                    border: 1px solid #ffffff;
+                                    border-bottom: 2px solid #ea5317;
+                                    color: #ea5317;
+                                    p {
+                                        font-size: 24px;
+                                        margin-top: 20px;
+
+                                    }
+                                }
+                                .forcook_menu_indiv_state {
+                                    width: 200px;
+                                    height: 100%;
+                                    border: 1px solid #ffffff;
+                                    border-bottom: 2px solid #ea5317;
+                                    display: flex;
+                                    .cancel,.cooked,.served {
+                                        width: 33%;
+                                        height: 70%;
+                                        border: 3px solid #ffffff;
+                                        margin-top: 8px;
+                                        border-radius: 5px;
+                                        position: relative;
+                                        
+                                        p {
+                                            margin: 0;
+                                            font-size: 17px;
+                                            margin-top: 9px;
+                                        }
+                                        a {
+                                            position: absolute;
+                                            top: 0;
+                                            bottom: 0;
+                                            left: 0;
+                                            right: 0;
+                                            display: inline-block;
+                                            // color: #ffffff;
+                                            text-decoration: none;
+                                            font-size: 17px;
+                                            padding-top: 9px;
+                                        }
+
+                                    }
+                                    .cooked,.served {
+                                        background-color: #b7b7b7;
+                                        p {
+                                            color: #2f3238;
+                                        }
+                                        a {
+                                            color: #2f3238;
+                                        }
+                                    }
+                                    .cancel {
+                                        background-color: #000a34;
+
+                                        a {
+                                            color: #ffffff;
+                                        }
+                                    }
+                                    .cooked span {
+                                        display: none;
+                                    }
+                                    .orange2 {
+                                        background-color: #ea5317;
+                                        a {
+                                            color: #ffffff;
+                                        }
+                                        
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+        
+        // 注文一覧ページ
+        .allorder_div {
+            width: 928px;
+            height: 520px;
+            margin: 3% auto 0;
+            overflow: scroll;
+            // border: 1px solid #000000;
+            .allorder_table {
+                width: 464px;
+                float: left;
+                .allorder_table2 {
+                    width: 440px;
+                    margin: 2% auto;
+                    background-color: #ffffff;
+                    box-shadow: 1px 1px 1px rgba(0, 0, 0, 0.4);
+                    padding-top: 5%;
+                    padding-bottom: 12%;
+                    .allorder_table_indiv {
+                        width: 402px;
+                        margin: 0 auto;
+                        // border: 1px solid #000000;
+                        .table_info {
+                            width: 402px;
+                            height: 60px;
+                            // border: 1px solid #000000;
+                            text-align: left;
+                            font-size: 23px;
+                            .table_number {
+                                width: 300px;
+                                height: 40px;
+                                margin-top: 4px;
+                                margin-left: 4px;
+                                border-bottom: 1px solid #000000;
+                                p {
+                                    margin: 0;
+                                    display: inline-block;
+                                    margin-top: 8px;
+                                }
+                            }
+                        }
+                        .allorder_menu {
+                            width: 402px;
+                            // height: 180px;
+                            .allorder_menu_title {
+                                width: 100%;
+                                height: 45px;
+                                display: flex;
+                                text-align: center;
+                                background-color: #000a34;
+                                .allorder_menu_title_name {
+                                    width: 180px;
+                                    height: 100%;
+                                    border: 1px solid #ffffff;
+                                }
+                                .allorder_menu_title_number {
+                                    width: 100px;
+                                    height: 100%;
+                                    border: 1px solid #ffffff;
+                                }
+                                .allorder_menu_title_state {
+                                    width: 120px;
+                                    height: 100%;
+                                    border: 1px solid #ffffff;
+                                }
+                                p {
+                                    margin: 0;
+                                    color: #ffffff;
+                                    font-size: 17px;
+                                    margin-top: 13px;
+                                }
+                            }
+                        }
+                        .allorder_menu_indiv {
+                            width: 100%;
+                            height: 50px;
+                            display: flex;
+                            text-align: center;
+                            p {
+                                margin: 0;
+                                font-size: 19px;
+                                margin-top: 23px;
+                            }
+                            .allorder_menu_indiv_name {
+                                width: 180px;
+                                height: 100%;
+                                border: 1px solid #ffffff;
+                                border-bottom: 2px solid #ea5317;
+                                white-space: nowrap;
+                                p {
+                                    text-align: left;
+                                }
+
+                            }
+                            .allorder_menu_indiv_number {
+                                width: 100px;
+                                height: 100%;
+                                border: 1px solid #ffffff;
+                                border-bottom: 2px solid #ea5317;
+                                color: #ea5317;
+                                p {
+                                    font-size: 26px;
+                                    margin-top: 20px;
+
+                                }
+                            }
+                            .allorder_menu_indiv_state {
+                                width: 120px;
+                                height: 100%;
+                                border: 1px solid #ffffff;
+                                border-bottom: 2px solid #ea5317;
+                            }
+                        }
+
+                    }
+                }
+            }
+        }
+        
+        // オプションを追加するページ
+        .option_form{
+            width: 700px;
+            height: 500px;
+            margin: 7% auto 0;
+            .form_background {
+                // border: 1px solid #000000;
+                width: 100%;
+                height: 295px;
+                background-color: #ffffff;
+                padding: 5% 0;
+                .option_label_n_text {
+                    width: 80%;
+                    height: 70px;
+                    margin: 0 auto;
+                    display: flex;
+                    .option_label {
+                        // border: 1px solid #000000;
+                        width: 50%;
+                        height: 70%;
+                        margin-top: 3%;
+                        p {
+                            color: #000a34;
+                            font-weight: bold;
+                            font-size: 23px;
+                            margin: 10px 0 0 57px;
+                        }
+                    }
+                    .option_text {
+                        // border: 1px solid #000000;
+                        width: 50%;
+                        height: 70%;
+                        margin-top: 3%;
+                        select {
+                            background-color: #ffffff;
+                            border: 2px solid #ea5317;
+                            border-radius: 5px;
+                            width: 80%;
+                            height: 3rem;
+                            display: block;
+                            font-size: 19px;
+                            color: #49352a;
+                            text-indent: 10px;
+                        }
+                    }
+
+                }
+                .form1 {
+                    margin: 4% auto;
+                }
+            }
+            .form_submit {
+                width: 100%;
+                height: 100px;
+                .form_submit_button {
+                    width: 30%;
+                    height: 100%;
+                    margin: 0 auto;
+                    padding-top: 9%;
+                    input.submit2 {
+                        width: 100%;
+                        height: 62%;
+                        padding: 10px;
+                        display: block;
+                        // margin: 2.5% auto;
+                        font-size: 22px;
+                        color: #ffffff;
+                        // width: 80%;
+                        background-color: #ea5317;
+                        border-radius: 10px;
+                        box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.4);
+                        // height: 50px;
+                    }
+                }
+            }
+        }
+    }
+}

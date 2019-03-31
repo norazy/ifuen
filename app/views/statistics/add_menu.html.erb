@@ -1,0 +1,108 @@
+<div class="statistics_background-color add_menu_color">
+    <div class="statistics_background">
+        <header class="statistics_header clearfix">
+            <div class="statistics_header_left">
+                <div class="statistics_button">
+                    <%= link_to "ログアウト", destroy_user_session_path, method: :delete %>
+                </div>
+                <div class="statistics_button">
+                    <%= link_to "メニューTOP", root_path, method: :get %>
+                </div>
+            </div>
+            <div class="statistics_button_right">
+                <div class="statistics_button">
+                    <a href="/statistics/sales">
+                        <p>売上</p>
+                    </a>
+                </div>
+                <div class="statistics_button">
+                    <a href="/statistics/ranking">
+                        <p>ランキング</p>
+                    </a>
+                </div>
+                <div class="statistics_button blue">
+                    <a href="/statistics/addmenu">
+                        <p>追加</p>
+                    </a>
+                </div>
+
+            </div>
+            
+        </header>
+        <div class="statistics_title">
+            <p>
+                メニュー追加
+            </p>
+        </div>
+        <div class="statistics_line">
+            <h2></h2>
+        </div>
+        <div class="add_menu_form">
+            <%= form_for(@menu, url: '/statistics/addmenu') do |f| %>
+                <div class="form_background">
+                    <div class="add_menu_label_n_text">
+                        <div class="add_menu_label">
+                            <p><%= f.label :カテゴリー：%></p>
+                        </div>
+                        <div class="add_menu_text">
+                            <%= f.select :category, [["ボリュームセット", "11"], ["ランチセット", "12"], ["ユニークセット", "13"], ["一品料理", "21"], ["おつまみ", "22"], ["点心", "23"], ["麺類", "31"], ["ご飯類", "41"], ["デザート", "51"], ["スープ", "52"], ["アルコール", "61"], ["ソフトドリンク", "62"]]%> 
+                        </div>
+                    </div>
+                    <div class="add_menu_label_n_text">
+                        <div class="add_menu_label">
+                            <p><%= f.label :名前：%></p>
+                        </div>
+                        <div class="add_menu_text">
+                            <%= f.text_field :name %> 
+                        </div>
+                    </div>
+                    <div class="add_menu_label_n_text">
+                        <div class="add_menu_label">
+                            <p><%= f.label :価格：%></p>
+                        </div>
+                        <div class="add_menu_text">
+                            <%= f.number_field :price %> 
+                        </div>
+                    </div>
+                    <div class="add_menu_label_n_text">
+                        <div class="add_menu_label">
+                            <p><%= f.label :画像：%></p>
+                        </div>
+                        <div class="add_menu_text">
+                            <%= f.text_field :image %> 
+                        </div>
+                    </div>
+                    <div class="add_menu_label_n_text">
+                        <div class="add_menu_label">
+                            <p><%= f.label :オプション1：%></p>
+                        </div>
+                        <div class="add_menu_text">
+                            <%= f.select :option1, [["麺変更", "1"], ["ご飯大盛", "2"], ["麺大盛", "3"], ["丼大盛", "4"], ["そば大盛", "5"], ["炒飯大盛", "6"], ["小辛", "7"], ["中辛", "8"], ["大辛", "9"]], :include_blank => true %> 
+                        </div>
+                    </div>
+                    <div class="add_menu_label_n_text">
+                        <div class="add_menu_label">
+                            <p><%= f.label :オプション2：%></p>
+                        </div>
+                        <div class="add_menu_text">
+                            <%= f.select :option2, [["麺変更", "1"], ["ご飯大盛", "2"], ["麺大盛", "3"], ["丼大盛", "4"], ["そば大盛", "5"], ["炒飯大盛", "6"], ["小辛", "7"], ["中辛", "8"], ["大辛", "9"]], :include_blank => true %> 
+                        </div>
+                    </div>
+                    <div class="add_menu_label_n_text">
+                        <div class="add_menu_label">
+                            <p><%= f.label :オプション1：%></p>
+                        </div>
+                        <div class="add_menu_text">
+                            <%= f.select :option3, [["麺変更", "1"], ["ご飯大盛", "2"], ["麺大盛", "3"], ["丼大盛", "4"], ["そば大盛", "5"], ["炒飯大盛", "6"], ["小辛", "7"], ["中辛", "8"], ["大辛", "9"]], :include_blank => true %> 
+                        </div>
+                    </div>
+                </div>
+                <div class="add_menu_submit">
+                    <div class="add_menu_submit_button">
+                        <%= f.submit '追加' , class: 'add_submit' %>
+                    </div>
+                </div>
+            <% end %>
+        </div>
+    </div>
+</div>

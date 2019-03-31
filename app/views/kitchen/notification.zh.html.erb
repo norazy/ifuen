@@ -1,0 +1,86 @@
+<div class="kitchen_background-color">
+    <div class="kitchen_background">
+        <header class="kitchen_header clearfix">
+            <div class="kitchen_header_left">
+                <div class="kitchen_button">
+                    <%= link_to "退出登录", destroy_user_session_path, method: :delete %>
+                </div>
+            </div>
+            <div class="kitchen_button_right">
+                <div class="kitchen_button">
+                    <a href="/zh/kitchen/table">
+                        <p>座位</p>
+                    </a>
+                </div>
+                <div class="kitchen_button">
+                    <a href="/zh/kitchen/ordered">
+                        <p>等菜中</p>
+                    </a>
+                </div>
+                <div class="kitchen_button">
+                    <a href="/zh/kitchen/option_change">
+                        <p>改菜单</p>
+                    </a>
+                </div>
+                <div class="kitchen_button blue">
+                    <a href="/zh/kitchen/notification">
+                        <p>呼叫详细</p>
+                    </a>
+                </div>
+            </div>
+        </header>
+        <div class="kitchen_title">
+            <p>
+                呼叫详细
+            </p>
+        </div>
+        <div class="kitchen_line">
+            <h2></h2>
+        </div>
+        <div class="notification_display">
+            <div class="notification_div">
+            <div class="notification_title">
+                <ul>
+                    <li class="notification_title_indiv width2">座位</li>
+                    <li class="notification_title_indiv width1">呼叫内容</li>
+                    <li class="notification_title_indiv width3">时间</li>
+                    <li class="notification_title_indiv width2">删除</li>
+                </ul>
+            </div>
+            <% @notification.zip(@time).each do |notification, time| %>
+            <!--<2% @notification.each do |notification| %>-->
+                <div class="notification_detail">
+                    <div class="notification_table">
+                        <p><%= notification[:table_id] %></p> 
+                    </div>
+                    
+                    <% if notification[:state] == 1 then %>
+                        <div class="notification_state">
+                            <p>呼叫</p>
+                        </div>
+                    <% elsif notification[:state] == 2 %>
+                        <div class="notification_state">
+                            <p>结账</p>
+                        </div>
+                    <% else %>
+                        <div class="notification_state">
+                            <p>新订单</p>
+                        </div>
+                    <% end %>
+                    <div class="notification_time">
+                        <p><%= time %></p>
+                    </div>
+                    <div class="notification_delete">
+                        <div class="notification_destroy">
+                            <div class="destroy_btn">
+                                <%= link_to '×', notification_destroy_path(notification), method: :delete %>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            <% end %>
+        
+        </div>
+        </div>
+    </div>
+</div>

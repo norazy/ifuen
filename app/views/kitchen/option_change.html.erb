@@ -1,0 +1,77 @@
+<div class="kitchen_background-color">
+    <div class="kitchen_background">
+        <header class="kitchen_header clearfix">
+            <div class="kitchen_header_left">
+                <div class="kitchen_button blue">
+                    <%= link_to "ログアウト", destroy_user_session_path, method: :delete %>
+                </div>
+            </div>
+            <div class="kitchen_button_right">
+                <div class="kitchen_button">
+                    <a href="/kitchen/table">
+                        <p>テーブル</p>
+                    </a>
+                </div>
+                <div class="kitchen_button">
+                    <a href="/kitchen/ordered">
+                        <p>調理待</p>
+                    </a>
+                </div>
+                <div class="kitchen_button blue">
+                    <a href="/kitchen/option_change">
+                        <p>注文変更</p>
+                    </a>
+                </div>
+                <div class="kitchen_button">
+                    <a href="/kitchen/notification">
+                        <p>通知一覧</p>
+                    </a>
+                </div>
+            </div>
+        </header>
+        <div class="kitchen_title">
+            <p>
+                オプション変更
+            </p>
+        </div>
+        <div class="kitchen_line">
+            <h2></h2>
+        </div>
+        <div class="option_form">
+            <%= form_for(@orderlist, url: '/kitchen/option_change') do |f| %>
+                <div class="form_background">
+                    <div class="option_label_n_text">
+                        <div class="option_label">
+                            <p><%= f.label :テーブル：%></p>
+                        </div>
+                        <div class="option_text">
+                            <%= f.select :user_id, [["16", "16"], ["15", "15"], ["14", "14"], ["13", "13"], ["12", "12"], ["11", "11"], ["10", "10"], ["9", "9"], ["8", "8"], ["7", "7"], ["6", "6"], ["5", "5"], ["4", "4"], ["3", "3"], ["2", "2"], ["1", "1"]]%> 
+                        </div>
+                    </div>
+                    <div class="option_label_n_text form1">
+                        <div class="option_label ">
+                            <p><%= f.label :オプション：%></p>
+                        </div>
+                        <div class="option_text">
+                            <%= f.select :option_id, [["麺変更：麻", "10"], ["麺変更：黒", "11"], ["麺変更：海", "12"], ["麺変更：湯", "13"], ["麺変更：もや", "14"], ["麺変更：広", "15"], ["麺変更：五", "16"], ["麺変更：かた", "17"], ["麺変更：上海", "18"], ["麺変更：もつ", "19"], ["麺変更：あん", "20"], ["麺変更：雲", "21"], ["麺変更：角", "22"], ["麺変更：味", "23"], ["麺変更：叉", "24"], ["麺変更：高", "25"],  ["麺変更：白", "26"], ["麺変更：馬", "27"], ["麺変更：陳", "28"], ["麺変更：麻辛", "29"], ["麺変更：酸辛", "30"], ["麺変更：ジャー", "31"], ["麺変更：フカ", "32"], ["飯大盛", "2"], ["麺大盛", "3"], ["丼大盛", "4"], ["そば大盛", "5"], ["炒飯大盛", "6"], ["小辛", "7"], ["中辛", "8"], ["大辛", "9"]]%> 
+                        </div>
+                    </div>
+                    <div class="option_label_n_text">
+                        <div class="option_label">
+                            <p><%= f.label :個数：%></p>
+                        </div>
+                        <div class="option_text">
+                            <%= f.select :number, [["1", "1"], ["2", "2"], ["3", "3"], ["4", "4"]]%> 
+                        </div>
+                    </div>
+                </div>
+                <div class="form_submit">
+                    <div class="form_submit_button">
+                        <%= f.submit '追加' , class: 'submit2' %>
+                    </div>
+                </div>
+            <% end %>
+        </div>
+        
+    </div>
+</div>

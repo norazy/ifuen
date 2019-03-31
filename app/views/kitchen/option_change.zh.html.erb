@@ -1,0 +1,77 @@
+<div class="kitchen_background-color">
+    <div class="kitchen_background">
+        <header class="kitchen_header clearfix">
+            <div class="kitchen_header_left">
+                <div class="kitchen_button">
+                    <%= link_to "退出登录", destroy_user_session_path, method: :delete %>
+                </div>
+            </div>
+            <div class="kitchen_button_right">
+                <div class="kitchen_button">
+                    <a href="/zh/kitchen/table">
+                        <p>座位</p>
+                    </a>
+                </div>
+                <div class="kitchen_button">
+                    <a href="/zh/kitchen/ordered">
+                        <p>等菜中</p>
+                    </a>
+                </div>
+                <div class="kitchen_button blue">
+                    <a href="/zh/kitchen/option_change">
+                        <p>改菜单</p>
+                    </a>
+                </div>
+                <div class="kitchen_button">
+                    <a href="/zh/kitchen/notification">
+                        <p>呼叫详细</p>
+                    </a>
+                </div>
+            </div>
+        </header>
+        <div class="kitchen_title">
+            <p>
+                更改菜单
+            </p>
+        </div>
+        <div class="kitchen_line">
+            <h2></h2>
+        </div>
+        <div class="option_form">
+            <%= form_for(@orderlist, url: '/kitchen/option_change') do |f| %>
+                <div class="form_background">
+                    <div class="option_label_n_text">
+                        <div class="option_label">
+                            <p><%= f.label :座位：%></p>
+                        </div>
+                        <div class="option_text">
+                            <%= f.select :user_id, [["16", "16"], ["15", "15"], ["14", "14"], ["13", "13"], ["12", "12"], ["11", "11"], ["10", "10"], ["9", "9"], ["8", "8"], ["7", "7"], ["6", "6"], ["5", "5"], ["4", "4"], ["3", "3"], ["2", "2"], ["1", "1"]]%> 
+                        </div>
+                    </div>
+                    <div class="option_label_n_text form1">
+                        <div class="option_label ">
+                            <p><%= f.label :选项：%></p>
+                        </div>
+                        <div class="option_text">
+                            <%= f.select :option_id, [["换面：麻", "10"], ["换面：黑", "11"], ["换面：海", "12"], ["换面：汤", "13"], ["换面：豆芽", "14"], ["换面：广", "15"], ["换面：五", "16"], ["换面：かた", "17"], ["换面：炒面", "18"], ["换面：肥肠", "19"], ["换面：あん", "20"], ["换面：云", "21"], ["换面：角", "22"], ["换面：味", "23"], ["换面：叉", "24"], ["换面：高", "25"],  ["换面：白", "26"], ["换面：马", "27"], ["换面：陈麻", "28"], ["换面：麻辣", "29"], ["换面：酸辣", "30"], ["换面：炸酱", "31"], ["换面：鱼翅", "32"], ["炒饭（大）", "2"], ["面（大）", "3"], ["盖饭（大）", "4"], ["炒面（大）", "5"], ["炒饭（大）", "6"], ["小辣", "7"], ["中辣", "8"], ["大辣", "9"]]%> 
+                        </div>
+                    </div>
+                    <div class="option_label_n_text">
+                        <div class="option_label">
+                            <p><%= f.label :个数：%></p>
+                        </div>
+                        <div class="option_text">
+                            <%= f.select :number, [["1", "1"], ["2", "2"], ["3", "3"], ["4", "4"]]%> 
+                        </div>
+                    </div>
+                </div>
+                <div class="form_submit">
+                    <div class="form_submit_button">
+                        <%= f.submit '确认' , class: 'submit2', style: "font-family: 'ZCOOL XiaoWei', serif;" %>
+                    </div>
+                </div>
+            <% end %>
+        </div>
+        
+    </div>
+</div>

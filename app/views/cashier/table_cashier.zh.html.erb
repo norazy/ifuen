@@ -1,0 +1,164 @@
+<div class="cashier_background-color">
+    <div class="cashier_background">
+        <header class="cashier_header clearfix">
+        <div class="cashier_header_left">
+            <div class="cashier_button">
+                <%= link_to "退出登录", destroy_user_session_path, method: :delete %>
+            </div>
+        </div>
+        <div class="cashier_button_right">
+            <div class="cashier_button">
+                <a href="/zh/firstpage">
+                    <p>回首页</p>
+                </a>
+            </div>
+            <div class="cashier_button">
+                <a href="/zh/kitchen/table">
+                    <p>去厨房</p>
+                </a>
+            </div>
+        </div>
+    </header>
+        <div class="cashier_table_display">
+            <div class="cashier_front_table">
+                <div class="cashier_front_table_1_4">
+                    <div class="cashier_table_indiv table1_4">
+                        <a href="/zh/cashier/4">
+                            <p>4</p>
+                            <span><%= @color[3] %></span>
+                        </a>
+                    </div>
+                    <div class="cashier_table_indiv table1_4">
+                        <a href="/zh/cashier/3">
+                            <p>3</p>
+                            <span><%= @color[2] %></span>
+                        </a>
+                    </div>
+                    <div class="cashier_table_indiv table1_4">
+                        <a href="/zh/cashier/2">
+                            <p>2</p>
+                            <span><%= @color[1] %></span>
+                        </a>
+                    </div>
+                    <div class="cashier_table_indiv table1_4">
+                        <a href="/zh/cashier/1">
+                            <p>1</p>
+                            <span><%= @color[0] %></span>
+                        </a>
+                    </div>
+                </div>
+                <div class="cashier_front_table_5_7_n_guide">
+                    <div class="cashier_front_table_5_6">
+                        <div class="cashier_table_indiv table5_6">
+                            <a href="/zh/cashier/5">
+                                <p>5</p>                            
+                                <span><%= @color[4] %></span>
+                            </a>
+                        </div>
+                        <div class="cashier_table_indiv table5_6">
+                            <a href="/zh/cashier/6">
+                                <p>6</p>
+                                <span><%= @color[5] %></span>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="cashier_front_table_7_n_guide">
+                        <div class="cashier_front_table_7">
+                            <div class="cashier_table_indiv table7">
+                                <a href="/zh/cashier/7">
+                                    <p>7</p>
+                                    <span><%= @color[6] %></span>
+                                </a>
+                            </div>
+                        </div>
+                        <div class="cashier_front_table_n"></div>
+                        <div class="cashier_front_table_guide clearfix">
+                            <div class="cashier_guide">
+                                <div class="cashier_guide_indiv gray">
+                                    <p>空闲</p>
+                                </div>                                
+                                <div class="cashier_guide_indiv blue2">
+                                    <p>不可结账</p>
+                                </div>                                
+                                <div class="cashier_guide_indiv orange2">
+                                    <p>可结账</p>
+                                </div>                                
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="cashier_back_table">
+                <div class="cashier_back_table_8_10">
+                    <div class="cashier_table_indiv table8_10">
+                        <a href="/zh/cashier/8">
+                            <p>8</p>
+                            <span><%= @color[7] %></span>
+                        </a>
+                    </div>
+                    <div class="cashier_table_indiv table8_10">
+                        <a href="/zh/cashier/9">
+                            <p>9</p>
+                            <span><%= @color[8] %></span>
+                        </a>
+                    </div>
+                    <div class="cashier_table_indiv table8_10">
+                        <a href="/zh/cashier/10">
+                            <p>10</p>
+                            <span><%= @color[9] %></span>
+                        </a>
+                    </div>
+                </div>
+                <div class="cashier_back_table_else clearfix">
+                    <div class="cashier_back_table_11_16">
+                        <div class="cashier_back_table_11_13">
+                            <div class="cashier_table_indiv table11_13">
+                                <a href="/zh/cashier/11">
+                                    <p>11</p>
+                                    <span><%= @color[10] %></span>
+                                </a>
+                            </div>
+                            <div class="cashier_invisible_table11_13">
+                                <!--<p></p>-->
+                            </div>
+                            <div class="cashier_table_indiv table11_13">
+                                <a href="/zh/cashier/12">
+                                    <p>12</p>
+                                    <span><%= @color[11] %></span>
+                                </a>
+                            </div>
+                            <div class="cashier_table_indiv table11_13">
+                                <a href="/zh/cashier/13">
+                                    <p>13</p>
+                                    <span><%= @color[12] %></span>
+                                </a>
+                            </div>
+                        </div>
+                        <div class="cashier_back_table_14_16">
+                            <div class="cashier_table_indiv table14_16">
+                                <a href="/zh/cashier/14">
+                                    <p>14</p>
+                                    <span><%= @color[13] %></span>
+                                </a>
+                            </div>
+                            <div class="cashier_table_indiv table14_16">
+                                <a href="/zh/cashier/15">
+                                    <p>15</p>
+                                    <span><%= @color[14] %></span>
+                                </a>
+                            </div>
+                            <div class="cashier_table_indiv table14_16">
+                                <a href="/zh/cashier/16">
+                                    <p>16</p>
+                                    <span><%= @color[15] %></span>
+                                </a>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    
+    </div>
+</div>
