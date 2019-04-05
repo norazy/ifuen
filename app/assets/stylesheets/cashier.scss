@@ -499,7 +499,7 @@
                         height: 52px;
                         margin: 11% auto 0;
                         border-radius: 5px;
-                        background-color:  #ea5317;
+                        background-color: #ea5317;
                         color: #ffffff;
                         text-align: center;
                         box-shadow: 3px 3px 3px rgba(0, 0, 0, 0.4);
@@ -518,14 +518,13 @@
                         #cashier_method_1,#cashier_method_2,#cashier_method_3,#cashier_method_4{
                             display: none;
                         }
-
-                        // p {
-                        //     margin: 0;
-                        //     font-size: 22px;
-                        //     padding-top: 10%;
-                        // }
+                    }
+                    // 現金のボタンを最初から選択されているようにする
+                    .cash {
+                        background-color: #000a34;
                     }
                 }
+                
             }
             .check_finish {
                 width: 100%;
