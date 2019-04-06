@@ -555,11 +555,12 @@
                                     margin-top: 23px;
                                 }
                                 .forcook_menu_indiv_name {
-                                    width: 145px;
+                                    width: 144px;
                                     height: 100%;
                                     border: 1px solid #ffffff;
                                     border-bottom: 2px solid #ea5317;
                                     white-space: nowrap;
+                                    overflow: hidden;
                                     p {
                                         text-align: left;
                                     }
