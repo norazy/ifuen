@@ -30,17 +30,18 @@ $(document).on('turbolinks:load', function() {
 });
 
 
-// 調理待の状態を示す部分
-$(document).on('turbolinks:load', function() {
-    $(".cooked").each(function(i){
+// // 調理待の状態を示す部分
+//190407 このボタンあまり使わないかもと思って消した
+// $(document).on('turbolinks:load', function() {
+//     $(".cooked").each(function(i){
     
-    var color = $(".cooked span").eq(i).html();
+//     var color = $(".cooked span").eq(i).html();
 
-      if (color == 2) {
-          $(".cooked").eq(i).addClass("orange2");
-      }        
-    });
-});
+//       if (color == 2) {
+//           $(".cooked").eq(i).addClass("orange2");
+//       }        
+//     });
+// });
 
 // 調理待のページ
 // 同じ料理があったら、その料理の背景をハイライトする機能

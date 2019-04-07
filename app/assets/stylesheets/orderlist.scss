@@ -191,7 +191,8 @@
                     width: 751px;
                     .top_page_bottom_menu {
                         border-radius: 3px;
-                        width: 211px;
+                        // width: 211px;
+                        width: 204px;
                         height: 72px;
                         border: 1px solid #000000;
                         margin-right: 36px;
@@ -217,7 +218,8 @@
                         }
                     }
                     .top_page_bottom_menu:nth-child(n+4) {
-                        width: 211px;
+                        // width: 211px;
+                        width: 204px;
                         height: 72px;
                         border: 1px solid #000000;
                         margin-right: 36px;
@@ -776,7 +778,7 @@
                     padding-top: 28px;
                     cursor: pointer;                        
                 }
-                #orderlist_option_id_1,#orderlist_option_id_2,#orderlist_option_id_3,#orderlist_option_id_4,#orderlist_option_id_5,#orderlist_option_id_6,#orderlist_option_id_7,#orderlist_option_id_8,#orderlist_option_id_9,#orderlist_option_id_33,#orderlist_option_id_34,#orderlist_option_id_35 {
+                #orderlist_option_id_1,#orderlist_option_id_2,#orderlist_option_id_3,#orderlist_option_id_4,#orderlist_option_id_5,#orderlist_option_id_6,#orderlist_option_id_7,#orderlist_option_id_8,#orderlist_option_id_9,#orderlist_option_id_33,#orderlist_option_id_34,#orderlist_option_id_35,#orderlist_option_id_44,#orderlist_option_id_45,#orderlist_option_id_46,#orderlist_option_id_47,#orderlist_option_id_48,#orderlist_option_id_49 {
                     display: none;
                 }
             }

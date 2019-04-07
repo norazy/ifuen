@@ -523,7 +523,7 @@
                                 text-align: center;
                                 background-color: #000a34;
                                 .forcook_menu_title_name {
-                                    width: 145px;
+                                    width: 185px;
                                     height: 100%;
                                     border: 1px solid #ffffff;
                                 }
@@ -533,7 +533,7 @@
                                     border: 1px solid #ffffff;
                                 }
                                 .forcook_menu_title_state {
-                                    width: 200px;
+                                    width: 160px;
                                     height: 100%;
                                     border: 1px solid #ffffff;
                                 }
@@ -555,7 +555,7 @@
                                     margin-top: 23px;
                                 }
                                 .forcook_menu_indiv_name {
-                                    width: 144px;
+                                    width: 184px;
                                     height: 100%;
                                     border: 1px solid #ffffff;
                                     border-bottom: 2px solid #ea5317;
@@ -582,13 +582,13 @@
                                     }
                                 }
                                 .forcook_menu_indiv_state {
-                                    width: 200px;
+                                    width: 160px;
                                     height: 100%;
                                     border: 1px solid #ffffff;
                                     border-bottom: 2px solid #ea5317;
                                     display: flex;
                                     .cancel,.cooked,.served {
-                                        width: 33%;
+                                        // width: 33%;
                                         height: 70%;
                                         border: 3px solid #ffffff;
                                         margin-top: 8px;
@@ -614,7 +614,17 @@
                                         }
 
                                     }
-                                    .cooked,.served {
+                                    // .cooked,.served {
+                                    //     background-color: #b7b7b7;
+                                    //     p {
+                                    //         color: #2f3238;
+                                    //     }
+                                    //     a {
+                                    //         color: #2f3238;
+                                    //     }
+                                    // }
+                                    .served {
+                                        width: 65%;
                                         background-color: #b7b7b7;
                                         p {
                                             color: #2f3238;
@@ -625,6 +635,7 @@
                                     }
                                     .cancel {
                                         background-color: #000a34;
+                                        width: 27%;
 
                                         a {
                                             color: #ffffff;
