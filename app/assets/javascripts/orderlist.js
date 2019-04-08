@@ -95,7 +95,7 @@ $(document).on('turbolinks:load', function() {
     // 文字列を数値にする↓
     letter = parseInt(letter);
 
-    if (letter < 4 ) {
+    if (letter < 10 ) {
         var letter2 = letter + 1
         $(".preorder_menu_number2 p").eq(number).html(letter2);
         $(".orderlist_number_value").eq(number).val(letter2);
