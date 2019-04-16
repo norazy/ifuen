@@ -3,7 +3,10 @@
         <header class="kitchen_header clearfix">
             <div class="kitchen_header_left">
                 <div class="kitchen_button">
-                    <%= link_to "ログアウト", destroy_user_session_path, method: :delete %>
+                    <a href="/cashier/table">
+                        <p>会計へ</p>
+                    </a>
+                    <!--<2%= link_to "ログアウト", destroy_user_session_path, method: :delete %>-->
                 </div>
                 <div class="kitchen_nav">
                     <button class="kitchen_nav_button" id="kitchen_nav_button">
@@ -11,6 +14,7 @@
                     </button>
                     <div class="kitchen_nav_div" id="kitchen_nav_button2">
                         <ul class="kitchen_nav_ul">
+                            <li class="kitchen_nav_li"><%= link_to "ログアウト", destroy_user_session_path, method: :delete %></li>
                             <li class="kitchen_nav_li"><%= link_to "メニューTOP", firstpage_path, method: :get %></li>
                             <li class="kitchen_nav_li"><a href="/kitchen/served">注文一覧</a></li>
                             <li class="kitchen_nav_li">
