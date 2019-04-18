@@ -89,6 +89,7 @@ class OrderlistController < ApplicationController
             number = @menu.option1
             @option1 = Optiontable.find(number)
             @option_name1 = @option1.name_opt
+            @option_price1 = @option1.price_opt
             @option_name1_zh = @option1.name_opt_zh
             @option_name1_en = @option1.name_opt_en
         end
@@ -96,6 +97,8 @@ class OrderlistController < ApplicationController
             number = @menu.option2
             @option2 = Optiontable.find(number)
             @option_name2 = @option2.name_opt
+            @option_price2 = @option2.price_opt
+
             @option_name2_zh = @option2.name_opt_zh
             @option_name2_en = @option2.name_opt_en
         end
@@ -103,6 +106,8 @@ class OrderlistController < ApplicationController
             number = @menu.option3
             @option3 = Optiontable.find(number)
             @option_name3 = @option3.name_opt
+            @option_price3 = @option3.price_opt
+
             @option_name3_zh = @option3.name_opt_zh
             @option_name3_en = @option3.name_opt_en
         end

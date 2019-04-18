@@ -49,21 +49,30 @@
         <div class="modal_menu_option_box">
             <!--もしオプションの中に番号があったら表示-->
             <% if @option1 %>
-                <div class="modal_menu_option">
-                    <%= f.radio_button(:option_id, @option1.id) %>
-                    <%= f.label(:option_id, @option_name1, value: @option1.id)  %>
-                </div>
+                <!--麺変更の場合０円になってしまうので、オプションが麺０円の時のみ違う条件にした↓-->
+                <% if @option1.id == 1 %>
+                    <div class="modal_menu_option">
+                        <%= f.radio_button(:option_id, @option1.id) %>
+                        <%= f.label(:option_id, "#{@option_name1}", value: @option1.id)  %>
+                    </div>
+                <% else %>
+                    <div class="modal_menu_option">
+                        <%= f.radio_button(:option_id, @option1.id) %>
+                        <%= f.label(:option_id, "#{@option_name1}+#{@option_price1}", value: @option1.id)  %>
+                    </div>
+                <% end %>
             <% end %>
             <% if @option2 %>
                 <div class="modal_menu_option">
                     <%= f.radio_button(:option_id, @option2.id) %>
-                    <%= f.label(:option_id, @option_name2, value: @option2.id)  %>
+                    <%= f.label(:option_id, "#{@option_name2}+#{@option_price2}", value: @option2.id)  %>
                 </div>
             <% end %>
             <% if @option3 %>
                 <div class="modal_menu_option">
                     <%= f.radio_button(:option_id, @option3.id) %>
-                    <%= f.label(:option_id, @option_name3, value: @option3.id)  %>
+                    <%= f.label(:option_id, "#{@option_name3}+#{@option_price3}", value: @option3.id)  %>
+                    <%= @option_price3 %>
                 </div>
             <% end %>
         </div>
