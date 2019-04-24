@@ -119,21 +119,35 @@ class OrderlistController < ApplicationController
     end
     # モーダル「カートへ」のcreate
     def order_create
-        # binding.pry
         # メニュー価格の呼び出し
         menu = Menu.find(orderlist_params[:menu_id])
         menu_price = menu.price
-
+        
+        # もしオプションがあったら
         if orderlist_params[:option_id] then
-        #     # オプション価格の呼び出し
-            option = Optiontable.find(orderlist_params[:option_id])
-            option_price = option.price_opt
-
-            Orderlist.create(user_id: current_user.id, menu_id: orderlist_params[:menu_id], price: menu_price, number: orderlist_params[:number], state: "0")
-        #     # ↓ここでオプションにメニューidを持たせたないのは
-        #     # 未確定のところで、メニューidを持ってるかどうかで条件分岐させているから
-        #     # （オプションidで条件分岐させてもよかったんだけど。。）
-            Orderlist.create(user_id: current_user.id, option_id: orderlist_params[:option_id], price: option_price, number: orderlist_params[:number], state: "0")
+            # もしオプションがギョウザとかの一個増しだったら、オプションの個数は一個
+            if orderlist_params[:option_id] == "44" || orderlist_params[:option_id] == "45" || orderlist_params[:option_id] == "46" 
+                # オプション価格の呼び出し
+                option = Optiontable.find(orderlist_params[:option_id])
+                option_price = option.price_opt
+    
+                Orderlist.create(user_id: current_user.id, menu_id: orderlist_params[:menu_id], price: menu_price, number: orderlist_params[:number], state: "0")
+                # ↓ここでオプションにメニューidを持たせたないのは
+                # 未確定のところで、メニューidを持ってるかどうかで条件分岐させているから
+                # （オプションidで条件分岐させてもよかったんだけど。。）
+                Orderlist.create(user_id: current_user.id, option_id: orderlist_params[:option_id], price: option_price, number: "1", state: "0")
+            else
+                option = Optiontable.find(orderlist_params[:option_id])
+                option_price = option.price_opt
+    
+                Orderlist.create(user_id: current_user.id, menu_id: orderlist_params[:menu_id], price: menu_price, number: orderlist_params[:number], state: "0")
+                # ↓ここでオプションにメニューidを持たせたないのは
+                # 未確定のところで、メニューidを持ってるかどうかで条件分岐させているから
+                # （オプションidで条件分岐させてもよかったんだけど。。）
+                Orderlist.create(user_id: current_user.id, option_id: orderlist_params[:option_id], price: option_price, number: orderlist_params[:number], state: "0")
+                
+            end
+        # もしオプションがなかったら
         else
             Orderlist.create(user_id: current_user.id, menu_id: orderlist_params[:menu_id], price: menu_price, number: orderlist_params[:number], state: "0")
         end
