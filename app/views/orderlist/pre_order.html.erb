@@ -44,6 +44,8 @@
                 <div class="preorder_menu">
                     <% @preorder.each do |order| %>
                         <div class="preorder_menu_indiv">
+                            <!--料理名なのか、オプション名なのか確認する-->
+                            <!--料理名があるなら-->
                             <% if order[:menu_name] then %>
                                 <div class="preorder_menu_name">
                                     <p><%= order[:menu_name] %></p>
@@ -70,7 +72,7 @@
                                         </div>
                                     </div>
                                 </div>
-
+                            <!--料理名がなかったら-->
                             <% else %>
                                 <div class="preorder_menu_name">
                                     <p>　<%= order[:option_name] %></p>

@@ -1,0 +1,74 @@
+<div class="kitchen_background-color">
+    <div class="kitchen_background">
+        <header class="kitchen_header clearfix">
+            <div class="kitchen_header_left">
+                <div class="kitchen_button">
+                    <a href="/cashier/table">
+                        <p>会計へ</p>
+                    </a>
+                </div>
+            </div>
+            <div class="kitchen_button_right">
+                <div class="kitchen_button">
+                    <a href="/kitchen/table">
+                        <p>テーブル</p>
+                    </a>
+                </div>
+                <div class="kitchen_button">
+                    <a href="/kitchen/ordered">
+                        <p>調理待</p>
+                    </a>
+                </div>
+                <div class="kitchen_button">
+                    <a href="/kitchen/option_change">
+                        <p>注文変更</p>
+                    </a>
+                </div>
+                <div class="kitchen_button">
+                    <a href="/kitchen/notification">
+                        <p>通知一覧</p>
+                    </a>
+                </div>
+            </div>
+        </header>
+        <div class="kitchen_title">
+            <p>
+                テーブル変更
+            </p>
+        </div>
+        <div class="kitchen_line">
+            <h2></h2>
+        </div>
+        <div class="table_change_form">
+            <%= form_for(@orderlist, url: '/kitchen/table_change') do |f| %>
+                <div class="form_background">
+                    <div class="option_label_n_text">
+                        <div class="option_label">
+                            <p><%= f.label :現在のテーブル：%></p>
+                        </div>
+                        <div class="option_text">
+                            <%= f.select :user_id, [["1", "1"], ["2", "2"], ["3", "3"], ["4", "4"], ["5", "5"], ["6", "6"], ["7", "7"], ["8", "8"], ["9", "9"], ["10", "10"], ["11", "11"], ["12", "12"], ["13", "13"], ["14", "14"], ["15", "15"], ["16", "16"]]%> 
+                        </div>
+                    </div>
+                    <div class="form_arrow">
+                        <div class="form_arrow_triangle"></div>
+                    </div>
+                    <div class="option_label_n_text">
+                        <div class="option_label">
+                            <p><%= f.label :移動後のテーブル：%></p>
+                        </div>
+                        <div class="option_text">
+                            <%= f.select :number, [["1", "1"], ["2", "2"], ["3", "3"], ["4", "4"], ["5", "5"], ["6", "6"], ["7", "7"], ["8", "8"], ["9", "9"], ["10", "10"], ["11", "11"], ["12", "12"], ["13", "13"], ["14", "14"], ["15", "15"], ["16", "16"]]%> 
+                        </div>
+                    </div>
+                </div>
+                <div class="form_submit">
+                    <div class="form_submit_button">
+                        <%= f.submit '交換する' , class: 'submit2', style:"font-family: 'Kosugi Maru', sans-serif" %>
+                    </div>
+                </div>
+            <% end %>
+        </div>
+        
+    </div>
+</div>

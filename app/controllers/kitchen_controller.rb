@@ -2,7 +2,7 @@ class KitchenController < ApplicationController
     # サインインしているかどうかのチェック
     before_action :move_to_signin 
     # 通知があるかどうかチェック
-    before_action :check_notification, except: :notification
+    before_action :check_notification, except: [:notification, :table_change]
     # flashの中身を消す
     after_action :clear_flash
 
@@ -140,6 +140,7 @@ class KitchenController < ApplicationController
             @table_id << table_id
         end
     end
+    
     # 調理待一覧でメニューを消す
     def destroy_order
         Orderlist.find(params[:id]).destroy
@@ -263,6 +264,32 @@ class KitchenController < ApplicationController
 
         redirect_back(fallback_location: root_path)
     end
+
+    # テーブルチェンジページ
+    def table_change
+        @orderlist = Orderlist.new
+    end
+    # テーブルチェンジの保存
+    def post_table_change
+        order_table_now = Orderlist.where(user_id: table_change_params[:user_id]).where.not(:state => 4)
+        table_new = table_change_params[:number]
+
+        if order_table_now then
+            table_new = table_change_params[:number]
+            
+            order_table_now.each do |order|
+                order.user_id = table_new
+                order.save
+            end
+        end
+        # # オプション価格の呼び出し
+        # option = Optiontable.find(option_params[:option_id])
+        # option_price = option.price_opt
+        # time = DateTime.current
+        # Orderlist.create(user_id: option_params[:user_id], option_id: option_params[:option_id], price: option_price, number: option_params[:number], state: "1", ordered_time: time)
+
+        redirect_back(fallback_location: root_path)
+    end
     
 
 private    
@@ -293,6 +320,10 @@ private
 
     def option_params
         params.require(:orderlist).permit(:user_id, :option_id, :number)
+    end
+
+    def table_change_params
+        params.require(:orderlist).permit(:user_id, :number)
     end
 
     

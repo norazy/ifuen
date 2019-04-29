@@ -1,0 +1,74 @@
+<div class="kitchen_background-color">
+    <div class="kitchen_background">
+        <header class="kitchen_header clearfix">
+            <div class="kitchen_header_left">
+                <div class="kitchen_button">
+                    <a href="/zh/cashier/table">
+                        <p>去结账</p>
+                    </a>
+                </div>
+            </div>
+            <div class="kitchen_button_right">
+                <div class="kitchen_button">
+                    <a href="/zh/kitchen/table">
+                        <p>座位</p>
+                    </a>
+                </div>
+                <div class="kitchen_button">
+                    <a href="/zh/kitchen/ordered">
+                        <p>等菜中</p>
+                    </a>
+                </div>
+                <div class="kitchen_button">
+                    <a href="/zh/kitchen/option_change">
+                        <p>改菜单</p>
+                    </a>
+                </div>
+                <div class="kitchen_button">
+                    <a href="/zh/kitchen/notification">
+                        <p>呼叫详细</p>
+                    </a>
+                </div>
+            </div>
+        </header>
+        <div class="kitchen_title">
+            <p>
+                换桌
+            </p>
+        </div>
+        <div class="kitchen_line">
+            <h2></h2>
+        </div>
+        <div class="table_change_form">
+            <%= form_for(@orderlist, url: '/kitchen/table_change') do |f| %>
+                <div class="form_background">
+                    <div class="option_label_n_text">
+                        <div class="option_label">
+                            <p><%= f.label :现在的桌位：%></p>
+                        </div>
+                        <div class="option_text">
+                            <%= f.select :user_id, [["1", "1"], ["2", "2"], ["3", "3"], ["4", "4"], ["5", "5"], ["6", "6"], ["7", "7"], ["8", "8"], ["9", "9"], ["10", "10"], ["11", "11"], ["12", "12"], ["13", "13"], ["14", "14"], ["15", "15"], ["16", "16"]]%> 
+                        </div>
+                    </div>
+                    <div class="form_arrow">
+                        <div class="form_arrow_triangle"></div>
+                    </div>
+                    <div class="option_label_n_text">
+                        <div class="option_label">
+                            <p><%= f.label :换到：%></p>
+                        </div>
+                        <div class="option_text">
+                            <%= f.select :number, [["1", "1"], ["2", "2"], ["3", "3"], ["4", "4"], ["5", "5"], ["6", "6"], ["7", "7"], ["8", "8"], ["9", "9"], ["10", "10"], ["11", "11"], ["12", "12"], ["13", "13"], ["14", "14"], ["15", "15"], ["16", "16"]]%> 
+                        </div>
+                    </div>
+                </div>
+                <div class="form_submit">
+                    <div class="form_submit_button">
+                        <%= f.submit '换桌' , class: 'submit2', style:"font-family: 'ZCOOL XiaoWei', serif;" %>
+                    </div>
+                </div>
+            <% end %>
+        </div>
+        
+    </div>
+</div>

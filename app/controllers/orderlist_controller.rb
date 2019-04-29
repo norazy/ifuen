@@ -167,7 +167,7 @@ class OrderlistController < ApplicationController
         @preorder = []
         
         # 取り出したオーダーに対して、一つずつハッシュを作る
-        # {:order_id, :number, :state, :menu_name, :option_name}　←キー
+        # {:order_id, :number, :state, :menu_name, :menu_name_zh, :menu_name_en, :option_name, :option_name_zh, :option_name_en}　←キー
         # orderlistのテーブルにmenu_idはあるけど、
         # メニュー名のカラムがないからハッシュを作ってる
         preorder.each do |order|

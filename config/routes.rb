@@ -50,9 +50,13 @@ scope '(:locale)', locale: /#{I18n.available_locales.map(&:to_s).join('|')}/ do
       # 注文一覧
     get 'kitchen/served' => 'kitchen#served'
 
-      # オプション追加一覧
+    # オプション追加一覧
     get 'kitchen/option_change' => 'kitchen#option_change'
     post 'kitchen/option_change' => 'kitchen#post_option'
+
+    # テーブルチェンジ
+    get 'kitchen/table_change' => 'kitchen#table_change'
+    post 'kitchen/table_change' => 'kitchen#post_table_change'
     
     # 会計ページ
     get 'cashier/table' => 'cashier#table_cashier'
