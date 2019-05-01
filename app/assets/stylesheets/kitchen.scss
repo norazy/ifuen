@@ -1,4 +1,3 @@
-
 .kitchen_background-color {
     background-color: #f5f5dc;
     min-height: 768px;
@@ -926,9 +925,118 @@
                         background-color: #ea5317;
                         border-radius: 10px;
                         box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.4);
-                        font-family: 'Kosugi Maru';
                     }
                 }
+            }
+        }
+    }
+}
+
+
+.zh .kitchen_background-color {
+    .kitchen_nav .kitchen_nav_div ul li a {
+        padding: 6px;
+    }
+    .kitchen_button a {
+        padding: 14px 0;
+    }
+    .kitchen_background {
+        .table_display {
+            .front_table {
+                .front_table_1_4 .table1_4 p {
+                    margin-top: 11px;
+                }
+                .front_table_5_7_n_guide .front_table_5_6 .table5_6 p {
+                    padding-top: 10px;
+                }
+                .front_table_5_7_n_guide .front_table_7_n_guide .front_table_7 .table7 p {
+                    font-size: 21px;
+                }
+                .front_table_5_7_n_guide .front_table_7_n_guide .front_table_guide .guide .guide_indiv p {
+                    margin-top: 16px;
+                }
+            } 
+            .back_table {
+                .back_table_8_10 .table8_10 p {
+                    padding-top: 10px;
+                }
+                .back_table_else .back_table_11_16 {
+                    .back_table_11_13 .table11_13 p {
+                        padding-top: 24px;
+                    }
+                    .back_table_14_16 .table14_16 p {
+                        padding-top: 18px;
+                    }
+                } 
+            }
+        }
+        .notification_display .notification_div {
+            ul .notification_title_indiv {
+                padding-top: 8px;
+                padding-bottom: 6px;
+            }
+            .notification_detail {
+                .notification_table {
+                    padding-top: 4%;
+                    padding-bottom: 1%;
+                }
+                .notification_state {
+                    padding-top: 4%;
+                    padding-bottom: 1%;
+                }
+                .notification_time {
+                    padding-top: 4%;
+                    padding-bottom: 1%;
+                }
+                
+            }
+        } 
+        .forcook_div .forcook_table .forcook_table2 .forcook_table_indiv {
+            .table_info .number_n_time p {
+                margin-top: 2px;
+            }
+            .forcook_menu {
+                .forcook_menu_title p {
+                    margin-top: 12px;
+                }
+                .forcook_menu_indiv {
+                    p {
+                        margin-top: 18px;
+                    }
+                    .forcook_menu_indiv_name p {
+                        margin-left: 4px;    
+                    }
+                    .forcook_menu_indiv_number p {
+                        font-size: 22px;
+                        margin-top: 14px;                    
+                    }
+                    .forcook_menu_indiv_state {
+                        .cancel a {
+                            padding-top: 5px;
+                        }
+                        .served a {
+                            padding-top: 5px;
+                        }
+                    }
+                }
+            }
+        } 
+        .allorder_div .allorder_table .allorder_table2 .allorder_table_indiv {
+            .table_info .table_number p {
+                margin-top: 3px;
+            }
+            .allorder_menu .allorder_menu_title p {
+                margin-top: 9px;
+            }
+            .allorder_menu_indiv .allorder_menu_indiv_name p {
+                margin-left: 4px;
+            }
+            .allorder_menu_indiv p {
+                margin-top: 19px;
+            }
+            .allorder_menu_indiv_number p {
+                font-size: 24px;
+                margin-top: 13px;
             }
         }
     }

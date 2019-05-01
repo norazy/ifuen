@@ -779,7 +779,7 @@
                     cursor: pointer;
                     white-space: pre-line;
                 }
-                #orderlist_option_id_1,#orderlist_option_id_2,#orderlist_option_id_3,#orderlist_option_id_4,#orderlist_option_id_5,#orderlist_option_id_6,#orderlist_option_id_7,#orderlist_option_id_8,#orderlist_option_id_9,#orderlist_option_id_33,#orderlist_option_id_34,#orderlist_option_id_35,#orderlist_option_id_44,#orderlist_option_id_45,#orderlist_option_id_46,#orderlist_option_id_47,#orderlist_option_id_48,#orderlist_option_id_49 {
+                #orderlist_option_id_1,#orderlist_option_id_2,#orderlist_option_id_3,#orderlist_option_id_4,#orderlist_option_id_5,#orderlist_option_id_6,#orderlist_option_id_7,#orderlist_option_id_8,#orderlist_option_id_9,#orderlist_option_id_33,#orderlist_option_id_34,#orderlist_option_id_35,#orderlist_option_id_44,#orderlist_option_id_45,#orderlist_option_id_46,#orderlist_option_id_47,#orderlist_option_id_48,#orderlist_option_id_49,#orderlist_option_id_52 {
                     display: none;
                 }
             }
@@ -1084,5 +1084,115 @@
   top: 50px; /* 30px from the bottom */
 }
 
+.zh .top_page_background {
+    .top_page_upper {
+        .top_page_upper_left .restaurante_image .top_page_nav_n_title .top_page_nav .top_page_nav_div ul li a {
+            padding: 5px;
+        }
+        .top_page_upper_right .top_page_tabs .top_page_tab a p {
+            margin-top: 20px;
+        }
+    }
+    
+    .top_page_bottom .top_page_bottom_menus .top_page_bottom_menus_left{
+        .top_page_bottom_menu a p {
+            margin-top: 18px;
+        }        
+        .top_page_bottom_menu:nth-child(n+4) p {
+            margin-top: 2px;
+        }
+    } 
+}
+.zh .menu_background-color {
+    .menu_button a {
+        p {
+            margin: 14px 0;
+        }
+        .double2 {
+            margin: 2px;
+            font-size: 18px;
+        }
+    } 
+    .menu_background {
+        .menu_indiv {
+            .menu_indiv_block .menu_indiv_block2 .menu_indiv_name {
+                padding-top: 3px;
+            }    
+        }
+        .menu_indiv2 .menu_indiv_block .menu_indiv_block2 .menu_indiv_name {
+            padding-top: 3px;
+        }
+        .menu_category2 ul li {
+            p {
+                margin: 14px 0;
+            }
+            .double {
+                margin: 2px;
+                font-size: 18px;
+            }
+        }
+    }
+}
+.zh .ordered_display .ordered_div {
+    ul .ordered_title_indiv {
+        padding-top: 8px;
+        padding-bottom: 6px;
+    }
+    .ordered_menu {
+        .ordered_menu_name {
+            padding-top: 4%;
+            padding-bottom: 1%;
+        }
+        .ordered_menu_price {
+            padding-top: 4%;
+            padding-bottom: 1%;
+        }
+        .ordered_menu_number {
+            padding-top: 4%;
+            padding-bottom: 1%;
+        }
+        .ordered_menu_state {
+            padding-top: 4%;
+            padding-bottom: 1%;
+        }
+    }
+    .ordered_sum .ordered_sum_title_n_price {
+        .ordered_sum_title{
+            padding-top: 20px;
+            padding-bottom: 5px;
+        }
+        #ordered_sum_price {
+            padding-top: 14px;
+            padding-bottom: 8px;
+        }
+    }
+}
+.zh #modal_menu_indiv{
+    .modal_menu_indiv_upper{
+        .modal_menu_image .modal_menu_title_n_price {
+            .modal_menu_title p {
+                margin-top: 16px;
+            }
+            .modal_menu_price p {
+                margin-top: 16px;
+            }
+        }
+        .modal_menu_detail_n_number .modal_menu_number_box .modal_menu_number label {
+            padding: 10px 0;
+        }    
+    }    
+    .modal_menu_indiv_bottom .modal_menu_option_box .modal_menu_option label {
+        font-size: 30px;
+        padding-top: 0px;
+    }
+} 
 
+.zh .preorder_display .preorder_menu .preorder_menu_indiv {
+    .preorder_menu_name p {
+        margin-top: 5%;
+    }
+    .preorder_menu_number .preorder_menu_number2 p {
+        padding-top: 8%;
+    }
+}
 
