@@ -40,104 +40,65 @@ class KitchenController < ApplicationController
     
     # 調理待の注文一覧
     def ordered_kitchen
-        # 全オーダーから状態が1,2のオーダーを取り出す
-        # さらにusr_idごとにグループ化して、それぞれの一番最初のデータを取り出す
-        groupdata = Orderlist.where(:state => [1, 2]).group(:user_id)
-
-        # テーブル番号を入れる配列の変数
-        tablenumber = []
+        # 190503　テーブルごとの伝票を注文伝票ごとの表示に変える
+        # 調理待ちの料理をすべて抜け出す
+        waiting_order = Orderlist.where(:state => [1, 2])
         
-        # それぞれのユーザーの一番最初のレコードをeachにかける
-        # そのレコードのuser_idを取り出して、テーブル番号を入れる変数に追加する
-        groupdata.each do |data|
-        #   user_id = data.user_id
-        #   tablenumber << user_id
-        #   上の二行のコードをまとめる↓
-           tablenumber << data.user_id
+        # 注文した時間別にグループ分けしてから、その注文時間を配列に入れる
+        waiting_order_by_ordered_time = waiting_order.group(:ordered_time)
+        ordered_time = []
+        waiting_order_by_ordered_time.each do |time|
+            ordered_time << time.ordered_time
         end
-
-        # キッチンにはオーダーの順番に並び変えたいので、
-        # テーブル番号の配列を時間順に並び替える
-
-        # 新しい空の配列を作る
-        tablenumber2 = []
         
-        tablenumber.each do |table_id|
-            #それぞれのテーブルの最新のオーダーを取り出す
-            order = Orderlist.where(:user_id => table_id).order("ordered_time DESC").limit(1)
-            
-            # そのオーダーをした時間とテーブル番号を配列にいれ
-            each_table = []
-            each_table << order[0].ordered_time.strftime("%H:%M")
-            each_table << table_id
-            # ex. ["05:49", 1]
-            
-            # すべてのテーブルの時間と番号をさらに一つ上の配列に入れる
-            tablenumber2 << each_table
-            # ex.[["05:49", 1], ["07:53", 2], ["04:50", 3], ["17:14", 9], ["17:16", 10], ["17:18", 17], ["17:20", 19]]
-        end
-
-        # オーダー時間順に並び変えて、テーブル番号を取り出す
-        tablenumber3 = []
-        tablenumber2.sort.each do |time|
-            tablenumber3 << time[1]
-        end
-        # ex. => [3, 1, 2, 9, 10, 17, 19]
-
-        # それぞれのテーブルのオーダーを入れる配列の変数を作る
-        @each_table_order = []
-        # それぞれのテーブルの最後のオーダー時間を入れる配列の変数を作る
-        # それぞれのテーブル番号を入れる配列の変数を作る
+        # viewに渡す変数を定義する
         @time = []
+            # 注文時間
         @table_id = []
+            # 注文テーブル
+        @each_table_order = []
+            # 注文詳細
 
-        # ユーザー番号を一つ一つ取り出す
-        tablenumber3.each do |table_id|
-            # その番号のuser_idを取り出して、かつstate=1のオーダーを全部取り出す
-            table_order = Orderlist.where(:user_id => table_id).where(state: [1, 2]).order('id ASC')
-                # 取り出したオーダーにはメニューnameがないので、
-                # オーダーを一つずつ取り出して、メニューの名前を入れた新たな配列を作る
-                table_order2 = []
-                # 時間は最新のものでいいので、配列ではなくただの変数にする
-                time = ""
-                table_order.each do |order|
-                    hash = {}
-                    
-                    hash[:order_id] = order.id
-                    hash[:number] = order.number
-                    hash[:state] = order.state
-                    time = order.ordered_time.strftime("%H:%M")
-                    
-                    if order.menu_id then
-                        hash[:menu_id] = order.menu_id
-                    else
-                        hash[:menu_id] = 0
-                    end
+        # 注文時間を一つ一つ取り出し、その時間のオーダーを全部取り出す
+        ordered_time.each do |time2|
+            orders = waiting_order.where(:ordered_time => time2).order('id ASC')
+            orders2 = []
+            orders.each do |order|
+                @table = order.user_id
+                # テーブル番号は一つだけなので、オーダーごとに書き換える
 
-                    # viewに表示させるために必要↓
-                    if order.menu_id then
-                        number = order.menu_id
-                        menu = Menu.find(number)
-                        hash[:menu_name] = menu.name
-                        hash[:menu_name_zh] = menu.name_zh
-                    else
-                        number2 = order.option_id
-                        option = Optiontable.find(number2)
-                        hash[:option_name] = option.name_opt
-                        hash[:option_name_zh] = option.name_opt_zh
-                    end
-                    table_order2 << hash
+                hash = {}
+                hash[:order_id] = order.id
+                hash[:number] = order.number
+                hash[:state] = order.state
+                
+                if order.menu_id then
+                    hash[:menu_id] = order.menu_id
+                else
+                    hash[:menu_id] = 0
                 end
-            
-                # lastorder = table_order.first
-                # time = lastorder.created_at.strftime("%H:%M")
-                # # binding.pry
+                # こので:menu_idを渡しているのjqueryで
+                # 同じ料理の背景の色を変更させるため。
 
-            # 名前が付いたオーダーの配列をuser-idの順番ごとビューに渡す変数の配列に入れる
-            # 時間も同様に
-            @each_table_order << table_order2
-            @time << time
-            @table_id << table_id
+                if order.menu_id then
+                    number = order.menu_id
+                    menu = Menu.find(number)
+                    hash[:menu_name] = menu.name
+                    hash[:menu_name_zh] = menu.name_zh
+                else
+                    number2 = order.option_id
+                    option = Optiontable.find(number2)
+                    hash[:option_name] = option.name_opt
+                    hash[:option_name_zh] = option.name_opt_zh
+                end
+
+                orders2 << hash
+            end
+            # 注文時間をわかりやすくする↓
+            @time << time2.strftime("%H:%M")
+
+            @table_id << @table
+            @each_table_order << orders2
         end
     end
     
@@ -328,3 +289,4 @@ private
 
     
 end
+
