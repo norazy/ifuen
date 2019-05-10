@@ -56,10 +56,10 @@
                                 </p>
                             </div>
                         </div>
-                        <%= fields_for @orderlist do |c| %>
-                            <%= c.hidden_field(:id, name: "orderlist[][#{[:id]}]", value: check[:id]) %>
-                            <%= c.hidden_field(:state, name: "orderlist[][#{[:state]}]", value: 4) %>
-                        <% end %>
+                        <!--<2%= fields_for @orderlist do |c| %>-->
+                        <!--    <2%= c.hidden_field(:id, name: "orderlist[][#{[:id]}]", value: check[:id]) %>-->
+                        <!--    <2%= c.hidden_field(:state, name: "orderlist[][#{[:state]}]", value: 4) %>-->
+                        <!--<2% end %>-->
                     <% end %>
                     <div class="check_detail_subtotal">
                         <div class="subtotal_column empty">
@@ -102,7 +102,6 @@
                         <div class="check_total_right">
                             <p>0</p>
                         </div>
-                        <!--<2%= f.hidden_field(:total, value: 0)%>-->
                     </div>
                 </div>
             </div>
@@ -164,6 +163,8 @@
             </div>
         </div>
         <%= f.hidden_field(:total, value: 0) %>
+        <!--会計完了後にorderlistのオーダーのstateを書き換えるためにテーブルのidを持たせている-->
+        <%= f.hidden_field(:id, value: @table_id) %>
     <% end %>
     </div>
 </div>

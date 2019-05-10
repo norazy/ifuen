@@ -44,50 +44,83 @@ class CashierController < ApplicationController
         # テーブル番号
 
         orderlist = Orderlist.where(user_id: params[:id]).where(state: 3)
-        @forcheck = []
         # 会計が必要なオーダーを全部入れる配列
-        
-        orderlist.each do |order|
-            hash = {}
-            hash[:number] = order.number
-            hash[:price] = order.price
-            hash[:id] = order.id
-            if order.menu_id then
-                number = order.menu_id
-                menu = Menu.find(number)
-                hash[:menu_name] = menu.name
-                hash[:menu_name_zh] = menu.name_zh
+        @forcheck = []
+
+        # あとでメニューやオプションごとにオーダーをまとめたいので、
+        # 2つの配列を作る
+        menu_info = []
+        option_info = []
+        # それぞれのオーダーのmenu_idと数を取り出して、ハッシュに入れて配列に入れる
+        orderlist.each do |each_order|
+            if each_order.menu_id then
+                hash2 = {}
+                hash2[:menu_id] = each_order.menu_id
+                hash2[:number] = each_order.number
+                menu_info << hash2
             else
-                number2 = order.option_id
-                option = Optiontable.find(number2)
-                hash[:option_name] = option.name_opt
-                hash[:option_name_zh] = option.name_opt_zh
+                hash2 = {}
+                hash2[:option_id] = each_order.option_id
+                hash2[:number] = each_order.number
+                option_info << hash2
             end
+        end
+
+        # 同じmenu_idの数をまとめて、再度配列を作る
+        menu_info2 = menu_info.group_by {|item| item[:menu_id] }.map do |menu_id,items|
+            total_points = items.map{|item| item[:number]}.reduce(0, :+)
+            {
+                :menu_id => menu_id,    
+                :number => total_points
+            }
+        end
+        # menu_idの名前と価格を取ってきて
+        # viewに渡す変数に入れる
+        menu_info2.each do |order|
+            hash = {}
+            hash[:number] = order[:number]
+            menu_id = order[:menu_id]
+            menu = Menu.find(menu_id)
+            hash[:menu_name] = menu.name
+            hash[:menu_name_zh] = menu.name_zh
+            hash[:price] = menu.price
             @forcheck << hash
         end
         
-        @orderlist = Orderlist.new
+        if option_info then
+            option_info2 = option_info.group_by {|item| item[:option_id] }.map do |option_id,items|
+                total_points = items.map{|item| item[:number]}.reduce(0, :+)
+                {
+                    :option_id => option_id,
+                    :number => total_points
+                }
+            end
+            option_info2.each do |order|
+                hash = {}
+                hash[:number] = order[:number]
+                option_id = order[:option_id]
+                option = Optiontable.find(option_id)
+                hash[:price] = option.price_opt
+                hash[:option_name] = option.name_opt
+                hash[:option_name_zh] = option.name_opt_zh
+                @forcheck << hash
+            end
+        end
+# -------------------
         @cashier = Cashier.new
         # form_forのための変数
     end
     # 支払い完了後の操作
     def paid
-        # 会計が済んだメニュー一覧をstate_change変数へ
-        # state_change = params[:orderlist]
-        state_change = paid_params[:orderlist]
-        state_change.each do |state|
-            # 一つずつ取り出してstateを書き換える
-            number = state[":id"]
-            order_id = number.to_i
-            order_indiv = Orderlist.find(order_id)
-            order_indiv.state = state[":state"]
-            # 上書き保存する
-            order_indiv.save
+        orderlist = Orderlist.where(user_id: params[:cashier][:id]).where(state: 3)
+        orderlist.each do |state|
+            state.state = 4
+            state.save
         end
+
         Cashier.create(method: params[:cashier][:method], total: params[:cashier][:total])
         # 会計方法と合計を会計テーブルに保存する
         redirect_to cashier_table_url
-
         # 確定処理をして
         # cashersモデルをcreateする
     end
@@ -109,9 +142,5 @@ private
         authority = user.authority
         
         redirect_to firstpage_url if authority == 1 
-    end
-    
-    def paid_params
-        params.permit(orderlist:[":id", ":state"])
     end
 end
