@@ -4,7 +4,7 @@ $(document).on('turbolinks:load', function() {
     if (p) {
       alert('通知があります！');
     }
-})
+});
 
 // ページのトグルの部分
 $(document).on('turbolinks:load', function() {
@@ -28,20 +28,6 @@ $(document).on('turbolinks:load', function() {
       }        
     });
 });
-
-
-// // 調理待の状態を示す部分
-//190407 このボタンあまり使わないかもと思って消した
-// $(document).on('turbolinks:load', function() {
-//     $(".cooked").each(function(i){
-    
-//     var color = $(".cooked span").eq(i).html();
-
-//       if (color == 2) {
-//           $(".cooked").eq(i).addClass("orange2");
-//       }        
-//     });
-// });
 
 // 調理待のページ
 // 同じ料理があったら、その料理の背景をハイライトする機能
@@ -76,6 +62,32 @@ $(document).on('turbolinks:load', function() {
   });
 });
 
+//メニューを消すとき、本当に消しますかを表示させる
+$(document).on('turbolinks:load', function() {
+  $('.cancel').click(function(){
+      if(!confirm('真的要删掉吗？')){
+          //OKの時の処理
+          return false;
+      }else{
+          //キャンセルの時の処理
+      }
+  });
+});
+
+// // 調理待の状態を示す部分
+//190407 このボタンあまり使わないかもと思って消した
+// $(document).on('turbolinks:load', function() {
+//     $(".cooked").each(function(i){
+    
+//     var color = $(".cooked span").eq(i).html();
+
+//       if (color == 2) {
+//           $(".cooked").eq(i).addClass("orange2");
+//       }        
+//     });
+// });
+
+
 // menu_idを使わずに文字列で取り出したバージョン
 // $(document).on('turbolinks:load', function() {
 //   $(".destroy_btn").click(function(){
@@ -93,31 +105,3 @@ $(document).on('turbolinks:load', function() {
 //     // }
 //   });
 // })
-
-
-// $(document).on('turbolinks:load', function() {
-//   var arr1 = new Array();
-
-//   $(".forcook_menu_indiv_name").each(function(i){
-//   arr2 = $(".forcook_menu_indiv_name p").eq(i).html();
-//   arr1.unshift(arr2);
-//   });
-
-// var arr3 =
-//   arr1.filter(function (val, idx, arr){
-//     return arr.indexOf(val) === idx && idx !== arr.lastIndexOf(val);
-//   });
-//   // console.log(arr3)
-//   $(".forcook_menu_indiv_name").each(function(i){
-//     var aaa = $(".forcook_menu_indiv_name p").eq(i).html();
-    
-//     $.each(arr3, function(index, value) {
-//       var bbb = value
-//       if (aaa == bbb){
-//         $(".forcook_menu_indiv_name").eq(i).css("background", "pink");
-//         // consosle.log(bbb)
-//         return false
-//       }
-//     })
-//   });
-// });

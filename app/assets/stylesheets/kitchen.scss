@@ -602,30 +602,21 @@
                                             left: 0;
                                             right: 0;
                                             display: inline-block;
-                                            // color: #ffffff;
                                             text-decoration: none;
                                             font-size: 17px;
                                             padding-top: 9px;
                                         }
 
                                     }
-                                    // .cooked,.served {
-                                    //     background-color: #b7b7b7;
-                                    //     p {
-                                    //         color: #2f3238;
-                                    //     }
-                                    //     a {
-                                    //         color: #2f3238;
-                                    //     }
-                                    // }
                                     .served {
                                         width: 65%;
-                                        background-color: #b7b7b7;
-                                        p {
-                                            color: #2f3238;
-                                        }
+                                        // background-color: #b7b7b7;
+                                        background-color: #ea5317;
+                                        // p {
+                                        //     color: #ffffff;
+                                        // }
                                         a {
-                                            color: #2f3238;
+                                            color: #ffffff;
                                         }
                                     }
                                     .cancel {
@@ -931,7 +922,6 @@
         }
     }
 }
-
 
 .zh .kitchen_background-color {
     .kitchen_nav .kitchen_nav_div ul li a {

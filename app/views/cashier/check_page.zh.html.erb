@@ -164,6 +164,8 @@
             </div>
         </div>
         <%= f.hidden_field(:total, value: 0) %>
+        <!--会計完了後にorderlistのオーダーのstateを書き換えるためにテーブルのidを持たせている-->
+        <%= f.hidden_field(:id, value: @table_id) %>
     <% end %>
     </div>
 </div>
