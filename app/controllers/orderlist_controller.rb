@@ -207,7 +207,6 @@ class OrderlistController < ApplicationController
     def post_order
         # paramsの配列を変数へ
         preorderlist = post_order_params[:orderlist]
-
         # 配列をeach文にかける
         preorderlist.each do |pre|
             # ↓オーダーのidを取り出す
@@ -232,7 +231,6 @@ class OrderlistController < ApplicationController
         
         # notificationテーブルに新しい注文が入ったことを知らせる
         Notification.create(table_id: current_user.id, state: 3)
-
         redirect_to order_top_path
         flash[:notice] = "something"
 
