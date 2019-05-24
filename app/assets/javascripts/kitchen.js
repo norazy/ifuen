@@ -1,10 +1,24 @@
 // 通知テーブルのデータがある時に呼び出されるアラート
+// $(document).on('turbolinks:load', function() {
+//     // var audio = new Audio('/nyuten.mp3');
+//     var p = $("div").hasClass('flashes');
+
+//     if (p) {
+//       // audio.play();
+//       alert('通知があります！');
+//     }
+// });
+
 $(document).on('turbolinks:load', function() {
+    var audio = new Audio('/nyuten.mp3');
     var p = $("div").hasClass('flashes');
+
     if (p) {
+      audio.play();
       alert('通知があります！');
     }
 });
+
 
 // ページのトグルの部分
 $(document).on('turbolinks:load', function() {

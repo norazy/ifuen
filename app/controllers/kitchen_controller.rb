@@ -286,7 +286,5 @@ private
     def table_change_params
         params.require(:orderlist).permit(:user_id, :number)
     end
-
-    
 end
 
