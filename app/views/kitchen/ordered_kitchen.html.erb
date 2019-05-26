@@ -118,3 +118,18 @@
         </div>
     </div>
 </div>
+
+<script>
+$(function() {
+    setTimeout(function() {
+        location.reload();
+    },60000);
+
+    var audio = new Audio('/nyuten.mp3');
+    var p = $("div").hasClass('flashes');
+
+    if (p) {
+      audio.play();
+    }
+});
+</script>

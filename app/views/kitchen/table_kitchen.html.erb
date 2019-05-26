@@ -159,21 +159,17 @@
     </div>
 </div>
 
-    <!--<2%if flash[:alert] %>-->
-    <!--    <div class="flashes">-->
-    <!--    </div>            -->
-    <!--<2% end %>-->
+<script>
+$(function() {
+    setTimeout(function() {
+        location.reload();
+    },60000);
 
+    var audio = new Audio('/nyuten.mp3');
+    var p = $("div").hasClass('flashes');
 
-
-<!--<script>-->
-<!--$(document).on('turbolinks:load', function() {-->
-<!--    console.log(1)-->
-<!--    var p = $("div").hasClass('flashes');-->
-<!--    console.log(p)-->
-<!--    if (p) {-->
-<!--      alert('検出されました！');-->
-<!--      console.log(3)-->
-<!--    }-->
-<!--})-->
-<!--</script>-->
+    if (p) {
+      audio.play();
+    }
+});
+</script>
