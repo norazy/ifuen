@@ -618,10 +618,6 @@
     margin: 80px auto 0;
     width: 912px;
     height: 640px;
-    // #orderlist_menu_id_2 {
-    //     display: none;
-    // }
-
     .modal_menu_indiv_upper {
         width: 912px;
         height: 426px;
@@ -732,7 +728,6 @@
         }
         #modal_close {
             cursor: pointer;
-            // display: none;
             position: absolute;
             top: -30px;
             left: -30px;
@@ -779,7 +774,7 @@
                     cursor: pointer;
                     white-space: pre-line;
                 }
-                #orderlist_option_id_1,#orderlist_option_id_2,#orderlist_option_id_3,#orderlist_option_id_4,#orderlist_option_id_5,#orderlist_option_id_6,#orderlist_option_id_7,#orderlist_option_id_8,#orderlist_option_id_9,#orderlist_option_id_33,#orderlist_option_id_34,#orderlist_option_id_35,#orderlist_option_id_44,#orderlist_option_id_45,#orderlist_option_id_46,#orderlist_option_id_47,#orderlist_option_id_48,#orderlist_option_id_49,#orderlist_option_id_50,#orderlist_option_id_51,#orderlist_option_id_52 {
+                #orderlist_option_id_99,#orderlist_option_id_2,#orderlist_option_id_3,#orderlist_option_id_4,#orderlist_option_id_5,#orderlist_option_id_6,#orderlist_option_id_7,#orderlist_option_id_8,#orderlist_option_id_9,#orderlist_option_id_33,#orderlist_option_id_34,#orderlist_option_id_35,#orderlist_option_id_44,#orderlist_option_id_45,#orderlist_option_id_46,#orderlist_option_id_47,#orderlist_option_id_48,#orderlist_option_id_49,#orderlist_option_id_50,#orderlist_option_id_51,#orderlist_option_id_52 {
                     display: none;
                 }
             }
@@ -800,6 +795,104 @@
                 font-size: 32px;
                 border: none;
                 cursor: pointer;
+            }
+        }
+    }
+}
+#modal_change_noodle {
+    position: absolute;
+    left: 0px;
+    top: 0px;
+    height: 650px;
+    width: 984px;
+    background: #ffffff;
+    margin: 35px auto 0;
+    right: 0;
+    bottom: 0;
+    z-index: 5;
+    box-shadow: 2px 2px 2px rgba(0, 0, 0, 0.4);
+    .change_noodle_noodle {
+        width: 100%;
+        height: 500px;
+        .change_noodle_title p {
+            text-align: center;
+            font-size: 24px;
+            color: rgba(0, 0, 0, 0.5);
+            margin: 0;
+            padding: 24px 0 20px;
+            text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.2);
+        }
+        .change_noodle_box {
+            width: 860px;
+            height: 431px;
+            display: flex;
+            flex-wrap: wrap;
+            margin: 0 auto;
+            list-style:  none;
+            padding: 0;
+            .noodle_name {
+                width: 165px;
+                height: 60px;
+                margin-bottom: 10px;
+                box-shadow: 1px 1px 2px 0px rgba(0, 0, 0, 0.4);
+                margin-left: 5px;
+                p {
+                    margin: 0;
+                    padding-top: 4px;
+                    color: #ffffff;
+                    font-size: 18px;
+                    text-align: center;
+                    line-height: 27px;
+                }
+                span {
+                    display: none;    
+                }
+            }
+            .blue4 {
+                background-color: #0e82cd;
+            }
+            .pink {
+                background-color: #f06060;
+            }
+            .selected_color {
+                background-color: rgba(1, 10, 52, 1);
+            }
+        }
+    }
+    .change_noodle_cancel_submit {
+        width: 100%;
+        height: 150px;
+        display: flex;
+        .change_noodle_button {
+            width: 50%;
+            height: 100%;
+            #change_noodle_button_cancel {
+                width: 357px;
+                height: 72px;
+                border: 2px solid #fff;
+                box-shadow: 2px 2px 2px rgba(0, 0, 0, 0.4);
+                margin: 20px auto 0;
+                background-color: rgba(1, 10, 52, 1);
+                border-radius: 3px;
+                p{
+                    color: #fff;
+                    text-align: center;
+                    font-size: 24px;
+                }
+            }
+            #change_noodle_button_submit {
+                width: 357px;
+                height: 72px;
+                border: 2px solid #fff;
+                box-shadow: 2px 2px 2px rgba(0, 0, 0, 0.4);
+                margin: 20px auto 0;
+                background-color: rgba(1, 10, 52, 1);
+                border-radius: 3px;
+                p{
+                    color: #fff;
+                    text-align: center;
+                    font-size: 24px;
+                }
             }
         }
     }
@@ -1187,7 +1280,6 @@
         padding-top: 0px;
     }
 } 
-
 .zh .preorder_display .preorder_menu .preorder_menu_indiv {
     .preorder_menu_name p {
         margin-top: 5%;

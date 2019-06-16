@@ -1,5 +1,4 @@
-<div id="modal_bg">
-</div>
+<div id="modal_bg"></div>
 
 <div id="modal_menu_indiv">
     <!--<2% form_with url: users_path do |form| %>-->
@@ -50,7 +49,7 @@
             <!--もしオプションの中に番号があったら表示-->
             <% if @option1 %>
                 <!--麺変更の場合０円になってしまうので、オプションが麺０円の時のみ違う条件にした↓-->
-                <% if @option1.id == 1 %>
+                <% if @option1.id == 99 %>
                     <div class="modal_menu_option">
                         <%= f.radio_button(:option_id, @option1.id) %>
                         <%= f.label(:option_id, "#{@option_name1}", value: @option1.id)  %>
@@ -84,5 +83,133 @@
     <% end %>
 </div>
 
-
+<div id="modal_change_noodle">
+    <div class="change_noodle_noodle">
+        <div class="change_noodle_title">
+            <p>交換したい麺を選択してください</p>
+        </div>
+        <ul class="change_noodle_box">
+            <li class="noodle_name">
+                <p>黒担々麺　小辛<br>+280</p>
+                <span>11</span>
+            </li>
+            <li class="noodle_name">
+                <p>黒担々麺　中辛<br>+280</p>
+                <span>37</span>
+            </li>
+            <li class="noodle_name">
+                <p>黒担々麺　大辛<br>+280</p>
+                <span>38</span>
+            </li>
+            <li class="noodle_name">
+                <p>マーボー麺<br>+280</p>
+                <span>10</span>
+            </li>
+            <li class="noodle_name">
+                <p>海鮮麺<br>+300</p>
+                <span>12</span>
+            </li>
+            <li class="noodle_name">
+                <p>白担々麺　小辛<br>+280</p>
+                <span>26</span>
+            </li>
+            <li class="noodle_name">
+                <p>白担々麺　中辛<br>+280</p>
+                <span>39</span>
+            </li>
+            <li class="noodle_name">
+                <p>白担々麺　大辛<br>+280</p>
+                <span>40</span>
+            </li>
+            <li class="noodle_name">
+                <p>タンメン<br>+250</p>
+                <span>13</span>
+            </li>
+            <li class="noodle_name">
+                <p>もやし麺<br>+280</p>
+                <span>14</span>
+            </li>
+            <li class="noodle_name">
+                <p>広東麺<br>+280</p>
+                <span>15</span>
+            </li>
+            <li class="noodle_name">
+                <p>五目麺<br>+300</p>
+                <span>16</span>
+            </li>
+            <li class="noodle_name">
+                <p>かた焼きそば<br>+300</p>
+                <span>17</span>
+            </li>
+            <li class="noodle_name">
+                <p>上海焼きそば<br>+300</p>
+                <span>18</span>
+            </li>
+            <li class="noodle_name">
+                <p>もつ炒め焼きそば<br>+400</p>
+                <span>19</span>
+            </li>
+            <li class="noodle_name">
+                <p>あんかけ焼きそば<br>+400</p>
+                <span>20</span>
+            </li>
+            <li class="noodle_name">
+                <p>ワンタン麺<br>+300</p>
+                <span>21</span>
+            </li>
+            <li class="noodle_name">
+                <p>角煮ラーメン<br>+400</p>
+                <span>22</span>
+            </li>
+            <li class="noodle_name">
+                <p>みそラーメン<br>+350</p>
+                <span>23</span>
+            </li>
+            <li class="noodle_name">
+                <p>チャーシュー麺<br>+280</p>
+                <span>24</span>
+            </li>
+            <li class="noodle_name">
+                <p>高菜ラーメン<br>+180</p>
+                <span>25</span>
+            </li>
+            <li class="noodle_name">
+                <p>激辛跑馬麺<br>+280</p>
+                <span>27</span>
+            </li>
+            <li class="noodle_name">
+                <p>陳マーボー麺<br>+280</p>
+                <span>28</span>
+            </li>
+            <li class="noodle_name">
+                <p>マーラータン麺<br>+500</p>
+                <span>29</span>
+            </li>
+            <li class="noodle_name">
+                <p>サンラータン麺<br>+580</p>
+                <span>30</span>
+            </li>
+            <li class="noodle_name">
+                <p>ジャージャー麺<br>+280</p>
+                <span>31</span>
+            </li>
+            <li class="noodle_name">
+                <p>フカヒレラーメン<br>+1080</p>
+                <span>32</span>
+            </li>
+        </ul>
+    </div>
+    <div class="change_noodle_cancel_submit">
+        <div class="change_noodle_button">
+            <div id="change_noodle_button_cancel">
+                <p>キャンセル</p>
+            </div>
+        </div>
+        <div class="change_noodle_button">
+            <div id="change_noodle_button_submit">
+                <p>確定する</p>
+            </div>
+        </div>
+    </div>
+</div>
 

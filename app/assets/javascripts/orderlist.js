@@ -26,9 +26,7 @@ $(document).on('turbolinks:load', function() {
     }
     var id = $(this).attr('menuid')
     var url =  lang + '/order/modal/' + id;
-    // var url = lang + '/order/modal/' + id;
-      // console.log(url);
-    
+
     $.ajax({
         url: url,
         success: function(modal){
@@ -37,11 +35,15 @@ $(document).on('turbolinks:load', function() {
           modal_bg = $(modal).filter("#modal_bg");
           modal_menu = $(modal).filter("#modal_menu_indiv");
           modal_close = $(modal).filter("#modal_close");
-          
+          // 190614
+          modal_change_noodle = $(modal).filter("#modal_change_noodle");
+
           // ダブルクリックすると画面がフリーズするので、
           // それを防ぐために、appendする前に、removeさせる
           $("#modal_bg").remove();
           $("#modal_menu_indiv").remove();
+          // 190614
+          $("#modal_change_noodle").remove();
           
           $("body").append(modal_bg);
           $("body").append(modal_menu);
@@ -64,13 +66,53 @@ $(document).on('turbolinks:load', function() {
             $(".modal_menu_option").css("background-color", "#000a34");
             $(this).parent().css("background-color", "#ea5317");
           });
+          // ↓オプションで麺の交換が出たら
+          $('input').change(function() {
+            if ($(this).val() == 99) {
+              // 麺交換の画面を呼び出す
+                $("body").append(modal_change_noodle);
+                // タブに色付けをする
+                $("ul.change_noodle_box li:nth-child(5n+1)").addClass("blue4");
+                $("ul.change_noodle_box li:nth-child(5n+2)").addClass("pink");
+                $("ul.change_noodle_box li:nth-child(5n+3)").addClass("blue4");
+                $("ul.change_noodle_box li:nth-child(5n+4)").addClass("pink");
+                $("ul.change_noodle_box li:nth-child(5n+5)").addClass("blue4");
+                // 画面をもう一度開いた時に前のときに選んだ色が残るから
+                $('li').removeClass("selected_color");
+
+                // なにか麺が選択されたら
+                $("li").click(function(){
+                  // 前回選択したときの色を消す
+                  $('li').removeClass("selected_color");
+                  // 今回選択した色を変更する
+                  $(this).addClass("selected_color");
+                  // spanから変更する麺の番号を抜き出す
+                  var option_number = $(this).children("span").html();
+                  // valueへの番号の書き換え
+                  $('#orderlist_option_id_99').val(option_number);
+                });
+
+                // もし「キャンセル」が押されたら
+                $("#change_noodle_button_cancel").click(function(){
+                    // valueを麺交換の99に書き換える
+                    $('#orderlist_option_id_99').val(99);
+                    // 麺選択の画面を閉じる
+                    $("#modal_change_noodle").remove();
+                });
+
+                // もし「確定する」が押されたら
+                $("#change_noodle_button_submit").click(function(){
+                    // 麺選択の画面を閉じる
+                    $("#modal_change_noodle").remove();
+                });
+            }
+          });
         }
     });
-
   });
 });  
 
-// 未確定メニューの数量変更　マイナス
+//未確定メニューの数量変更マイナス
 $(document).on('turbolinks:load', function() {
   $(".minus_btn").click(function(){
     
@@ -87,7 +129,7 @@ $(document).on('turbolinks:load', function() {
   });
 })
 
-// 未確定メニューの数量変更　プラス
+//未確定メニューの数量変更プラス
 $(document).on('turbolinks:load', function() {
   $(".plus_btn").click(function(){
     var number = $(".plus_btn").index(this);
