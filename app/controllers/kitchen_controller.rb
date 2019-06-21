@@ -104,25 +104,28 @@ class KitchenController < ApplicationController
     
     # 調理待一覧でメニューを消す
     def destroy_order
-        Orderlist.find(params[:id]).destroy
+        if Orderlist.where(id: params[:id]).exists?
+            Orderlist.find(params[:id]).destroy
+        end
         redirect_back(fallback_location: root_path)
+        # Orderlist.find(params[:id]).destroy
+        # redirect_back(fallback_location: root_path)
     end
     # 調理待一覧で状態変更：調理済
-    def change_state
-        orderlist = Orderlist.find(params[:id])
-        # 状態の書き換え
-        orderlist.state = 2
-        # 上書き保存
-        orderlist.save
-        redirect_back(fallback_location: root_path)
-    end
+    # def change_state
+    #     orderlist = Orderlist.find(params[:id])
+    #     # 状態の書き換え
+    #     orderlist.state = 2
+    #     # 上書き保存
+    #     orderlist.save
+    #     redirect_back(fallback_location: root_path)
+    # end
     # 調理待一覧で状態を変更：提供済
     def change_state2
         orderlist = Orderlist.find(params[:id])
         # 状態の書き換え
         orderlist.state = 3
         # 上書き保存
-        # binding.pry
         orderlist.save
         redirect_back(fallback_location: root_path)
     end
@@ -198,16 +201,29 @@ class KitchenController < ApplicationController
 
     # 通知一覧
     def notification
-        @notification = Notification.all
-        
-        @time = []
-        @notification.each do |noti|
-            @time << noti.created_at.strftime("%H:%M")
+        if Notification.exists?
+            @notification = Notification.all
+            
+            @time = []
+            @notification.each do |noti|
+                @time << noti.created_at.strftime("%H:%M")
+            end
+        else
+            @notification = []
+            @time = []
         end
+        # @notification = Notification.all
+        
+        # @time = []
+        # @notification.each do |noti|
+        #     @time << noti.created_at.strftime("%H:%M")
+        # end
     end
     # 通知の削除
     def destroy
-        Notification.find(params[:id]).destroy
+        if Notification.where(id: params[:id]).exists?
+            Notification.find(params[:id]).destroy
+        end
         redirect_back(fallback_location: root_path)
     end
 
