@@ -22,8 +22,8 @@ class KitchenController < ApplicationController
                     color = 1
                 elsif eachtable.exists?(:state => 0)
                     color = 2
-                elsif eachtable.exists?(:state => 2)
-                    color = 2
+                # elsif eachtable.exists?(:state => 2)
+                #     color = 2
                 elsif eachtable.exists?(:state => 3)
                     color = 2
                 else
@@ -42,7 +42,7 @@ class KitchenController < ApplicationController
     def ordered_kitchen
         # 190503　テーブルごとの伝票を注文伝票ごとの表示に変える
         # 調理待ちの料理をすべて抜け出す
-        waiting_order = Orderlist.where(:state => [1, 2])
+        waiting_order = Orderlist.where(:state => [1])
         
         # 注文した時間別にグループ分けしてから、その注文時間を配列に入れる
         waiting_order_by_ordered_time = waiting_order.group(:ordered_time)
@@ -108,18 +108,7 @@ class KitchenController < ApplicationController
             Orderlist.find(params[:id]).destroy
         end
         redirect_back(fallback_location: root_path)
-        # Orderlist.find(params[:id]).destroy
-        # redirect_back(fallback_location: root_path)
     end
-    # 調理待一覧で状態変更：調理済
-    # def change_state
-    #     orderlist = Orderlist.find(params[:id])
-    #     # 状態の書き換え
-    #     orderlist.state = 2
-    #     # 上書き保存
-    #     orderlist.save
-    #     redirect_back(fallback_location: root_path)
-    # end
     # 調理待一覧で状態を変更：提供済
     def change_state2
         orderlist = Orderlist.find(params[:id])
@@ -136,7 +125,7 @@ class KitchenController < ApplicationController
         tablenumber = []
         # 全オーダーから状態が1,2,3のオーダーを取り出す
         # さらにusr_idごとにグループ化して、それぞれの一番最初のデータを取り出す
-        groupdata = Orderlist.where(:state => [1, 2, 3]).group(:user_id)
+        groupdata = Orderlist.where(:state => [1, 3]).group(:user_id)
         # それぞれのユーザーの一番最初のレコードをeachにかける
         # それぞれのuser_idを取り出して、
         # テーブル番号を入れる配列の変数に追加する
@@ -155,7 +144,7 @@ class KitchenController < ApplicationController
             # その番号のuser_idを取り出して、かつstate=1のオーダーを全部取り出す
             # 最初は状態の順番で並べる
             # それからidで順番に並べる
-            table_order = Orderlist.where(:user_id => table_id).where(state: [1, 2, 3]).order('state ASC').order('id ASC')
+            table_order = Orderlist.where(:user_id => table_id).where(state: [1, 3]).order('state ASC').order('id ASC')
                 # 取り出したオーダーにはメニューnameがないので、
                 # オーダーを一つずつ取り出して、メニューの名前を入れた新たな配列を作る
                 table_order2 = []
@@ -181,9 +170,9 @@ class KitchenController < ApplicationController
                     if order.state == 1 then
                         hash[:state] = "注文済"
                         hash[:state_zh] = "已下单"
-                    elsif order.state == 2 then
-                        hash[:state] = "調理中"
-                        hash[:state_zh] = "炒菜中"
+                    # elsif order.state == 2 then
+                    #     hash[:state] = "調理中"
+                    #     hash[:state_zh] = "炒菜中"
                     else
                         hash[:state] = "届済み"
                         hash[:state_zh] = "已上菜"
@@ -285,9 +274,10 @@ private
 
     # 通知があるかどうかの確認
     def check_notification
-        # if Notification.exists?(:id => 1)
         if Notification.exists?
             flash[:alert] = "通知"
+        else
+            flash[:alert] = nil
         end
     end
 

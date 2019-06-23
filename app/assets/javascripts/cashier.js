@@ -23,7 +23,6 @@ $(document).on('turbolinks:load', function() {
 $(document).on('turbolinks:load', function() {
   var subtotal = 0;
   // 小計を計算するための変数
-  
     $(".check_detail_indiv").each(function(i){
       var price = $(".price p").eq(i).html();
       var number = $(".number p").eq(i).html();
@@ -33,7 +32,6 @@ $(document).on('turbolinks:load', function() {
       // 得られた合計をカンマ入りの数に書き換える
       $(".subtotal p").eq(i).html(subsubtotal2);
       // htmlを書き換える
-
       subtotal += subsubtotal;
       // 小計の変数に足す
     });
@@ -41,7 +39,6 @@ $(document).on('turbolinks:load', function() {
   // 小計をカンマ入りの数に書き換える
   $(".subtotal_n p").html(subtotal2);
   // 小計のhtmlを書き換える
-
   var discount = $(".discount_n p").html();
   // 割引の値を取得する
   var discount2 = subtotal - discount;
@@ -50,10 +47,8 @@ $(document).on('turbolinks:load', function() {
   // カンマのある値にする
   $(".check_total_right p").html(discount3);
   // 合計のhtmlの書き換え
-
   $("#cashier_total").val(discount2);
   // 会計テーブルに渡すtotalカラムのvalueも変化させる
-
 });
 
 // ↓支払方法のクリック後の色変更

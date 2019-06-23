@@ -2,11 +2,6 @@ class OrderlistController < ApplicationController
     # ↓サインインしているかどうかの確認
     before_action :move_to_signin, :check_cart
 
-    
-    # def test
-    #     render json: Orderlist.where(user_id: current_user.id)
-    # end
-
     def first
     end
 
@@ -266,13 +261,12 @@ class OrderlistController < ApplicationController
     # 注文済画面
     def ordered
         # 現在ログインしているユーザーの状態が０のオーダーを引き出す
+        # 190622 4以外って選択しよう選択しようと思ったら、０も含まれてしまう
         ordered = Orderlist.where(user_id: params[:id]).where(state: 1..3).order('state ASC').order('id ASC')
-        # binding.pry
         # ビューに渡す配列作成
         @ordered = []
         
         # 取り出したオーダーに対して、一つずつハッシュを作る
-        # {:order_id, :number, :state, :menu_name, :option_name}
         ordered.each do |order|
             hash = {}
             hash[:number] = order.number
@@ -296,16 +290,15 @@ class OrderlistController < ApplicationController
                 hash[:state] = "注文済"
                 hash[:state_zh] = "已下单"
                 hash[:state_en] = "Ordered"
-            elsif order.state == 2 then
-                hash[:state] = "調理中"
-                hash[:state_zh] = "炒菜中"
-                hash[:state_en] = "Cooking"
+            # elsif order.state == 2 then
+            #     hash[:state] = "調理中"
+            #     hash[:state_zh] = "炒菜中"
+            #     hash[:state_en] = "Cooking"
             else
                 hash[:state] = "届済み"
                 hash[:state_zh] = "已上菜"
                 hash[:state_en] = "Served"
             end    
-            
             @ordered << hash
         end
     end
@@ -330,7 +323,6 @@ private
     def check_cart
         # 現在ログインしているユーザーの状態が０のオーダーを引き出す
         @cart = Orderlist.where(user_id: current_user.id).where(state: 0)
-
     end
     def orderlist_params
         params.require(:orderlist).permit(:number, :option_id, :menu_id)
@@ -344,5 +336,4 @@ private
     def move_to_signin
         redirect_to new_user_session_url unless user_signed_in?
     end
-
 end

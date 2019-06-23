@@ -15,13 +15,8 @@ class CashierController < ApplicationController
                 eachtable = Orderlist.where(user_id: number).where.not(:state => 4)
 
                 # 状態が１のオーダーがあったら
-                if eachtable.exists?(:state => [0, 1, 2])
-                # if eachtable.exists?(:state => 0)
-                #     # 未注文のものも入れて検索する
-                #     color = 1
-                # elsif eachtable.exists?(:state => 1)
-                #     color = 1
-                # elsif eachtable.exists?(:state => 2)
+                # if eachtable.exists?(:state => [0, 1, 2])
+                if eachtable.exists?(:state => [0, 1])
                     color = 1
                 elsif eachtable.exists?(:state => 3)
                     color = 2
@@ -35,7 +30,6 @@ class CashierController < ApplicationController
             @color << color
             number += 1
         end
-            # binding.pry
     end
     
     # 各テーブルの計算
@@ -106,7 +100,7 @@ class CashierController < ApplicationController
                 @forcheck << hash
             end
         end
-# -------------------
+
         @cashier = Cashier.new
         # form_forのための変数
     end
