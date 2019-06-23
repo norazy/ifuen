@@ -57,11 +57,11 @@
                         <p><%= notification[:table_id] %></p> 
                     </div>
                     
-                    <% if notification[:state] == 1 then %>
+                    <% if notification[:state] == 2 then %>
                         <div class="notification_state">
                             <p>呼び出し</p>
                         </div>
-                    <% elsif notification[:state] == 2 %>
+                    <% elsif notification[:state] == 1 %>
                         <div class="notification_state">
                             <p>会計</p>
                         </div>
