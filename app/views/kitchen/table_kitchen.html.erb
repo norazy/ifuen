@@ -3,10 +3,12 @@
         <header class="kitchen_header clearfix">
             <div class="kitchen_header_left">
                 <div class="kitchen_button">
-                    <a href="/cashier/table">
-                        <p>会計へ</p>
+                    <a href="/kitchen/served">
+                        <p>注文一覧</p>
                     </a>
-                    <!--<2%= link_to "ログアウト", destroy_user_session_path, method: :delete %>-->
+                    <!--<a href="/cashier/table">-->
+                    <!--    <p>会計へ</p>-->
+                    <!--</a>-->
                 </div>
                 <div class="kitchen_nav">
                     <button class="kitchen_nav_button" id="kitchen_nav_button">
@@ -16,10 +18,10 @@
                         <ul class="kitchen_nav_ul">
                             <li class="kitchen_nav_li"><%= link_to "ログアウト", destroy_user_session_path, method: :delete %></li>
                             <li class="kitchen_nav_li"><%= link_to "メニューTOP", firstpage_path, method: :get %></li>
-                            <li class="kitchen_nav_li"><a href="/kitchen/served">注文一覧</a></li>
+                            <!--<li class="kitchen_nav_li"><a href="/kitchen/served">注文一覧</a></li>-->
                             <li class="kitchen_nav_li"><a href="/kitchen/table_change">テーブル変更</a></li>
                             <li class="kitchen_nav_li">
-                                <%= link_to('中国語', :locale => 'zh') %>
+                                <%= link_to('中文', :locale => 'zh') %>
                             </li>
                         </ul>
                     </div>
@@ -160,12 +162,14 @@
 </div>
 
 <script>
-$(function() {
+// $(function() {
+$(document).on('turbolinks:load', function(){
     setTimeout(function() {
         location.reload();
     },60000);
 
-    var audio = new Audio('/nyuten.mp3');
+    // var audio = new Audio('/nyuten.mp3');
+    var audio = new Audio('/marchen.mp3');
     var p = $("div").hasClass('flashes');
 
     if (p) {

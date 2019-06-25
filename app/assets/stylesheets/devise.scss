@@ -2,8 +2,8 @@
     width: 100%;
     margin-left: auto;
     margin-right: auto;
-    margin-top: 10%;
-    margin-bottom: 0;
+    margin-top: 5%;
+    margin-bottom: 10%;
     max-width: 500px;
     color: #000a34;
     .sign_in_title {
@@ -53,6 +53,7 @@
     .sign_up {
         width: 50%;
         margin: 40px auto 0;
+        display: none;
         a {
             width: 66px;
             // text-decoration: none;

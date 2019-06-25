@@ -1,21 +1,26 @@
 <div class="cashier_background-color">
     <div class="cashier_background">
         <header class="cashier_header clearfix">
-        <!--<div class="cashier_header_left">-->
-        <!--    <div class="cashier_button">-->
+        <div class="cashier_header_left">
+            <div class="cashier_button">
+                <%= link_to('中文', :locale => 'zh') %>
+                <!--<a href="/firstpage">-->
+                <!--    <p>メニューTOP</p>-->
+                <!--</a>-->
                 <!--<2%= link_to "ログアウト", destroy_user_session_path, method: :delete %>-->
-        <!--    </div>-->
-        <!--</div>-->
-        <div class="cashier_button_right">
-            <div class="cashier_button">
-                <a href="/firstpage">
-                    <p>メニューTOP</p>
-                </a>
             </div>
+        </div>
+        <div class="cashier_button_right">
+            <!--<div class="cashier_button">-->
+            <!--    <a href="/firstpage">-->
+            <!--        <p>メニューTOP</p>-->
+            <!--    </a>-->
+            <!--</div>-->
             <div class="cashier_button">
-                <a href="/kitchen/table">
-                    <p>キッチン</p>
-                </a>
+                <%= link_to "ログアウト", destroy_user_session_path, method: :delete %>
+                <!--<a href="/kitchen/table">-->
+                <!--    <p>キッチン</p>-->
+                <!--</a>-->
             </div>
         </div>
     </header>

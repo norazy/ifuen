@@ -3,10 +3,9 @@
         <header class="kitchen_header clearfix">
             <div class="kitchen_header_left">
                 <div class="kitchen_button">
-                    <a href="/zh/cashier/table">
-                        <p>去结账</p>
+                    <a href="/zh/kitchen/served">
+                        <p>全部订单</p>
                     </a>
-                    <!--<2%= link_to "退出登录", destroy_user_session_path, method: :delete %>-->
                 </div>
             </div>
             <div class="kitchen_button_right">
@@ -120,12 +119,14 @@
 </div>
 
 <script>
-$(function() {
+// $(function() {
+$(document).on('turbolinks:load', function() {
     setTimeout(function() {
         location.reload();
     },30000);
 
-    var audio = new Audio('/nyuten.mp3');
+    // var audio = new Audio('/nyuten.mp3');
+    var audio = new Audio('/marchen.mp3');
     var p = $("div").hasClass('flashes');
 
     if (p) {

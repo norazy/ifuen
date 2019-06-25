@@ -187,7 +187,8 @@ private
             user = User.find(current_user.id)
             authority = user.authority
             
-            redirect_to firstpage_url if authority == 1 || authority == 2
+            # redirect_to firstpage_url if authority == 1 || authority == 2 || authority == 4
+            redirect_to firstpage_url if authority != 3
             # サインインしてたら、権限のチェック
         else
             redirect_to new_user_session_url 

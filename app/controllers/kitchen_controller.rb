@@ -2,7 +2,8 @@ class KitchenController < ApplicationController
     # サインインしているかどうかのチェック
     before_action :move_to_signin 
     # 通知があるかどうかチェック
-    before_action :check_notification, except: [:notification, :table_change]
+    # before_action :check_notification, except: [:notification, :table_change]
+    before_action :check_notification, only: [:table_kitchen, :ordered_kitchen]
     # flashの中身を消す
     after_action :clear_flash
 
@@ -265,7 +266,7 @@ private
             user = User.find(current_user.id)
             authority = user.authority
             
-            redirect_to firstpage_url if authority == 1 
+            redirect_to firstpage_url if authority == 1 || authority == 4
             # サインインしてたら、権限のチェック
         else
             redirect_to new_user_session_url 

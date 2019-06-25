@@ -138,7 +138,7 @@ class OrderlistController < ApplicationController
                 Orderlist.create(user_id: current_user.id, menu_id: orderlist_params[:menu_id], price: menu_price, number: orderlist_params[:number], state: "0")
                 # ↓ここでオプションにメニューidを持たせたないのは
                 # 未確定のところで、メニューidを持ってるかどうかで条件分岐させているから
-                # （オプションidで条件分岐させてもよかったんだけど。。）
+                # （オプションidで��件分岐させてもよかったんだけど。。）
                 Orderlist.create(user_id: current_user.id, option_id: orderlist_params[:option_id], price: option_price, number: orderlist_params[:number], state: "0")
                 
             end
