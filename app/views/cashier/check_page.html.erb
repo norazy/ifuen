@@ -56,10 +56,6 @@
                                 </p>
                             </div>
                         </div>
-                        <!--<2%= fields_for @orderlist do |c| %>-->
-                        <!--    <2%= c.hidden_field(:id, name: "orderlist[][#{[:id]}]", value: check[:id]) %>-->
-                        <!--    <2%= c.hidden_field(:state, name: "orderlist[][#{[:state]}]", value: 4) %>-->
-                        <!--<2% end %>-->
                     <% end %>
                     <div class="check_detail_subtotal">
                         <div class="subtotal_column empty">
@@ -116,36 +112,29 @@
                         <div class="check_method_indiv_button cash">
                             <%= f.radio_button(:method, 1, :checked => true) %>
                             <%= f.label(:method, "現金", value: "1")  %>
-                            <!--<p>現金</p>-->
                         </div>
                     </div>
                     <div class="check_method_indiv">
                         <div class="check_method_indiv_button">
                             <%= f.radio_button(:method, 2) %>
                             <%= f.label(:method, "クレジット", value: "2")  %>
-                            <!--<p>クレジット</p>-->
                         </div>
                     </div>
                     <div class="check_method_indiv">
                         <div class="check_method_indiv_button">
                             <%= f.radio_button(:method, 3) %>
                             <%= f.label(:method, "電子マネー", value: "3")  %>
-                            <!--<p>電子マネー</p>-->
                         </div>
                     </div>
                     <div class="check_method_indiv">
                         <div class="check_method_indiv_button">
                             <%= f.radio_button(:method, 4) %>
                             <%= f.label(:method, "その他", value: "4")  %>
-                            <!--<p>その他</p>-->
                         </div>
                     </div>
                 </div>
                 <div class="check_finish">
-                    <!--<div class="check_finish_button">-->
-                        <%= f.submit '会計完了', class: 'check_finish_button', style:"font-family: 'Kosugi Maru', sans-serif" %>
-                        <!--<p>会計完了</p>-->
-                    <!--</div>-->
+                    <%= f.submit '会計完了', class: 'check_finish_button', style:"font-family: 'Kosugi Maru', sans-serif" %>
                 </div>
                 <div class="check_method_title marginplus">
                     <div class="check_method_title_letter">
@@ -153,9 +142,7 @@
                     </div>
                 </div>
                 <div class="check_discount_body">
-                    <!--<div class="discout_input_field">-->
                     <input type="number" name="discount_amount" id="discout_input_field" value="" step="10"/>
-                    <!--</div>-->
                     <div class="check_discount_button">
                         <p>割引</p>
                     </div>

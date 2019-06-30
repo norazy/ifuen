@@ -50,7 +50,7 @@
             <!--もしオプションの中に番号があったら表示-->
             <% if @option1 %>
                 <!--麺変更の場合０円になってしまうので、オプションが麺０円の時のみ違う条件にした↓-->
-                <% if @option1.id == 1 %>
+                <% if @option1.id == 99 %>
                     <div class="modal_menu_option">
                         <%= f.radio_button(:option_id, @option1.id) %>
                         <%= f.label(:option_id, "#{@option_name1_zh}", value: @option1.id)  %>
@@ -197,6 +197,18 @@
                 <p>鱼翅面<br>+1080</p>
                 <span>32</span>
             </li>
+            <li class="noodle_name">
+                <p>凉沾面<br>+280</p>
+                <span>53</span>
+            </li>
+            <li class="noodle_name">
+                <p>凉拌面<br>+350</p>
+                <span>54</span>
+            </li>
+            <li class="noodle_name">
+                <p>冷担担面<br>+280</p>
+                <span>55</span>
+            </li>            
         </ul>
     </div>
     <div class="change_noodle_cancel_submit">

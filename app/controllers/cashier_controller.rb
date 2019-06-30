@@ -135,6 +135,7 @@ private
         user = User.find(current_user.id)
         authority = user.authority
         
-        redirect_to firstpage_url if authority == 1 || authority == 2
+        # redirect_to firstpage_url if authority == 1 || authority == 2
+        redirect_to firstpage_url unless authority == 4 || authority == 3
     end
 end

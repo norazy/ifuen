@@ -23,11 +23,7 @@ body {
 }
 
 .zh {
-    /*font-family: 'ZCOOL XiaoWei', serif;*/
     font-family: 'Noto Sans SC', sans-serif;
-
-/*見やすいけど下に下がってる*/
-/*font-family: 'ZCOOL KuaiLe', cursive;*/
 }
 
 .en {
