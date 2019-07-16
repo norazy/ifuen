@@ -6,8 +6,7 @@
     background-color: #ffffff;
     min-height: 768px;
     min-width: 1024px;
-    
-    // ↓共通部分
+    // 共通部分↓
     .clearfix:after {
         content: "";
         clear: both;
@@ -469,7 +468,7 @@
             .check_method {
                 width: 80%;
                 height: 170px;
-                margin: 4% auto;
+                margin: 2% auto 4%;
                 border-bottom: 2px solid #ea5317;
 
                 .check_method_indiv {
@@ -522,7 +521,7 @@
                 }
             }
             .marginplus {
-                margin-top: 11%;
+                margin-top: 7%;
             }
             .check_discount_body {
                 width: 100%;
@@ -543,8 +542,6 @@
                     text-align: center;
                     width: 70%;
                     height: 53px;
-                    margin: 7% auto 0;
-                    background-color: #000a34;
                     box-shadow: 3px 3px 3px rgba(0, 0, 0, 0.4);
                     border-radius: 5px;
                     p {
@@ -552,6 +549,14 @@
                         font-size: 22px;
                         padding-top: 5%;
                     }
+                }
+                .normal {
+                    background-color: #ea5317;
+                    margin: 7% auto 0;
+                }
+                .take_out {
+                    background-color: #e94e47;
+                    margin: 5% auto 0;
                 }
             }
         }

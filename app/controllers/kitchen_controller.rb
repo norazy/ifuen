@@ -42,64 +42,85 @@ class KitchenController < ApplicationController
     # 調理待の注文一覧
     def ordered_kitchen
         # 190503　テーブルごとの伝票を注文伝票ごとの表示に変える
-        # 調理待ちの料理をすべて抜け出す
+        # ↓調理待ちの料理をすべて抜け出す
         waiting_order = Orderlist.where(:state => [1])
-        
-        # 注文した時間別にグループ分けしてから、その注文時間を配列に入れる
+        # ↓注文した時間別にグループ分けしてから、その注文時間を配列に入れる
         waiting_order_by_ordered_time = waiting_order.group(:ordered_time)
+        # ↓注文時間ごとにグループ分けされた一番最初のデータから、時間を取り出して新しい配列に入れる
         ordered_time = []
         waiting_order_by_ordered_time.each do |time|
             ordered_time << time.ordered_time
         end
         
-        # viewに渡す変数を定義する
+        # ↓viewに渡す変数を定義する
         @time = []
             # 注文時間
         @table_id = []
             # 注文テーブル
         @each_table_order = []
             # 注文詳細
-
+            
         # 注文時間を一つ一つ取り出し、その時間のオーダーを全部取り出す
         ordered_time.each do |time2|
+            # ↓注文時間Xのすべてのオーダーと取り出す
             orders = waiting_order.where(:ordered_time => time2).order('id ASC')
-            orders2 = []
-            orders.each do |order|
-                @table = order.user_id
-                # テーブル番号は一つだけなので、オーダーごとに書き換える
-
-                hash = {}
-                hash[:order_id] = order.id
-                hash[:number] = order.number
-                hash[:state] = order.state
-                
-                if order.menu_id then
-                    hash[:menu_id] = order.menu_id
-                else
-                    hash[:menu_id] = 0
+            # 190711　同じ時間に2つのテーブルから注文があった時に、一つにまとめられてしまうので、
+            # 同じ注文時間で、user_idがちがうものがあるか調べる↓
+            # もしあれば、ユーザーでグループ分けする↓
+            if (orders.group(:user_id).length >= 2) then
+                split_by_table = orders.group(:user_id)
+                split_user_id = []
+                split_by_table.each do |table|
+                    split_user_id << table.user_id
                 end
-                # こので:menu_idを渡しているのjqueryで
-                # 同じ料理の背景の色を変更させるため。
-
-                if order.menu_id then
-                    number = order.menu_id
-                    menu = Menu.find(number)
-                    hash[:menu_name] = menu.name
-                    hash[:menu_name_zh] = menu.name_zh
-                else
-                    number2 = order.option_id
-                    option = Optiontable.find(number2)
-                    hash[:option_name] = option.name_opt
-                    hash[:option_name_zh] = option.name_opt_zh
+                # 注文時間とuser_id2つが当てはまるオーダーを取り出す↓
+                split_user_id.each do |id|
+                    orders3 = orders.where(:user_id => id).order('id ASC')
+                    # メニューの名前と個数を取り出すメソッド呼び出す
+                    call_ordered_menu(orders3, time2)
                 end
-
-                orders2 << hash
+            # 同じ時間で違うテーブルの注文がなければ↓
+            # メニューの名前と個数を取り出すメソッド呼び出す
+            else
+                call_ordered_menu(orders, time2)
             end
-            # 注文時間をわかりやすくする↓
-            @time << time2.strftime("%H:%M")
+            # orders2 = []
+            # orders.each do |order|
+            #     @table = order.user_id
+            #     # テーブル番号は一つだけなので、オーダーごとに書き換える
 
-            @table_id << @table
-            @each_table_order << orders2
+            #     hash = {}
+            #     hash[:order_id] = order.id
+            #     hash[:number] = order.number
+            #     hash[:state] = order.state
+                
+            #     if order.menu_id then
+            #         hash[:menu_id] = order.menu_id
+            #     else
+            #         hash[:menu_id] = 0
+            #     end
+            #     # こので:menu_idを渡しているのjqueryで
+            #     # 同じ料理の背景の色を変更させるため。
+
+            #     if order.menu_id then
+            #         number = order.menu_id
+            #         menu = Menu.find(number)
+            #         hash[:menu_name] = menu.name
+            #         hash[:menu_name_zh] = menu.name_zh
+            #     else
+            #         number2 = order.option_id
+            #         option = Optiontable.find(number2)
+            #         hash[:option_name] = option.name_opt
+            #         hash[:option_name_zh] = option.name_opt_zh
+            #     end
+
+            #     orders2 << hash
+            # end
+            # # 注文時間をわかりやすくする↓
+            # @time << time2.strftime("%H:%M")
+
+            # @table_id << @table
+            # @each_table_order << orders2
         end
     end
     
@@ -273,7 +294,6 @@ private
             redirect_to new_user_session_url 
         end
     end
-
     # 通知があるかどうかの確認
     def check_notification
         if Notification.exists?
@@ -282,17 +302,54 @@ private
             flash[:alert] = nil
         end
     end
-
     def clear_flash
         flash[:alert] = nil
     end
-
     def option_params
         params.require(:orderlist).permit(:user_id, :option_id, :number)
     end
-
     def table_change_params
         params.require(:orderlist).permit(:user_id, :number)
     end
+    # 190711　注文されたメニューの名前と個数を呼び出すメソッド
+    def call_ordered_menu(orders, time2)
+        orders2 = []
+        orders.each do |order|
+            @table = order.user_id
+            # テーブル番号は一つだけなので、オーダーごとに書き換える
+            
+            # ＠each_table_orderの変数に入れるハッシュを定義する
+            hash = {}
+            hash[:order_id] = order.id
+            hash[:number] = order.number
+            hash[:state] = order.state
+            # if order.menu_id then
+            #     hash[:menu_id] = order.menu_id
+            # else
+            #     hash[:menu_id] = 0
+            # end
+            # こので:menu_idを渡しているのjqueryで
+            # 同じ料理の背景の色を変更させるため。
+            if order.menu_id then
+                number = order.menu_id
+                hash[:menu_id] = number
+                menu = Menu.find(number)
+                hash[:menu_name] = menu.name
+                hash[:menu_name_zh] = menu.name_zh
+            else
+                hash[:menu_id] = 0
+                number2 = order.option_id
+                option = Optiontable.find(number2)
+                hash[:option_name] = option.name_opt
+                hash[:option_name_zh] = option.name_opt_zh
+            end
+            # こので:menu_idを渡しているのjqueryで
+            # 同じ料理の背景の色を変更させるため。
+            orders2 << hash
+        end
+        # 注文時間をわかりやすくする↓
+        @time << time2.strftime("%H:%M")
+        @table_id << @table
+        @each_table_order << orders2
+    end
 end
-

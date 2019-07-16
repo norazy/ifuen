@@ -62,9 +62,9 @@ $(document).on('turbolinks:load', function() {
   });
 });
 
-// 割引のボタンをクリックしたら、合計をもう一度計算し直す
+// 普通の割引のボタンをクリックしたら、合計をもう一度計算し直す
 $(document).on('turbolinks:load', function() {
-  $(".check_discount_button").click(function(){
+  $(".normal").click(function(){
     var value = $("#discout_input_field").val();
     // 割引入力したフィールドのvalueを取り出す
     
@@ -84,6 +84,26 @@ $(document).on('turbolinks:load', function() {
     
     $("#cashier_total").val(sum);
     // 会計テーブルに渡すtotalカラムのvalueも変化させる
+  });
+});
 
+// 持ち帰りの割引のボタンをクリックしたら、合計をもう一度計算し直す
+$(document).on('turbolinks:load', function() {
+  $(".take_out").click(function(){
+    // 小計を取り出して、文字列から数値にする
+    var subtotal = $(".subtotal_n p").html();
+    var subtotal2 = parseInt(subtotal.replace(",",""), 10);
+    // 小計から2%引きの料金を計算し、小数点以降切り捨て
+    var take_out_discount = Math.floor(subtotal2*0.02);
+    // 2%の金額にカンマを入れて、割引の欄に送る
+    var take_out_discount2 = String(take_out_discount).replace(/(\d)(?=(\d\d\d)+(?!\d))/g, '$1,');
+    $(".discount_n p").html(take_out_discount2);
+    // 小計から割引の料金を引いて、
+    // カンマを入れた文字列にして、合計を書き換える
+    var sum = subtotal2 - take_out_discount;
+    var sum2 = String(sum).replace(/(\d)(?=(\d\d\d)+(?!\d))/g, '$1,');
+    $(".check_total_right p").html(sum2);
+    // 会計テーブルに渡すtotalカラムのvalueも変化させる
+    $("#cashier_total").val(sum);
   });
 });
