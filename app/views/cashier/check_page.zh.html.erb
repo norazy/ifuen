@@ -102,7 +102,6 @@
                         <div class="check_total_right">
                             <p>0</p>
                         </div>
-                        <!--<2%= f.hidden_field(:total, value: 0)%>-->
                     </div>
                 </div>
             </div>
@@ -117,36 +116,29 @@
                         <div class="check_method_indiv_button cash">
                             <%= f.radio_button(:method, 1, :checked => true) %>
                             <%= f.label(:method, "现金", value: "1")  %>
-                            <!--<p>現金</p>-->
                         </div>
                     </div>
                     <div class="check_method_indiv">
                         <div class="check_method_indiv_button">
                             <%= f.radio_button(:method, 2) %>
                             <%= f.label(:method, "信用卡", value: "2")  %>
-                            <!--<p>クレジット</p>-->
                         </div>
                     </div>
                     <div class="check_method_indiv">
                         <div class="check_method_indiv_button">
                             <%= f.radio_button(:method, 3) %>
                             <%= f.label(:method, "网上支付", value: "3")  %>
-                            <!--<p>電子マネー</p>-->
                         </div>
                     </div>
                     <div class="check_method_indiv">
                         <div class="check_method_indiv_button">
                             <%= f.radio_button(:method, 4) %>
                             <%= f.label(:method, "其他", value: "4")  %>
-                            <!--<p>その他</p>-->
                         </div>
                     </div>
                 </div>
                 <div class="check_finish">
-                    <!--<div class="check_finish_button">-->
                         <%= f.submit '结账', class: 'check_finish_button', style:"font-family: 'Noto Sans SC', sans-serif;"%>
-                        <!--<p>会計完了</p>-->
-                    <!--</div>-->
                 </div>
                 <div class="check_method_title marginplus">
                     <div class="check_method_title_letter">
@@ -154,11 +146,12 @@
                     </div>
                 </div>
                 <div class="check_discount_body">
-                    <!--<div class="discout_input_field">-->
                     <input type="number" name="discount_amount" id="discout_input_field" value="" step="10"/>
-                    <!--</div>-->
-                    <div class="check_discount_button">
+                    <div class="check_discount_button normal">
                         <p>减去</p>
+                    </div>
+                    <div class="check_discount_button take_out">
+                        <p>打包折扣</p>
                     </div>
                 </div>
             </div>
