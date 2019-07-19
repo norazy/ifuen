@@ -1,7 +1,6 @@
 class StatisticsController < ApplicationController
     # サインインしているかどうか、且つ権限を持っているか
     before_action :move_to_signin 
-
     before_action :set_beginning
     def set_beginning
         # 今月の月の始めの日時
@@ -49,23 +48,21 @@ class StatisticsController < ApplicationController
     end
 
     def delete_data
-        # menu_idがあるオーダーを全部取り出す
-        order_has_menu_id = Orderlist.where.not(menu_id: nil)
         # 4ヶ月より前全部というのが、分からなかったので、
         # 去年から４ヶ月前というコードにした。
-        four_months_ago = Date.current.end_of_month.prev_month(4)
+        # 最後の一日が含まれていないので、末尾に+1している
+        four_months_ago = Date.current.end_of_month.prev_month(4)+1
         # 月末↑
         prev_year = @beginning.prev_year
+        # 去年↑
         # 4月のオーダーを呼び出す
-        @four_months_ago = order_has_menu_id.where(created_at: prev_year..four_months_ago)
-
+        @four_months_ago = Orderlist.where(created_at: prev_year..four_months_ago)
         # ↓もしデータがあったら、削除する
         if @four_months_ago.present?
             @four_months_ago.each do |order|
                 order.destroy
             end
         end
-
         redirect_back(fallback_location: root_path)
     end
     
