@@ -6,6 +6,8 @@ class StatisticsController < ApplicationController
         # 今月の月の始めの日時
         # その日付を渡すと、以下のデータ取得で月の途中からになってしまうから。
         @beginning = Date.current.beginning_of_month
+        # 最後の一日のコードが取り出せないために付け加えたコード↓
+        @beginning_time = Time.current.beginning_of_month
     end
 
     def sales
@@ -140,7 +142,7 @@ private
         # その月の全部の日付を取り出す
         month_date = @beginning.prev_month(month_num).all_month
         # その月の全部の会計データ
-        month_all_total = Cashier.where(created_at: @beginning.prev_month(month_num).all_month)
+        month_all_total = Cashier.where(created_at: @beginning_time.prev_month(month_num).all_month)
 
     	# 日付が入る配列を作成して、
         # その日の日付を文字列にして配列に入れる	
