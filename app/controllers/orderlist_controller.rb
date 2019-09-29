@@ -303,7 +303,7 @@ class OrderlistController < ApplicationController
         end
     end
     
-    # 「会計」の呼び出し
+    # 「会計する」の呼び出し
     def call_cashier
         Notification.create(table_id: current_user.id, 	state: 1)
 
