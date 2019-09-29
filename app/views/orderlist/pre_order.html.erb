@@ -106,17 +106,6 @@
                         <%= f.hidden_field(:number, name: "orderlist[][#{[:number]}]", value: order[:number], :class => "orderlist_number_value") %>
                                                                                                             <!--このclassはjqueryでvalueを変えるためのもの-->
                         <%= f.hidden_field(:state, name: "orderlist[][#{[:state]}]", value: order[:state]) %>
-
-                        <!--↓自分が最初に書いたコード-->
-                        <!--<2%= f.hidden_field(:id, name: "orderlist[id][]", value: order[:order_id]) %>-->
-                        <!--<2%= f.hidden_field(:number, name: "orderlist[number][]", value: order[:number], :class=>"orderlist_number_value") %>-->
-                        <!--<2%= f.hidden_field(:state, name: "orderlist[state][]", value: order[:state]) %>-->
-                        
-                        <!--↓井上さんに描いてもらったコード-->
-                        <!--キーがついたハッシュ-->
-                        <!--<2%= f.hidden_field(:id, name: "orderlist[#{order[:order_id]}][order_id]", value: order[:order_id]) %>-->
-                        <!--<2%= f.hidden_field(:number, name: "orderlist[#{order[:order_id]}][number]", value: order[:number], :class=>"orderlist_number_value") %>-->
-                        <!--<2%= f.hidden_field(:state, name: "orderlist[#{order[:order_id]}][state]", value: order[:state]) %>-->
                     <% end %>
                 </div>
                 <div class="preorder_bt_div clearfix">
@@ -129,6 +118,6 @@
 <% if flash[:notice].present? %>
     <div id="toasts">削除しました！</div>
 <% end %>
-<% if flash[:error].present? %>
-    <div id="toasts">ただいまお伺いします<br><br>少々お待ちくださいませ</div>
-<% end %>
+<!--<2% if flash[:error].present? %>-->
+<!--    <div id="toasts">ただいまお伺いします<br><br>少々お待ちくださいませ</div>-->
+<!--<2% end %>-->

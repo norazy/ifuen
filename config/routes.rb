@@ -20,7 +20,9 @@ scope '(:locale)', locale: /#{I18n.available_locales.map(&:to_s).join('|')}/ do
     get 'order/drink_menu' => 'orderlist#drink'
     get 'order/recommend_menu' => 'orderlist#recommend'
     get 'order/search' => 'orderlist#search'
+    get 'order/cashier' => 'orderlist#call_cashier_get'
     post 'order/cashier' => 'orderlist#call_cashier'
+    get 'order/staff' => 'orderlist#call_staff_get'
     post 'order/staff' => 'orderlist#call_staff'
 
       # 注文確認ページ

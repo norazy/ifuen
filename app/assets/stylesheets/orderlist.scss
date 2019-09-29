@@ -364,7 +364,6 @@
             }
         }
     }
-    
     .menu_background {
         width: 960px;
         // height: 720px;
@@ -1039,7 +1038,6 @@
     }
 }
 
-
 // 注文済画面
 .ordered_display {
     width: 800px;
@@ -1158,6 +1156,47 @@
         }
     }
 
+}
+
+//「呼出」「会計」のページ
+.call_out_background_color {
+    background-color: #f5f5dc;
+    min-height: 768px;
+    padding-top: 80px;
+    .call_out_background {
+        width: 960px;
+        height: 500px;
+        border: solid 7px #ea5317;
+        margin: auto;
+        p {
+            color: #000a34;
+            font-size: 40px;
+            text-align: center;
+            margin-bottom: 10px;
+        }
+        .call_out_image {
+            height: 160px;
+            display: flex;
+            .panda {
+                margin-left: 50px;
+                height: 144px;
+                img {
+                    height: 100%;
+                }
+            }
+            .panda2 {
+                margin-left: 550px;
+                height: 144px;
+                img {
+                    height: 100%;
+                }
+            }
+        }
+        .call_out_staff {
+            padding-top: 80px;
+            padding-bottom: 40px;
+        }
+    }
 }
 
 // カートに入れた時に現れるトースト

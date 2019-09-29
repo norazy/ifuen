@@ -13,7 +13,7 @@
                                     <li class="top_page_nav_li"><%= link_to "退出登录", destroy_user_session_path, method: :delete %></li>
                                     <li class="top_page_nav_li"><%= link_to "回首页", firstpage_path, method: :get %></li>
                                     <li class="top_page_nav_li">
-                                        <%= link_to('日语', :locale => 'ja') %>
+                                        <%= link_to('日本語', :locale => 'ja') %>
                                     </li>
                                     <li class="top_page_nav_li">
                                         <%= link_to('English', :locale => 'en') %>
@@ -99,6 +99,6 @@
 <% if flash[:notice].present? %>
     <div id="toasts">谢谢下单！</div>
 <% end %>
-<% if flash[:error].present? %>
-    <div id="toasts">呼叫中<br><br>请稍等</div>
-<% end %>
+<!--<2% if flash[:error].present? %>-->
+<!--    <div id="toasts">呼叫中<br><br>请稍等</div>-->
+<!--<2% end %>-->

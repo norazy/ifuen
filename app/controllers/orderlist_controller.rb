@@ -228,34 +228,6 @@ class OrderlistController < ApplicationController
         Notification.create(table_id: current_user.id, state: 3)
         redirect_to order_top_path
         flash[:notice] = "something"
-
-        # 自分が最初に作ったパラムズに対してのコード
-        # 取り出したparamsは{"id"=>["17", "18"....], "number"=>[], "state"=>[]}
-        # # paramsがidごとに配列になっているので、それぞれをパラムズから取り出す
-        # id = params[:orderlist][:id]
-        # number = params[:orderlist][:number]
-        # state = params[:orderlist][:state]
-        
-        # # 入っている個数を数える
-        # length = id.length
-       
-        # # while文で一つずつ取り出して保存する
-        # i = 0
-        # while i <= length-1 do 
-        #     order_id = id[i]
-        #     order_number = number[i]
-        #     order_state = state[i]
-            
-        #     orderlist = Orderlist.find(order_id)
-
-        #     if orderlist.user_id = current_user.id then
-        #         orderlist.number = order_number
-        #         orderlist.state = order_state
-        #         orderlist.save
-        #     end
-        # i = i + 1
-
-        # end
     end
 
     # 注文済画面
@@ -305,18 +277,26 @@ class OrderlistController < ApplicationController
     
     # 「会計する」の呼び出し
     def call_cashier
-        Notification.create(table_id: current_user.id, 	state: 1)
-
-        redirect_back(fallback_location: root_path)
-        flash[:error] = "something"
+        Notification.create(table_id: current_user.id, state: 1)
+        # redirect_back(fallback_location: root_path)
+        # flash[:error] = "something"
+    end
+    def call_cashier_get
+    # リフレッシュを押されたときにバグらないためのアクション
+    # これでいいかはまだわからない↓
+        redirect_to root_path
     end
     
     # スタッフの呼び出し
     def call_staff
-        Notification.create(table_id: current_user.id, 	state: 2)
-
-        redirect_back(fallback_location: root_path)
-        flash[:error] = "something"
+        Notification.create(table_id: current_user.id, state: 2)
+        # redirect_back(fallback_location: root_path)
+        # flash[:error] = "something"
+    end
+    def call_staff_get
+    # リフレッシュを押されたときにバグらないためのアクション
+    # これでいいかはまだわからない↓
+        redirect_to root_path
     end
 
 private

@@ -13,10 +13,10 @@
                                     <li class="top_page_nav_li"><%= link_to "Sign Out", destroy_user_session_path, method: :delete %></li>
                                     <li class="top_page_nav_li"><%= link_to "Menu Top", firstpage_path, method: :get %></li>
                                     <li class="top_page_nav_li">
-                                        <%= link_to('JP', :locale => 'ja') %>
+                                        <%= link_to('日本語', :locale => 'ja') %>
                                     </li>
                                     <li class="top_page_nav_li">
-                                        <%= link_to('CN', :locale => 'zh') %>
+                                        <%= link_to('中文', :locale => 'zh') %>
                                     </li>
                                 </ul>
                             </div>
@@ -98,6 +98,6 @@
 <% if flash[:notice].present? %>
     <div id="toasts">Order Accepted!</div>
 <% end %>
-<% if flash[:error].present? %>
-    <div id="toasts">Calling...<br><br>We will come soon!</div>
-<% end %>
+<!--<2% if flash[:error].present? %>-->
+<!--    <div id="toasts">Calling...<br><br>We will come soon!</div>-->
+<!--<2% end %>-->

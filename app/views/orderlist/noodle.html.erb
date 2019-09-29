@@ -85,20 +85,10 @@
 
 
 <% if flash[:notice].present? %>
-    <!--    <script>-->
-    <!--        alert("<2%= flash[:notice] %>");-->
-    <!--    </script>        -->
-    <div id="toasts">未確定注文に入れました！</div>
+    <div id="toasts">カートに入れました！</div>
 <% end %>
 
-<% if flash[:error].present? %>
-    <div id="toasts">ただいまお伺いします<br><br>少々お待ちくださいませ</div>
-<% end %>
-
-
-<!-- Use a button to open the snackbar -->
-<!--<button onclick="myFunction()">Show Snackbar</button>-->
-
-<!-- The actual snackbar -->
-    <!--<div id="snackbar">Some text some message..</div>-->
+<!--<2% if flash[:error].present? %>-->
+<!--    <div id="toasts">ただいまお伺いします<br><br>少々お待ちくださいませ</div>-->
+<!--<2% end %>-->
 
