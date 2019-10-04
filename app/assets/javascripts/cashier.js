@@ -35,6 +35,9 @@ $(document).on('turbolinks:load', function() {
       subtotal += subsubtotal;
       // 小計の変数に足す
     });
+  // 191002今後書き加える予定
+  // $("#cashier_subtotal").val(subtotal);
+
   var subtotal2 = String(subtotal).replace(/(\d)(?=(\d\d\d)+(?!\d))/g, '$1,');
   // 小計をカンマ入りの数に書き換える
   $(".subtotal_n p").html(subtotal2);

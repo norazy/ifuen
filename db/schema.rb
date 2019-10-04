@@ -10,13 +10,17 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_03_31_084935) do
+ActiveRecord::Schema.define(version: 2019_10_04_171416) do
 
   create_table "cashiers", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.integer "total", null: false
     t.integer "method", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer "user_id"
+    t.integer "tax_type"
+    t.integer "discount"
+    t.integer "subtotal"
   end
 
   create_table "menus", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
@@ -30,10 +34,10 @@ ActiveRecord::Schema.define(version: 2019_03_31_084935) do
     t.integer "option3"
     t.text "name_zh"
     t.text "name_en"
-    t.text "detail_zh"
-    t.text "detail_en"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.text "detail_zh"
+    t.text "detail_en"
   end
 
   create_table "notifications", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
@@ -46,10 +50,10 @@ ActiveRecord::Schema.define(version: 2019_03_31_084935) do
   create_table "optiontables", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.text "name_opt"
     t.integer "price_opt"
-    t.text "name_opt_zh"
-    t.text "name_opt_en"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.text "name_opt_zh"
+    t.text "name_opt_en"
   end
 
   create_table "orderlists", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|

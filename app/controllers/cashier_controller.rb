@@ -106,7 +106,6 @@ class CashierController < ApplicationController
     end
     # 支払い完了後の操作
     def paid
-        # 190710
         cashier = Cashier.new(method: params[:cashier][:method], total: params[:cashier][:total])
         cashier.save
         # ↓以前の
