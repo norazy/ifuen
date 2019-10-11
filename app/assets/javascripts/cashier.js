@@ -97,7 +97,7 @@ $(document).on('turbolinks:load', function() {
     var subtotal = $(".subtotal_n p").html();
     var subtotal2 = parseInt(subtotal.replace(",",""), 10);
     // 小計から2%引きの料金を計算し、小数点以降切り捨て
-    var take_out_discount = Math.floor(subtotal2*0.02);
+    var take_out_discount = Math.floor(subtotal2*2/110);
     // 2%の金額にカンマを入れて、割引の欄に送る
     var take_out_discount2 = String(take_out_discount).replace(/(\d)(?=(\d\d\d)+(?!\d))/g, '$1,');
     $(".discount_n p").html(take_out_discount2);
