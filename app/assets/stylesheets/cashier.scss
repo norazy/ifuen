@@ -544,11 +544,25 @@
                     height: 53px;
                     box-shadow: 3px 3px 3px rgba(0, 0, 0, 0.4);
                     border-radius: 5px;
-                    p {
+                    
+                    position: relative;
+                    label {
+                        position: absolute;
+                        top: 0;
+                        bottom: 0;
+                        left: 0;
+                        right: 0;                        
                         margin: 0;
                         font-size: 22px;
                         padding-top: 5%;
                     }
+                    #cashier_tax_type_1, #cashier_tax_type_2{
+                        display: none;
+                    }
+                }
+                // 割引がない時のtax_type
+                #cashier_tax_type_0{
+                    display: none;
                 }
                 .normal {
                     background-color: #ea5317;
@@ -558,6 +572,7 @@
                     background-color: #e94e47;
                     margin: 5% auto 0;
                 }
+                
             }
         }
     }
@@ -638,7 +653,7 @@
             .check_method .check_method_indiv .check_method_indiv_button label {
                 padding-top: 9px;
             }
-            .check_discount_body .check_discount_button p {
+            .check_discount_body .check_discount_button label {
                 padding-top: 3%;
             }
         } 

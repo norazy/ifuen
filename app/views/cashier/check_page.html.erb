@@ -142,22 +142,30 @@
                     </div>
                 </div>
                 <div class="check_discount_body">
-                    <input type="number" name="discount_amount" id="discout_input_field" value="" step="10"/>
+                    <input type="number" name="discount_amount" id="discout_input_field" value="" step="1"/>
                     <div class="check_discount_button normal">
-                        <p>普通の割引</p>
+                        <%= f.radio_button(:tax_type, 2) %>
+                        <%= f.label(:tax_type, "普通の割引", value: "2")  %>
                     </div>
                     <div class="check_discount_button take_out">
-                        <p>持ち帰り割引</p>
+                        <%= f.radio_button(:tax_type, 1) %>
+                        <%= f.label(:tax_type, "持ち帰り割引", value: "1")  %>
                     </div>
+                    <!--割引がない時のtax_type/非表示-->
+                    <%= f.radio_button(:tax_type, 0, :checked => true) %>
+                    <!--<div class="check_discount_button normal">-->
+                    <!--    <p>普通の割引</p>-->
+                    <!--</div>-->
+                    <!--<div class="check_discount_button take_out">-->
+                    <!--    <p>持ち帰り割引</p>-->
+                    <!--</div>-->
                 </div>
             </div>
         </div>
+        <!--小計、割引、合計-->
+        <%= f.hidden_field(:subtotal, value: 0) %>
+        <%= f.hidden_field(:discount, value: 0) %>
         <%= f.hidden_field(:total, value: 0) %>
-        
-        <!--191001 これから加える内容-->
-        <!--<2%= f.hidden_field(:subtotal, value: 0) %>-->
-        <!--<2%= f.hidden_field(:discount, value: 0) %>-->
-        
         <!--会計完了後にorderlistのオーダーのstateを書き換えるためにテーブルのidを持たせている-->
         <%= f.hidden_field(:id, value: @table_id) %>
     <% end %>

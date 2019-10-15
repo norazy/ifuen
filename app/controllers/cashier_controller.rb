@@ -106,17 +106,15 @@ class CashierController < ApplicationController
     end
     # 支払い完了後の操作
     def paid
-        cashier = Cashier.new(method: params[:cashier][:method], total: params[:cashier][:total])
+        # cashier = Cashier.new(method: params[:cashier][:method], total: params[:cashier][:total])
+        cashier = Cashier.new(method: params[:cashier][:method], total: params[:cashier][:total], user_id: params[:cashier][:id], tax_type: params[:cashier][:tax_type], discount: params[:cashier][:discount], subtotal: params[:cashier][:subtotal])
         cashier.save
-        # ↓以前の
-        # Cashier.create(method: params[:cashier][:method], total: params[:cashier][:total])
-        # 会計方法と合計を会計テーブルに保存する
 
         orderlist = Orderlist.where(user_id: params[:cashier][:id]).where(state: 3)
         orderlist.each do |state|
             state.state = 4
-            # これから使うかもしれない↓
-            # state.cashier_id = cashier.id
+            # 会計から詳細が探せるように会計のidをもたせている
+            state.cashier_id = cashier.id
             state.save
         end
         redirect_to cashier_table_url

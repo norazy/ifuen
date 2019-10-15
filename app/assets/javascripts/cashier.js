@@ -35,8 +35,8 @@ $(document).on('turbolinks:load', function() {
       subtotal += subsubtotal;
       // 小計の変数に足す
     });
-  // 191002今後書き加える予定
-  // $("#cashier_subtotal").val(subtotal);
+  $("#cashier_subtotal").val(subtotal);
+  // 191015小計をvalに反映させる
 
   var subtotal2 = String(subtotal).replace(/(\d)(?=(\d\d\d)+(?!\d))/g, '$1,');
   // 小計をカンマ入りの数に書き換える
@@ -70,6 +70,8 @@ $(document).on('turbolinks:load', function() {
   $(".normal").click(function(){
     var value = $("#discout_input_field").val();
     // 割引入力したフィールドのvalueを取り出す
+  $("#cashier_discount").val(value);
+  // 191015小計をvalに反映させる
     
     var value2 = String(value).replace(/(\d)(?=(\d\d\d)+(?!\d))/g, '$1,');
     $(".discount_n p").html(value2);
@@ -99,6 +101,10 @@ $(document).on('turbolinks:load', function() {
     // 小計から2%引きの料金を計算し、小数点以降切り捨て
     var take_out_discount = Math.floor(subtotal2*2/110);
     // 2%の金額にカンマを入れて、割引の欄に送る
+
+  $("#cashier_discount").val(take_out_discount);
+  // 191015小計をvalに反映させる
+
     var take_out_discount2 = String(take_out_discount).replace(/(\d)(?=(\d\d\d)+(?!\d))/g, '$1,');
     $(".discount_n p").html(take_out_discount2);
     // 小計から割引の料金を引いて、
