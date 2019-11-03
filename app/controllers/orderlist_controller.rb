@@ -192,42 +192,83 @@ class OrderlistController < ApplicationController
     end
     # 未確定の削除
     def delete_preorder
-        orderlist = Orderlist.find(params[:id])
-        orderlist.destroy if orderlist.user_id = current_user.id
-        # サインインしてがメニューを注文した人なら、削除する
-        redirect_back(fallback_location: root_path)
-        flash[:notice] = "Something"
+        # 削除を2回押すことで出るエラーを解決するために、if文を付け加えた 191103
+        if Orderlist.where(id: params[:id]).exists?
+            orderlist = Orderlist.find(params[:id])
+            orderlist.destroy if orderlist.user_id = current_user.id
+            # サインインしてがメニューを注文した人なら、削除する
+            redirect_back(fallback_location: root_path)
+            flash[:notice] = "Something"
+        end
+
+        # orderlist = Orderlist.find(params[:id])
+        # orderlist.destroy if orderlist.user_id = current_user.id
+        # # サインインしてがメニューを注文した人なら、削除する
+        # redirect_back(fallback_location: root_path)
+        # flash[:notice] = "Something"
     end
     # 未確定のものを確定にする部分
     def post_order
-        # paramsの配列を変数へ
-        preorderlist = post_order_params[:orderlist]
-        # 配列をeach文にかける
-        preorderlist.each do |pre|
-            # ↓オーダーのidを取り出す
-            number = pre[":id"]
-            # ↓文字列になっているため、数字にする
-            number = number.to_i
-            # ↓該当するidのオーダーレコードをだす
-            orderlist = Orderlist.find(number)
-
-            # ↓useridの確認
-            if orderlist.user_id = current_user.id then
-                # 個数の書き換え
-                orderlist.number = pre[":number"]
-                # 状態の書き換え
-                orderlist.state = pre[":state"]
-                orderlist.ordered_time = DateTime.current
-                # binding.pry
-                # 上書き保存
-                orderlist.save
+        # 191103 空のときに注文するって押すとエラーがでるため、if文を付け加える
+        if post_order_params[:orderlist]
+            # paramsの配列を変数へ
+            preorderlist = post_order_params[:orderlist]
+            # 配列をeach文にかける
+            preorderlist.each do |pre|
+                # ↓オーダーのidを取り出す
+                number = pre[":id"]
+                # ↓文字列になっているため、数字にする
+                number = number.to_i
+                # ↓該当するidのオーダーレコードをだす
+                orderlist = Orderlist.find(number)
+    
+                # ↓useridの確認
+                if orderlist.user_id = current_user.id then
+                    # 個数の書き換え
+                    orderlist.number = pre[":number"]
+                    # 状態の書き換え
+                    orderlist.state = pre[":state"]
+                    orderlist.ordered_time = DateTime.current
+                    # binding.pry
+                    # 上書き保存
+                    orderlist.save
+                end
             end
+            
+            # notificationテーブルに新しい注文が入ったことを知らせる
+            Notification.create(table_id: current_user.id, state: 3)
+            redirect_to order_top_path
+            flash[:notice] = "something"
         end
         
-        # notificationテーブルに新しい注文が入ったことを知らせる
-        Notification.create(table_id: current_user.id, state: 3)
-        redirect_to order_top_path
-        flash[:notice] = "something"
+        # # paramsの配列を変数へ
+        # preorderlist = post_order_params[:orderlist]
+        # # 配列をeach文にかける
+        # preorderlist.each do |pre|
+        #     # ↓オーダーのidを取り出す
+        #     number = pre[":id"]
+        #     # ↓文字列になっているため、数字にする
+        #     number = number.to_i
+        #     # ↓該当するidのオーダーレコードをだす
+        #     orderlist = Orderlist.find(number)
+
+        #     # ↓useridの確認
+        #     if orderlist.user_id = current_user.id then
+        #         # 個数の書き換え
+        #         orderlist.number = pre[":number"]
+        #         # 状態の書き換え
+        #         orderlist.state = pre[":state"]
+        #         orderlist.ordered_time = DateTime.current
+        #         # binding.pry
+        #         # 上書き保存
+        #         orderlist.save
+        #     end
+        # end
+        
+        # # notificationテーブルに新しい注文が入ったことを知らせる
+        # Notification.create(table_id: current_user.id, state: 3)
+        # redirect_to order_top_path
+        # flash[:notice] = "something"
     end
 
     # 注文済画面
