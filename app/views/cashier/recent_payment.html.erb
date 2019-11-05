@@ -1,0 +1,48 @@
+<div class="cashier_background-color beige">
+    <div class="cashier_background">
+        <header class="cashier_header clearfix">
+            <div class="cashier_button_right">
+                <div class="cashier_button">
+                    <a href="/cashier/table">
+                        <p>テーブル</p>
+                    </a>
+                </div>
+            </div>
+        </header>
+        <div class="recent_payment_title">
+            <p>
+                最近5件の会計
+            </p>
+        </div>
+        <div class="recent_payment_line">
+            <h2></h2>
+        </div>
+        <div class="recent_payment_body">
+            <div class="recent_payment_in_body">
+                <ul class="recent_payment_body_headline">
+                    <li class="recent_payment_headline_indiv">テーブル</li>
+                    <li class="recent_payment_headline_indiv">合計</li>
+                    <li class="recent_payment_headline_indiv">リンク</li>
+                </ul>
+                <% @recent_payment.each do |payment| %>
+                    <div class="recent_payment_body_detail">
+                        <div class="recent_payment_body_detail_div">
+                            <p><%= payment.user_id %></p>
+                        </div>
+                        <div class="recent_payment_body_detail_div">
+                            <!--<p><2%= payment.total %></p>-->
+                            <p><%= number_to_currency(payment.total, :unit => "￥", :precision =>0) %></p>
+                        </div>
+                        <div class="recent_payment_body_detail_link">
+                            <div class="detail_link_btn">
+                                <a href="/cashier/payment_detail/<%= payment.id %>">
+                                    <p>詳細</p>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                <% end %>
+            </div>
+        </div>
+    </div>
+</div>

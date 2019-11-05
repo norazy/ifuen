@@ -47,7 +47,6 @@
     .orange {
         background-color: #ea5317;
     }
-
     .kitchen_nav {
         height: 60px;
         padding-top: 2%;
@@ -104,7 +103,6 @@
             }
         }
     }
-
     .kitchen_background {
         width: 960px;
         // height: 720px;
@@ -156,109 +154,100 @@
         .notification_display {
             width: 800px;
             margin: 0 auto;
-
             .notification_div {
-            width: 100%;
-            margin: 7% auto;
-            text-align: center;
-        
-            ul {
-                list-style: none;
-                display: flex;
-                padding: 0;
-                margin: 0;
-                .notification_title_indiv {
-                    border: 2px solid #ffffff;
-                    height: 38px;
-                    background-color: #000a34;
-                    color: #ffffff;
-                    font-size: 24px;
-                    padding-top: 14px;
-                }
-                .width1 {
-                    width: 330px;
-                    border-left: none;
-                }
-                .width2 {
-                    width: 130px;
-                }
-                .width3 {
-                    width: 196px;
-                    border-right: none;
-                }
-        
-            }
-            .notification_detail {
-                margin: 0 auto;
+                width: 100%;
+                margin: 7% auto;
                 text-align: center;
-                display: flex;
-                p {
+                ul {
+                    list-style: none;
+                    display: flex;
+                    padding: 0;
                     margin: 0;
-                }
-                .notification_table {
-                    border: 2px solid #ffffff;
-                    border-bottom: 2px solid #ea5317;
-                    height: 40px;
-                    font-size: 28px;
-                    padding-top: 5%;
-                    width: 130px;
-                    border-left: none;
-
-                }
-                .notification_state {
-                    border: 2px solid #ffffff;
-                    border-bottom: 2px solid #ea5317;
-                    height: 40px;
-                    font-size: 28px;
-                    padding-top: 5%;
-                    width: 330px;
-                    // text-align: left;
-                }
-                .notification_time {
-                    border: 2px solid #ffffff;
-                    border-bottom: 2px solid #ea5317;
-                    height: 40px;
-                    padding-top: 5%;
-                    width: 196px;
-                    color: #ea5317;
-                    font-size: 32px;
-                }
-                .notification_delete {
-                    border: 2px solid #ffffff;
-                    border-bottom: 2px solid #ea5317;
-                    // height: 40px;
-                    font-size: 28px;
-                    // padding-top: 5%;
-                    width: 130px;
-                    border-right: none;
-                    .notification_destroy {
+                    .notification_title_indiv {
+                        border: 2px solid #ffffff;
+                        height: 38px;
+                        background-color: #000a34;
+                        color: #ffffff;
+                        font-size: 24px;
+                        padding-top: 14px;
+                    }
+                    .width1 {
+                        width: 330px;
+                        border-left: none;
+                    }
+                    .width2 {
                         width: 130px;
-                        height: auto;
-                        cursor: pointer;                        
-
-                        .destroy_btn {
-                            cursor: pointer;
-                            width: 50px;
-                            height: 50px;
-                            line-height: 50px;
-                            border-radius: 50%;
-                            text-align: center;
-                            overflow: hidden;
-                            font-weight: bold;
-                            box-shadow: 2px 2px 2px rgba(0, 0, 0, 0.28);
-
-                            background-image: linear-gradient(#e77676 0%, #cd5c5c 100%);
-                            margin: 17% auto 0;
-                            a {
-                                color: #ffffff;
-                                text-decoration: none;
-
+                    }
+                    .width3 {
+                        width: 196px;
+                        border-right: none;
+                    }
+                }
+                .notification_detail {
+                    margin: 0 auto;
+                    text-align: center;
+                    display: flex;
+                    p {
+                        margin: 0;
+                    }
+                    .notification_table {
+                        border: 2px solid #ffffff;
+                        border-bottom: 2px solid #ea5317;
+                        height: 40px;
+                        font-size: 28px;
+                        padding-top: 5%;
+                        width: 130px;
+                        border-left: none;
+    
+                    }
+                    .notification_state {
+                        border: 2px solid #ffffff;
+                        border-bottom: 2px solid #ea5317;
+                        height: 40px;
+                        font-size: 28px;
+                        padding-top: 5%;
+                        width: 330px;
+                    }
+                    .notification_time {
+                        border: 2px solid #ffffff;
+                        border-bottom: 2px solid #ea5317;
+                        height: 40px;
+                        padding-top: 5%;
+                        width: 196px;
+                        color: #ea5317;
+                        font-size: 32px;
+                    }
+                    .notification_delete {
+                        border: 2px solid #ffffff;
+                        border-bottom: 2px solid #ea5317;
+                        font-size: 28px;
+                        width: 130px;
+                        border-right: none;
+                        .notification_destroy {
+                            width: 130px;
+                            height: auto;
+                            .destroy_btn {
+                                cursor: pointer;
+                                width: 50px;
+                                height: 50px;
+                                line-height: 50px;
+                                border-radius: 50%;
+                                text-align: center;
+                                overflow: hidden;
+                                font-weight: bold;
+                                box-shadow: 2px 2px 2px rgba(0, 0, 0, 0.28);
+    
+                                background-image: linear-gradient(#e77676 0%, #cd5c5c 100%);
+                                margin: 17% auto 0;
+                                a {
+                                    color: #ffffff;
+                                    text-decoration: none;
+                                }
                             }
                         }
                     }
                 }
             }
-        }
         }
         
         // テーブルページ

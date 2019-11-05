@@ -1,0 +1,66 @@
+<div class="cashier_background-color">
+    <div class="cashier_background">
+        <header class="cashier_header clearfix">
+            <div class="cashier_button_right">
+                <div class="cashier_button">
+                    <a href="/cashier/recent_payment">
+                        <p>過去会計</p>
+                    </a>
+                </div>
+                <div class="cashier_button">
+                    <a href="/cashier/table">
+                        <p>テーブル</p>
+                    </a>
+                </div>
+            </div>
+        </header>
+        <div class="cashier_each_payment">
+            <div class="payment_price_n_table">
+                <div class="payment_price_n_table_indiv">
+                    <div class="payment_price_n_table_indiv_label">
+                        <p>金額</p>
+                    </div>
+                    <div class="payment_price_n_table_indiv_value">
+                        <p><%= number_to_currency(@payment_detail.total, :unit => "￥", :precision =>0) %></p>
+                    </div>
+                </div>
+                <div class="payment_price_n_table_indiv">
+                    <div class="payment_price_n_table_indiv_label">
+                        <p>テーブル</p>
+                    </div>
+                    <div class="payment_price_n_table_indiv_value">
+                        <p><%= @payment_detail.user_id %></p>
+                    </div>
+                </div>
+            </div>
+            <div class="cashier_each_payment_detail">
+                <div class="cashier_each_payment_detail_headline">
+                    <ul>
+                        <li class="each_payment_detail_headline_indiv">料理名</li>
+                        <li class="each_payment_detail_headline_indiv">価格</li>
+                        <li class="each_payment_detail_headline_indiv">個数</li>
+                    </ul>
+                </div>
+                <% @paid_menu.each do |order| %>
+                    <div class="cashier_each_payment_detail_menu">
+                        <% if order[:menu_name] then %>
+                            <div class="payment_detail_menu_div">
+                                <p><%= order[:menu_name] %></p>
+                            </div>
+                        <% else %>
+                            <div class="payment_detail_menu_div">
+                                <p>　<%= order[:option_name] %></p>
+                            </div>
+                        <% end %>
+                        <div class="payment_detail_menu_div">
+                            <p><%= order[:price] %></p>
+                        </div>
+                        <div class="payment_detail_menu_div">
+                            <p><%= order[:number] %></p>
+                        </div>
+                    </div>
+                <% end %>
+            </div>
+        </div>
+    </div>
+</div>

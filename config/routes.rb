@@ -31,7 +31,6 @@ scope '(:locale)', locale: /#{I18n.available_locales.map(&:to_s).join('|')}/ do
     post 'order/pre_order' => 'orderlist#post_order'
     get 'order/ordered/:id' => 'orderlist#ordered'
 
-
     get 'order/modal/:id' => 'orderlist#modal', as: 'order_indiv'
     post 'order/modal_order' => 'orderlist#order_create'
     
@@ -60,11 +59,15 @@ scope '(:locale)', locale: /#{I18n.available_locales.map(&:to_s).join('|')}/ do
     get 'kitchen/table_change' => 'kitchen#table_change'
     post 'kitchen/table_change' => 'kitchen#post_table_change'
     
+    # 191104会計一覧
+    get 'cashier/recent_payment' => 'cashier#recent_payment'
+    get 'cashier/payment_detail/:id' => 'cashier#payment_detail'
     # 会計ページ
     get 'cashier/table' => 'cashier#table_cashier'
     get 'cashier/:id' => 'cashier#check_page'
     post 'cashier/paid' => 'cashier#paid'
     
+
     # 統計ページ
     get 'statistics/sales' => 'statistics#sales'
     get 'statistics/ranking' => 'statistics#ranking'

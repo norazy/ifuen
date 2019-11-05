@@ -1,173 +1,173 @@
 <div class="cashier_background-color">
-<div class="cashier_background">
-    <header class="cashier_header clearfix">
-        <!--<div class="cashier_header_left">-->
-        <!--    <div class="cashier_button">-->
-        <!--        <2%= link_to "ログアウト", destroy_user_session_path, method: :delete %>-->
-        <!--    </div>-->
-        <!--</div>-->
-        <div class="cashier_button_right">
-            <div class="cashier_button">
-                <a href="/firstpage">
-                    <p>メニューTOP</p>
-                </a>
-            </div>
-            <div class="cashier_button">
-                <a href="/cashier/table">
-                    <p>テーブル</p>
-                </a>
-            </div>
-        </div>
-    </header>
-    <%= form_for(@cashier, url: "/cashier/paid") do |f| %>
-        <div class="check_all">
-            <div class="check_body">
-                <div class="check_table">
-                    <div class="check_table_number">
-                        <p>テーブル：　<%= @table_id %></p>
-                    </div>
+    <div class="cashier_background">
+        <header class="cashier_header clearfix">
+            <!--<div class="cashier_header_left">-->
+            <!--    <div class="cashier_button">-->
+            <!--        <2%= link_to "ログアウト", destroy_user_session_path, method: :delete %>-->
+            <!--    </div>-->
+            <!--</div>-->
+            <div class="cashier_button_right">
+                <div class="cashier_button">
+                    <a href="/firstpage">
+                        <p>メニューTOP</p>
+                    </a>
                 </div>
-                <div class="check_detail">
-                    <% @forcheck.each do |check| %>
-                        <div class="check_detail_indiv">
-                            <% if check[:menu_name] then %>
-                                <div class="indiv_column name">
-                                    <p><%= check[:menu_name] %></p>
+                <div class="cashier_button">
+                    <a href="/cashier/table">
+                        <p>テーブル</p>
+                    </a>
+                </div>
+            </div>
+        </header>
+        <%= form_for(@cashier, url: "/cashier/paid") do |f| %>
+            <div class="check_all">
+                <div class="check_body">
+                    <div class="check_table">
+                        <div class="check_table_number">
+                            <p>テーブル：　<%= @table_id %></p>
+                        </div>
+                    </div>
+                    <div class="check_detail">
+                        <% @forcheck.each do |check| %>
+                            <div class="check_detail_indiv">
+                                <% if check[:menu_name] then %>
+                                    <div class="indiv_column name">
+                                        <p><%= check[:menu_name] %></p>
+                                    </div>
+                                <% else %>
+                                    <div class="indiv_column name">
+                                        <p>　<%= check[:option_name] %></p>
+                                    </div>
+                                <% end %>
+                                
+                                <div class="indiv_column price">
+                                    <p>
+                                        <%= check[:price] %>
+                                    </p>
                                 </div>
-                            <% else %>
-                                <div class="indiv_column name">
-                                    <p>　<%= check[:option_name] %></p>
+                                <div class="indiv_column number">
+                                    <p>
+                                        <%= check[:number] %>
+                                    </p>
                                 </div>
-                            <% end %>
-                            
-                            <div class="indiv_column price">
+                                <div class="indiv_column subtotal">
+                                    <p>
+                                        0
+                                    </p>
+                                </div>
+                            </div>
+                        <% end %>
+                        <div class="check_detail_subtotal">
+                            <div class="subtotal_column empty">
                                 <p>
-                                    <%= check[:price] %>
                                 </p>
                             </div>
-                            <div class="indiv_column number">
+                            <div class="subtotal_column subtotal_l">
                                 <p>
-                                    <%= check[:number] %>
+                                    小計
                                 </p>
                             </div>
-                            <div class="indiv_column subtotal">
+                            <div class="subtotal_column subtotal_n">
                                 <p>
                                     0
                                 </p>
                             </div>
                         </div>
-                    <% end %>
-                    <div class="check_detail_subtotal">
-                        <div class="subtotal_column empty">
-                            <p>
-                            </p>
-                        </div>
-                        <div class="subtotal_column subtotal_l">
-                            <p>
-                                小計
-                            </p>
-                        </div>
-                        <div class="subtotal_column subtotal_n">
-                            <p>
-                                0
-                            </p>
+                        <div class="check_detail_discount">
+                            <div class="discount_column empty">
+                                <p>
+                                </p>
+                            </div>
+                            <div class="discount_column discount_l">
+                                <p>
+                                    割引
+                                </p>
+                            </div>
+                            <div class="discount_column discount_n">
+                                <p>
+                                    0
+                                </p>
+                            </div>
                         </div>
                     </div>
-                    <div class="check_detail_discount">
-                        <div class="discount_column empty">
-                            <p>
-                            </p>
-                        </div>
-                        <div class="discount_column discount_l">
-                            <p>
-                                割引
-                            </p>
-                        </div>
-                        <div class="discount_column discount_n">
-                            <p>
-                                0
-                            </p>
+                    <div class="total clearfix">
+                        <div class="check_total">
+                            <div class="check_total_left">
+                                <p>合計</p>
+                            </div>
+                            <div class="check_total_right">
+                                <p>0</p>
+                            </div>
                         </div>
                     </div>
                 </div>
-                <div class="total clearfix">
-                    <div class="check_total">
-                        <div class="check_total_left">
-                            <p>合計</p>
-                        </div>
-                        <div class="check_total_right">
-                            <p>0</p>
+                <div class="check_method_body">
+                    <div class="check_method_title">
+                        <div class="check_method_title_letter">
+                            <p>支払方法</p>
                         </div>
                     </div>
-                </div>
-            </div>
-            <div class="check_method_body">
-                <div class="check_method_title">
-                    <div class="check_method_title_letter">
-                        <p>支払方法</p>
-                    </div>
-                </div>
-                <div class="check_method clearfix">
-                    <div class="check_method_indiv">
-                        <div class="check_method_indiv_button cash">
-                            <%= f.radio_button(:method, 1, :checked => true) %>
-                            <%= f.label(:method, "現金", value: "1")  %>
+                    <div class="check_method clearfix">
+                        <div class="check_method_indiv">
+                            <div class="check_method_indiv_button cash">
+                                <%= f.radio_button(:method, 1, :checked => true) %>
+                                <%= f.label(:method, "現金", value: "1")  %>
+                            </div>
+                        </div>
+                        <div class="check_method_indiv">
+                            <div class="check_method_indiv_button">
+                                <%= f.radio_button(:method, 2) %>
+                                <%= f.label(:method, "クレジット", value: "2")  %>
+                            </div>
+                        </div>
+                        <div class="check_method_indiv">
+                            <div class="check_method_indiv_button">
+                                <%= f.radio_button(:method, 3) %>
+                                <%= f.label(:method, "電子マネー", value: "3")  %>
+                            </div>
+                        </div>
+                        <div class="check_method_indiv">
+                            <div class="check_method_indiv_button">
+                                <%= f.radio_button(:method, 4) %>
+                                <%= f.label(:method, "その他", value: "4")  %>
+                            </div>
                         </div>
                     </div>
-                    <div class="check_method_indiv">
-                        <div class="check_method_indiv_button">
-                            <%= f.radio_button(:method, 2) %>
-                            <%= f.label(:method, "クレジット", value: "2")  %>
+                    <div class="check_finish">
+                        <%= f.submit '会計完了', class: 'check_finish_button', style:"font-family: 'Kosugi Maru', sans-serif" %>
+                    </div>
+                    <div class="check_method_title marginplus">
+                        <div class="check_method_title_letter">
+                            <p>割引入力</p>
                         </div>
                     </div>
-                    <div class="check_method_indiv">
-                        <div class="check_method_indiv_button">
-                            <%= f.radio_button(:method, 3) %>
-                            <%= f.label(:method, "電子マネー", value: "3")  %>
+                    <div class="check_discount_body">
+                        <input type="number" name="discount_amount" id="discout_input_field" value="" step="1"/>
+                        <div class="check_discount_button normal">
+                            <%= f.radio_button(:tax_type, 2) %>
+                            <%= f.label(:tax_type, "普通の割引", value: "2")  %>
                         </div>
-                    </div>
-                    <div class="check_method_indiv">
-                        <div class="check_method_indiv_button">
-                            <%= f.radio_button(:method, 4) %>
-                            <%= f.label(:method, "その他", value: "4")  %>
+                        <div class="check_discount_button take_out">
+                            <%= f.radio_button(:tax_type, 1) %>
+                            <%= f.label(:tax_type, "持ち帰り割引", value: "1")  %>
                         </div>
+                        <!--割引がない時のtax_type/非表示-->
+                        <%= f.radio_button(:tax_type, 0, :checked => true) %>
+                        <!--<div class="check_discount_button normal">-->
+                        <!--    <p>普通の割引</p>-->
+                        <!--</div>-->
+                        <!--<div class="check_discount_button take_out">-->
+                        <!--    <p>持ち帰り割引</p>-->
+                        <!--</div>-->
                     </div>
-                </div>
-                <div class="check_finish">
-                    <%= f.submit '会計完了', class: 'check_finish_button', style:"font-family: 'Kosugi Maru', sans-serif" %>
-                </div>
-                <div class="check_method_title marginplus">
-                    <div class="check_method_title_letter">
-                        <p>割引入力</p>
-                    </div>
-                </div>
-                <div class="check_discount_body">
-                    <input type="number" name="discount_amount" id="discout_input_field" value="" step="1"/>
-                    <div class="check_discount_button normal">
-                        <%= f.radio_button(:tax_type, 2) %>
-                        <%= f.label(:tax_type, "普通の割引", value: "2")  %>
-                    </div>
-                    <div class="check_discount_button take_out">
-                        <%= f.radio_button(:tax_type, 1) %>
-                        <%= f.label(:tax_type, "持ち帰り割引", value: "1")  %>
-                    </div>
-                    <!--割引がない時のtax_type/非表示-->
-                    <%= f.radio_button(:tax_type, 0, :checked => true) %>
-                    <!--<div class="check_discount_button normal">-->
-                    <!--    <p>普通の割引</p>-->
-                    <!--</div>-->
-                    <!--<div class="check_discount_button take_out">-->
-                    <!--    <p>持ち帰り割引</p>-->
-                    <!--</div>-->
                 </div>
             </div>
-        </div>
-        <!--小計、割引、合計-->
-        <%= f.hidden_field(:subtotal, value: 0) %>
-        <%= f.hidden_field(:discount, value: 0) %>
-        <%= f.hidden_field(:total, value: 0) %>
-        <!--会計完了後にorderlistのオーダーのstateを書き換えるためにテーブルのidを持たせている-->
-        <%= f.hidden_field(:id, value: @table_id) %>
-    <% end %>
+            <!--小計、割引、合計-->
+            <%= f.hidden_field(:subtotal, value: 0) %>
+            <%= f.hidden_field(:discount, value: 0) %>
+            <%= f.hidden_field(:total, value: 0) %>
+            <!--会計完了後にorderlistのオーダーのstateを書き換えるためにテーブルのidを持たせている-->
+            <%= f.hidden_field(:id, value: @table_id) %>
+        <% end %>
     </div>
 </div>

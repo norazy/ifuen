@@ -16,15 +16,12 @@
         width: 132px;
         height: 56px;
         margin: 4px 14px;
-        // box-sizing: border-box;
         background-color: #ea5317;
         text-align: center;
         border-radius: 2px;
         font-size: 19px;
         box-shadow: 2px 2px 2px rgba(0, 0, 0, 0.4);
-
         position: relative;
-
         a {
             position: absolute;
             top: 0;
@@ -49,7 +46,6 @@
         height: 720px;
         padding: 32px 0 28px;
         margin: 0 auto;
-
         .cashier_header {
             width: 960px;
             height: 64px;
@@ -61,6 +57,194 @@
             .cashier_button_right {
                 float: right;
                 display: flex;
+            }
+        }
+        .recent_payment_title {
+            width: 97%;
+            margin: 3% auto 0;
+            p {
+                font-size: 28px;
+                margin: 36px 0 10px;
+            }        
+        }
+        .recent_payment_line {
+            width: 64%;
+            margin: 0 0 0 1%;
+            h2 {
+                border-bottom: solid 3px #000a34;
+                position: relative;
+                margin: 1rem 0 2rem;
+            }
+            h2:after {
+                content: "";
+                display: block;
+                line-height: 0;
+                overflow: hidden;
+                position: absolute;
+                left: 0;
+                width: 30%;
+                border-bottom: 3px solid #ea5317;
+            }
+        }
+        .recent_payment_body {
+            background-color: #ffffff;
+            width: 900px;
+            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.4);
+            margin: 0 auto;
+            padding-bottom: 10px;
+            .recent_payment_in_body {
+                width: 100%;
+                margin: 5% auto 0;
+                text-align: center;
+                ul {
+                    list-style: none;
+                    display: flex;
+                    padding: 0;
+                    margin: 0;
+                    .recent_payment_headline_indiv {
+                        border: 2px solid #ffffff;
+                        height: 38px;
+                        background-color: #000a34;
+                        color: #ffffff;
+                        font-size: 24px;
+                        padding-top: 14px;
+                        width: 309px;
+                    }
+                }
+                .recent_payment_body_detail {
+                    margin: 0 auto;
+                    text-align: center;
+                    display: flex;
+                    p {
+                        margin: 0;
+                        font-size: 28px;
+                    }
+                    .recent_payment_body_detail_div {
+                        border: 2px solid #ffffff;
+                        border-bottom: 2px solid #ea5317;
+                        height: 40px;
+                        padding-top: 35px;
+                        padding-bottom: 5px;
+                        width: 300px;
+                    }
+                    .recent_payment_body_detail_link {
+                        border: 2px solid #ffffff;
+                        border-bottom: 2px solid #ea5317;
+                        width: 300px;
+                        padding-top: 14px;
+                        .detail_link_btn {
+                            width: 170px;
+                            height: 56px;
+                            border-radius: 8px;
+                            margin: 0 auto;
+                            background-color: #ea5317;
+                            box-shadow: 2px 2px 2px rgba(0, 0, 0, 0.4);
+                            position: relative;
+                            a {
+                                position: absolute;
+                                top: 0;
+                                bottom: 0;
+                                left: 0;
+                                right: 0;
+                                text-decoration: none;
+                                p {
+                                    color: #ffffff;
+                                    padding-top: 13px;
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+        .cashier_each_payment {
+            width: 928px;
+            margin: 35px auto 0;
+            // height: 500px;
+            background-color: #f5f5dc;
+            padding: 50px 0;
+            .payment_price_n_table {
+                display: flex;
+                justify-content: space-around;
+                width: 800px;
+                margin: 0 auto;
+                height: 50px;
+                text-align: center;
+                .payment_price_n_table_indiv {
+                    height: 100%;
+                    width: 350px;
+                    display: flex;
+                    border-radius: 2px;
+                    box-shadow: 2px 2px 2px rgba(0, 0, 0, 0.4);
+                    .payment_price_n_table_indiv_label {
+                        background-color: #000a34;
+                        width: 150px;
+                        p {
+                            color: #ffffff;
+                            font-size: 28px;
+                            margin: 0;
+                            padding-top: 12px;
+                        }
+                    }
+                    .payment_price_n_table_indiv_value {
+                        background-color: #ffffff;
+                        width: 200px;
+                        p {
+                            color: #000a34;
+                            font-size: 28px;
+                            margin: 0;
+                            padding-top: 12px;
+                        }
+                    }
+                }
+            }
+            .cashier_each_payment_detail {
+                width: 750px;
+                background-color: #ffffff;
+                margin: 50px auto 0;
+                box-shadow: 0px 0px 8px rgba(0, 0, 0, 0.4);
+                padding-bottom: 40px;
+                .cashier_each_payment_detail_headline {
+                    width: 100%;
+                    text-align: center;
+                    padding-top: 32px;
+                    ul {
+                        width: 600px;
+                        list-style: none;
+                        display: flex;
+                        justify-content: space-around;
+                        padding: 0;
+                        margin: 0 auto;
+                        .each_payment_detail_headline_indiv {
+                            border: 2px solid #ffffff;
+                            height: 30px;
+                            background-color: #000a34;
+                            color: #ffffff;
+                            font-size: 24px;
+                            padding-top: 6px;
+                            width: 190px;
+                        }
+                    }
+                }
+                .cashier_each_payment_detail_menu {
+                    margin: 0 auto;
+                    text-align: center;
+                    width: 600px;
+                    display: flex;
+                    justify-content: space-around;
+                    p {
+                        margin: 0;
+                        font-size: 20px;
+                    }
+                    .payment_detail_menu_div {
+                        border: 2px solid #ffffff;
+                        border-bottom: 2px solid #ea5317;
+                        height: 20px;
+                        padding-top: 25px;
+                        padding-bottom: 5px;
+                        width: 190px;
+                    }
+                }
             }
         }
     }
@@ -576,6 +760,9 @@
             }
         }
     }
+}
+.beige {
+    background-color: #f5f5dc;
 }
 
 .zh .cashier_background-color {

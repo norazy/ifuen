@@ -119,8 +119,36 @@ class CashierController < ApplicationController
         end
         redirect_to cashier_table_url
     end
-
-private    
+    def recent_payment
+        if Cashier.exists?
+            @recent_payment = Cashier.order('id DESC').limit(5)
+        end
+    end
+    def payment_detail
+        if Cashier.where(id: params[:id]).exists?
+            @payment_detail = Cashier.find(params[:id])
+            # 指定の会計番号の詳細メニューを表示させる
+            paid_menu = Orderlist.where(cashier_id: params[:id])
+            @paid_menu =[]
+            paid_menu.each do |order|
+                hash = {}
+                hash[:number] = order.number
+                hash[:price] = order.price
+                if order.menu_id then
+                    number = order.menu_id
+                    menu = Menu.find(number)
+                    hash[:menu_name] = menu.name
+                else
+                    number2 = order.option_id
+                    option = Optiontable.find(number2)
+                    hash[:option_name] = option.name_opt
+                end
+                @paid_menu << hash
+            end
+        end
+    end
+    
+private
     # サインインしているかどうかの確認
     def move_to_signin
         if user_signed_in? then

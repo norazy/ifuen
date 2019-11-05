@@ -1,17 +1,22 @@
 <div class="cashier_background-color">
     <div class="cashier_background">
         <header class="cashier_header clearfix">
-        <div class="cashier_header_left">
-            <div class="cashier_button">
-                <%= link_to('中文', :locale => 'zh') %>
+            <div class="cashier_header_left">
+                <div class="cashier_button">
+                    <%= link_to('中文', :locale => 'zh') %>
+                </div>
             </div>
-        </div>
-        <div class="cashier_button_right">
-            <div class="cashier_button">
-                <%= link_to "ログアウト", destroy_user_session_path, method: :delete %>
+            <div class="cashier_button_right">
+                <div class="cashier_button">
+                    <a href="/cashier/recent_payment">
+                        <p>過去会計</p>
+                    </a>
+                </div>
+                <div class="cashier_button">
+                    <%= link_to "ログアウト", destroy_user_session_path, method: :delete %>
+                </div>
             </div>
-        </div>
-    </header>
+        </header>
         <div class="cashier_table_display">
             <div class="cashier_front_table">
                 <div class="cashier_front_table_1_4">

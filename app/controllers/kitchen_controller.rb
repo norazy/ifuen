@@ -214,7 +214,6 @@ class KitchenController < ApplicationController
     def notification
         if Notification.exists?
             @notification = Notification.all
-            
             @time = []
             @notification.each do |noti|
                 @time << noti.created_at.strftime("%H:%M")
@@ -223,12 +222,6 @@ class KitchenController < ApplicationController
             @notification = []
             @time = []
         end
-        # @notification = Notification.all
-        
-        # @time = []
-        # @notification.each do |noti|
-        #     @time << noti.created_at.strftime("%H:%M")
-        # end
     end
     # 通知の削除
     def destroy

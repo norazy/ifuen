@@ -41,48 +41,46 @@
         </div>
         <div class="notification_display">
             <div class="notification_div">
-            <div class="notification_title">
-                <ul>
-                    <li class="notification_title_indiv width2">テーブル</li>
-                    <li class="notification_title_indiv width1">内容</li>
-                    <li class="notification_title_indiv width3">時間</li>
-                    <li class="notification_title_indiv width2">削除</li>
-                </ul>
-            </div>
-            <% @notification.zip(@time).each do |notification, time| %>
-            <!--<2% @notification.each do |notification| %>-->
-                <div class="notification_detail">
-                    <div class="notification_table">
-                        <p><%= notification[:table_id] %></p> 
-                    </div>
-                    
-                    <% if notification[:state] == 2 then %>
-                        <div class="notification_state">
-                            <p>呼び出し</p>
+                <div class="notification_title">
+                    <ul>
+                        <li class="notification_title_indiv width2">テーブル</li>
+                        <li class="notification_title_indiv width1">内容</li>
+                        <li class="notification_title_indiv width3">時間</li>
+                        <li class="notification_title_indiv width2">削除</li>
+                    </ul>
+                </div>
+                <% @notification.zip(@time).each do |notification, time| %>
+                    <div class="notification_detail">
+                        <div class="notification_table">
+                            <p><%= notification[:table_id] %></p> 
                         </div>
-                    <% elsif notification[:state] == 1 %>
-                        <div class="notification_state">
-                            <p>会計</p>
+                        
+                        <% if notification[:state] == 2 then %>
+                            <div class="notification_state">
+                                <p>呼び出し</p>
+                            </div>
+                        <% elsif notification[:state] == 1 %>
+                            <div class="notification_state">
+                                <p>会計</p>
+                            </div>
+                        <% else %>
+                            <div class="notification_state">
+                                <p>新しい注文</p>
+                            </div>
+                        <% end %>
+                        <div class="notification_time">
+                            <p><%= time %></p>
                         </div>
-                    <% else %>
-                        <div class="notification_state">
-                            <p>新しい注文</p>
-                        </div>
-                    <% end %>
-                    <div class="notification_time">
-                        <p><%= time %></p>
-                    </div>
-                    <div class="notification_delete">
-                        <div class="notification_destroy">
-                            <div class="destroy_btn">
-                                <%= link_to '×', notification_destroy_path(notification), method: :delete %>
+                        <div class="notification_delete">
+                            <div class="notification_destroy">
+                                <div class="destroy_btn">
+                                    <%= link_to '×', notification_destroy_path(notification), method: :delete %>
+                                </div>
                             </div>
                         </div>
                     </div>
-                </div>
-            <% end %>
-        
-        </div>
+                <% end %>
+            </div>
         </div>
     </div>
 </div>
