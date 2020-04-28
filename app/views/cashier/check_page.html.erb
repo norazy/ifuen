@@ -1,11 +1,6 @@
 <div class="cashier_background-color">
     <div class="cashier_background">
         <header class="cashier_header clearfix">
-            <!--<div class="cashier_header_left">-->
-            <!--    <div class="cashier_button">-->
-            <!--        <2%= link_to "ログアウト", destroy_user_session_path, method: :delete %>-->
-            <!--    </div>-->
-            <!--</div>-->
             <div class="cashier_button_right">
                 <div class="cashier_button">
                     <a href="/firstpage">
@@ -104,32 +99,32 @@
                 <div class="check_method_body">
                     <div class="check_method_title">
                         <div class="check_method_title_letter">
-                            <p>支払方法</p>
+                            <p>Pay Method</p>
                         </div>
                     </div>
                     <div class="check_method clearfix">
                         <div class="check_method_indiv">
                             <div class="check_method_indiv_button cash">
                                 <%= f.radio_button(:method, 1, :checked => true) %>
-                                <%= f.label(:method, "現金", value: "1")  %>
+                                <%= f.label(:method, "Ca", value: "1")  %>
                             </div>
                         </div>
                         <div class="check_method_indiv">
                             <div class="check_method_indiv_button">
                                 <%= f.radio_button(:method, 2) %>
-                                <%= f.label(:method, "クレジット", value: "2")  %>
+                                <%= f.label(:method, "Cr", value: "2")  %>
                             </div>
                         </div>
                         <div class="check_method_indiv">
                             <div class="check_method_indiv_button">
                                 <%= f.radio_button(:method, 3) %>
-                                <%= f.label(:method, "電子マネー", value: "3")  %>
+                                <%= f.label(:method, "E-m", value: "3")  %>
                             </div>
                         </div>
                         <div class="check_method_indiv">
                             <div class="check_method_indiv_button">
                                 <%= f.radio_button(:method, 4) %>
-                                <%= f.label(:method, "その他", value: "4")  %>
+                                <%= f.label(:method, "El", value: "4")  %>
                             </div>
                         </div>
                     </div>
